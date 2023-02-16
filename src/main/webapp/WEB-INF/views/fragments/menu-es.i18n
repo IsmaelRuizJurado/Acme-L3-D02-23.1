@@ -17,8 +17,11 @@ master.menu.sign-out = Salir
 
 # master.menu.anonymous #######################################################
 
-master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link = Enlace favorito
+master.menu.anonymous = Anonymous
+master.menu.anonymous.favourite-link-pedro = Enlace favorito 
+master.menu.anonymous.favourite-link-jesus = Enlace favorito
+master.menu.anonymous.favourite-link-antonio = Enlace favorito
+master.menu.anonymous.favourite-link-ismael = Enlace favorito
 
 # master.menu.administrator ###################################################
 
