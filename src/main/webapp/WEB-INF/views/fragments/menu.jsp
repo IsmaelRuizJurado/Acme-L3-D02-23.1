@@ -19,12 +19,11 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
+    		<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-antlopcub" action="https://www.youtube.com/live/dQw4w9WgXcQ"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-ismruijur" action="https://play.pokemonshowdown.com"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-pedruiagu1" action="https://www.youtube.com/watch?v=5VVu3rdBPdA"/>
-
 						<acme:menu-suboption code="master.menu.anonymous.favourite-link-jesus" action="https://openai.com/blog/chatgpt/"/>
-						<acme:menu-suboption code="master.menu.anonymous.favourite-link-antonio" action="https://openai.com/blog/chatgpt/"/>
 			
 
 		</acme:menu-option>
