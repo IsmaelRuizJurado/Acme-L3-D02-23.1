@@ -19,7 +19,11 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-pedro" action="https://openai.com/blog/chatgpt/"/>
+						<acme:menu-suboption code="master.menu.anonymous.favourite-link-jesus" action="https://openai.com/blog/chatgpt/"/>
+						<acme:menu-suboption code="master.menu.anonymous.favourite-link-antonio" action="https://openai.com/blog/chatgpt/"/>
+						<acme:menu-suboption code="master.menu.anonymous.favourite-link-ismael" action="https://openai.com/blog/chatgpt/"/>
+			
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
