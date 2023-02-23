@@ -1,19 +1,8 @@
-# README.txt
-#
-# Copyright (C) 2012-2023 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
+# Acme-L3-D02-23.1.0
 
-This is a starter project of a group of students who have enrolled the Design and Testing 
-subject of the Software Engineering curriculum of the University of Seville.  
+Este es el proyecto para el segundo entregable creado por los estudiantes del grupo C1.02.10.
 
-To get this project up and running, please follow the appropriate guideline, taking into 
-account that you must link the appropriate version of the Acme-Framework excluding the 
-following resources:
-
-- **/fragments/**
- 
+Acme Life-Long Learning, Inc. (Acme L3, Inc. para acortar) es una empresa ficticia que se especializa
+en ayudar a los aprendices a iniciarse en diferentes campos con la ayuda de profesores renovados.
+El objetivo de este proyecto es desarrollar un servicio web de información con el fin de ayudar a esta
+organización a gestionar su negocio.

@@ -10,10 +10,11 @@
 
 master.company.title = La empresa
 master.company.text = \
-	Acme-L3, Inc. es una empresa ficticia que ofrece un proyecto starter para los \
-	estudiantes de la asignatura Diseño y Pruebas de la titulación de \
-	Ingeniería del Software en la Universidad de Seville. 
-master.company.name = Acme-L3, Inc.
-master.company.address = 01 Acme-L3 Drive, Wondercity, Wonderland
-master.company.phone = +1 001 321 222
-master.company.email = contactME@Acme-L3.com
+	Acme Life-Long Learning, Inc. (Acme L3, Inc. para acortar) es una empresa ficticia que \
+	se especializa en ayudar a los aprendices a iniciarse en diferentes campos con la ayuda \
+	de profesores renovados. El objetivo de este proyecto es desarrollar un servicio web de \
+	información con el fin de ayudar a esta organización a gestionar su negocio.
+master.company.name = Acme L3, Inc.
+master.company.address = 01 Acme L3 Drive, Wondercity, Wonderland
+master.company.phone = +1 000 111 222
+master.company.email = contact@acme-l3.com
