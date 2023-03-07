@@ -30,6 +30,10 @@ public class Peep extends AbstractEntity {
 	protected String			title;
 
 	@NotBlank
+	@Length(max = 75)
+	protected String			nick;
+
+	@NotBlank
 	@Length(max = 100)
 	protected String			message;
 
@@ -43,6 +47,6 @@ public class Peep extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotBlank
 	@NotNull
-	protected Date				instation_moment;
+	protected Date				moment;
 
 }
