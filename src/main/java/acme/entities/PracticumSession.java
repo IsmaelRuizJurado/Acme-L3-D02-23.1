@@ -1,6 +1,8 @@
 
 package acme.entities;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
@@ -25,25 +27,28 @@ public class PracticumSession extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	@NotNull
+	protected Date				moment;
+
 	@NotBlank
-	@Length(max = 75)
+	@Length(min = 1, max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 100)
-	protected String			_abstract;
+	@Length(min = 1, max = 100)
+	protected String			abstractt;
 
-	//protected - timePeriod;
+	@NotNull
+	protected Date				startPeriod;
+
+	@NotNull
+	protected Date				endPeriod;
 
 	@NotBlank
 	@URL
 	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
-
-	//	public - time(){
-	//		
-	//	}
 
 	// Relationships ----------------------------------------------------------
 
