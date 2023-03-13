@@ -42,7 +42,7 @@ public class Tutorial extends AbstractEntity {
 	protected String			goals;
 
 	@NotNull
-	protected Integer			totalTime;
+	protected Double			totalTime;
 
 	@Valid
 	@NotNull
