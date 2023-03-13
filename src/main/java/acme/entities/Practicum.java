@@ -28,31 +28,32 @@ public class Practicum extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "^[A-Z]{1,3}[0-9][0-9]{3}$")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
 	@Column(unique = true)
 	protected String			code;
 
 	@NotBlank
-	@Length(max = 75)
+	@Length(min = 1, max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 100)
-	protected String			_abstract;
+	@Length(min = 1, max = 100)
+	protected String			abstractt;
 
 	@NotBlank
-	@Length(max = 100)
+	@Length(min = 1, max = 100)
 	protected String			goals;
 
 	// Derived attributes -----------------------------------------------------
 
 	//  @Transient
-	//  @Temporal(TemporalType.TIME)
-	//	public Date time(){
+	//	public Double time(){
 	//		
 	//	}
 
 	// Relationships ----------------------------------------------------------
+
+	//POSIBLEMENTE SE DEBA AÑADIR RELACION CON PRACTICUMSESSION
 
 	@Valid
 	@NotNull
