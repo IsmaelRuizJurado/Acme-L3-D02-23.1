@@ -32,7 +32,7 @@ public class Session extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			abstract_;
+	protected String			abstractt;
 
 	@NotNull
 	protected SessionType		type;
@@ -41,11 +41,11 @@ public class Session extends AbstractEntity {
 	protected String			link;
 
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	protected Date				startPeriod;
 
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	//CustomConstraint of the Service at least one day ahead, from one up to five hour long
 	protected Date				finishPeriod;
 
