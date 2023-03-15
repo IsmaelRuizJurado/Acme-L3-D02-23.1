@@ -35,7 +35,7 @@ public class Tutorial extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			abstract_;
+	protected String			abstractt;
 
 	@NotBlank
 	@Length(max = 100)
@@ -51,7 +51,7 @@ public class Tutorial extends AbstractEntity {
 
 	@Valid
 	@NotNull
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	protected Course			course;
 
 }
