@@ -44,7 +44,7 @@ public class Peep extends AbstractEntity {
 	protected String			link;
 
 	@PastOrPresent
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@NotBlank
 	@NotNull
 	protected Date				moment;
