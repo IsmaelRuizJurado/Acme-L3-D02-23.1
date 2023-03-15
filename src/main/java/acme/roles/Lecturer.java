@@ -7,7 +7,6 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-// import acme.entities.course.Course;
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,7 +24,7 @@ public class Lecturer extends AbstractRole {
 
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String			alma_mater;
+	protected String			almaMater;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
@@ -42,8 +41,5 @@ public class Lecturer extends AbstractRole {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-	//	@Valid
-	//	@NotNull
-	//	@OneToMany(mappedBy = "course_lecturer")
-	//	protected Collection<Course>	courses;
+
 }
