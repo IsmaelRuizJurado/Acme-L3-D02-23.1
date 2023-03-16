@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -39,9 +41,11 @@ public class PracticumSession extends AbstractEntity {
 	protected String			abstractt;
 
 	@NotNull
+	@Temporal(TemporalType.DATE)
 	protected Date				startPeriod;
 
 	@NotNull
+	@Temporal(TemporalType.DATE)
 	protected Date				endPeriod;
 
 	@NotBlank
@@ -54,6 +58,6 @@ public class PracticumSession extends AbstractEntity {
 
 	@Valid
 	@NotNull
-	@ManyToOne
+	@ManyToOne(optional = false)
 	protected Practicum			practicum;
 }
