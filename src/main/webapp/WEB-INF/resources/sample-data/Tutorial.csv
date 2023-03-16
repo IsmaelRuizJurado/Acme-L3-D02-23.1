@@ -1,0 +1,5 @@
+key,code,title,abstractt,goals,totalTime,key:assistant,key:course
+tutorial-01,TUT001,How to publish an offer.,In this tutorial it is explained how to create an offer.,"Learn how to write a compelling job description, attract qualified candidates, and negotiate a salary.",0.0,assistant-01,course-01
+tutorial-02,TUT002,Introduction to Python programming,This tutorial provides a basic overview of Python programming language.,"Understand Python data types, control structures, functions, and modules.",2.0,assistant-02,course-02
+tutorial-03,TUT003,How to create a website using WordPress,This tutorial explains how to create a website using WordPress CMS.,"Learn how to install WordPress, choose a theme, create pages and posts, and add functionality using plugins.",1.0,assistant-01,course-03
+tutorial-04,TUT004,Effective communication skills,This tutorial focuses on developing effective communication skills.,"Learn how to listen actively, ask questions, provide feedback, and use nonverbal cues.",0.0,assistant-02,course-04
