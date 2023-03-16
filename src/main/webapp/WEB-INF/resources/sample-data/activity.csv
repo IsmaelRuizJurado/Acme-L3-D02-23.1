@@ -1,0 +1,17 @@
+key,enrolmentAssigned,title,abstract,indication,startPeriod,finishPeriod,link
+activity-01,enrolment-01,"This is a title","This is an abstract","THEORY","17/03/2023 00:00", "17/04/2023 00:00","https://www.us.es/"
+activity-02,enrolment-01,"This is a title with symbols |!""@·#$~%€&¬/()=`+*^[]{}¨ç-.:,;","This is an abstract","THEORY","17/03/2023 00:00", "17/04/2023 00:00","https://www.us.es/"
+activity-03,enrolment-01,"这是中文文本","This is an abstract","THEORY","17/03/2023 00:00", "17/04/2023 00:00","https://www.us.es/"
+activity-04,enrolment-01,"これは日本語のテキストです","This is an abstract","THEORY","17/03/2023 00:00", "17/04/2023 00:00","https://www.us.es/"
+activity-05,enrolment-01,"это текст на русском","This is an abstract","THEORY","17/03/2023 00:00", "17/04/2023 00:00","https://www.us.es/"
+activity-06,enrolment-01,"This is a title","This is an abstract with symbols |!""@·#$~%€&¬/()=`+*^[]{}¨ç-.:,;","THEORY","17/03/2023 00:00", "17/04/2023 00:00","https://www.us.es/"
+activity-07,enrolment-01,"This is a title","这是中文文本","THEORY","17/03/2023 00:00", "17/04/2023 00:00","https://www.us.es/"
+activity-08,enrolment-01,"This is a title","これは日本語のテキストです","THEORY","17/03/2023 00:00", "17/04/2023 00:00","https://www.us.es/"
+activity-09,enrolment-01,"This is a title","это текст на русском","THEORY","17/03/2023 00:00", "17/04/2023 00:00","https://www.us.es/"
+activity-10,enrolment-01,"This is a title","This is an abstract","HANDS_ON","17/03/2023 00:00", "17/04/2023 00:00","https://www.us.es/"
+activity-11,enrolment-01,"This is a title","This is an abstract","THEORY","17/03/2021 00:00", "17/04/2023 00:00","https://www.us.es/"
+activity-12,enrolment-01,"This is a title","This is an abstract","THEORY","17/03/2021 00:00", "17/04/2022 00:00","https://www.us.es/"
+activity-13,enrolment-01,"This is a title","This is an abstract","THEORY","17/03/2023 00:00", "17/04/2023 00:00",null
+activity-14,enrolment-01,"This is a title","This is an abstract","THEORY","17/03/2023 00:00", "17/04/2023 00:00","https://zipcon.net/~swhite/docs/computers/browsers/fonttest.html"
+activity-15,enrolment-01,"This is a title","This is an abstract","THEORY","17/03/2023 00:00", "17/04/2023 00:00","https://wallpapersafari.com/w/UrvL4y/"
+activity-16,enrolment-01,"This is a title","This is an abstract","THEORY","17/03/2023 00:00", "17/04/2023 00:00","https://smiley.cool/emoji-list.php"
