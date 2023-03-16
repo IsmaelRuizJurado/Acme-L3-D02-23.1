@@ -1,9 +1,12 @@
 
 package acme.entities.enrolment;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -12,6 +15,7 @@ import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.activity.Activity;
 import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Student;
@@ -25,24 +29,24 @@ import lombok.Setter;
 public class Enrolment extends AbstractEntity {
 
 	//	Serialisation identifier ----------------------------
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long		serialVersionUID	= 1L;
 
 	//	Attributes ----------------------------------------------
 	@NotBlank
 	@Column(unique = true)
 	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
-	protected String			code;
+	protected String				code;
 
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String			motivation;
+	protected String				motivation;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String			goals;
+	protected String				goals;
 
 	@PositiveOrZero
-	protected Double			workTime;
+	protected Double				workTime;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -50,11 +54,16 @@ public class Enrolment extends AbstractEntity {
 	@Valid
 	@NotNull
 	@ManyToOne()
-	protected Student			enrolment_student;
+	protected Student				enrolment_student;
 
 	@Valid
 	@NotNull
 	@ManyToOne()
-	protected Course			course_enrolments;
+	protected Course				course_enrolments;
+
+	@Valid
+	@NotNull
+	@OneToMany(mappedBy = "activities_enrolment")
+	protected Collection<Activity>	activities_enrolment;
 
 }
