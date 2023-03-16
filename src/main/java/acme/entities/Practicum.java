@@ -1,9 +1,13 @@
 
 package acme.entities;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -23,39 +27,42 @@ public class Practicum extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long				serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "^[A-Z]{1,3}[0-9][0-9]{3}$")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
 	@Column(unique = true)
-	protected String			code;
+	protected String						code;
 
 	@NotBlank
-	@Length(max = 75)
-	protected String			title;
+	@Length(min = 1, max = 75)
+	protected String						title;
 
 	@NotBlank
-	@Length(max = 100)
-	protected String			_abstract;
+	@Length(min = 1, max = 100)
+	protected String						abstractt;
 
 	@NotBlank
-	@Length(max = 100)
-	protected String			goals;
+	@Length(min = 1, max = 100)
+	protected String						goals;
 
 	// Derived attributes -----------------------------------------------------
 
-	//  @Transient
-	//  @Temporal(TemporalType.TIME)
-	//	public Date time(){
-	//		
-	//	}
+	//Calculado de la suma de los periodos de las sesiones
+	@Transient
+	public Double							time;
 
 	// Relationships ----------------------------------------------------------
 
 	@Valid
 	@NotNull
+	@OneToMany
+	protected Collection<PracticumSession>	practicumSessions;
+
+	@Valid
+	@NotNull
 	@ManyToOne
-	protected Company			company;
+	protected Company						company;
 }

@@ -1,4 +1,3 @@
-
 package acme.roles;
 
 import javax.persistence.Entity;
@@ -14,30 +13,31 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Company extends AbstractRole {
+public class Auditor extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(min = 1, max = 75)
-	protected String			name;
-
+	@Length(max=25)
+	protected String professionalId;
+	
 	@NotBlank
-	@Length(min = 1, max = 25)
-	protected String			vat;
-
+	@Length(max=75)
+	protected String firm;
+	
 	@NotBlank
-	@Length(min = 1, max = 100)
-	protected String			summary;
-
+	@Length(max=100)
+	protected String certifications;
+	
 	@NotBlank
 	@URL
-	protected String			link;
-
+	protected String link;
+		
+	
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
