@@ -1,0 +1,51 @@
+key,subect,assessment,start_date,finnish_date,mark,key:audit_document
+audit-record-01,Mathematics,Comprehensive understanding of mathematical concepts,2022-01-10,2022-02-20,A_PLUS,audit-01
+audit-record-02,English,Effective use of grammar and vocabulary,2022-03-05,2022-04-15,C,audit-02
+audit-record-03,Science,Accurate understanding of scientific theories,2022-05-01,2022-06-10,D,audit-02
+audit-record-04,History,In-depth knowledge of historical events,2022-07-01,2022-08-10,F,audit-01
+audit-record-05,Geography,Effective use of maps and globes,2022-09-01,2022-10-10,B,audit-01
+audit-record-06,Physics,Ability to solve complex physics problems,2022-11-01,2022-12-10,F_MINUS,audit-01
+audit-record-07,Chemistry,Accurate understanding of chemical reactions,2023-01-10,2023-02-20,A,audit-02
+audit-record-08,Music,Effective use of musical instruments,2023-03-05,2023-04-15,C,audit-02
+audit-record-09,Art,Effective use of colors and techniques,2023-05-01,2023-06-10,B,audit-02
+audit-record-10,Computer Science,Ability to solve programming problems,2023-07-01,2023-08-10,A_PLUS,audit-03
+audit-record-11,Statistics,Accurate understanding of statistical data,2023-09-01,2023-10-10,F,audit-03
+audit-record-12,Economics,In-depth knowledge of economic concepts,2023-11-01,2023-12-10,D,audit-03
+audit-record-13,Political Science,Effective analysis of political theories,2024-01-10,2024-02-20,B,audit-04
+audit-record-14,Sociology,Accurate understanding of sociological concepts,2024-03-05,2024-04-15,F_MINUS,audit-04
+audit-record-15,Psychology,Effective use of psychological theories,2024-05-01,2024-06-10,A,audit-04
+audit-record-16,Literature,In-depth knowledge of literary works,2024-07-01,2024-08-10,F,audit-05
+audit-record-17,Philosophy,Effective use of philosophical concepts,2024-09-01,2024-10-10,A_PLUS,audit-05
+audit-record-18,Theology,Accurate understanding of theological concepts,2024-11-01,2024-12-10,B,audit-05
+audit-record-19,Biology,Effective analysis of biological concepts,2025-01-10,2025-02-20,C,audit-06
+audit-record-20,Zoology,Accurate understanding of zoological concepts,2025-03-05,2025-04-15,A,audit-06
+audit-record-21,Botany,Effective use of botanical theories,2025-05-01,2025-06-10,B,audit-06
+audit-record-22,Chemistry,Ability to conduct chemical experiments,2025-07-01,2025-08-10,B,audit-07
+audit-record-23,Engineering,Ability to design and develop engineering projects,2025-09-01,2025-10-10,F_MINUS,audit-07
+audit-record-24,Architecture,Accurate understanding of architectural theories,2025-11-01,2025-12-10,A_PLUS,audit-07
+audit-record-25,Accounting,Effective use of accounting principles,2026-01-10,2026-02-20,C,audit-07
+audit-record-26,Marketing,In-depth knowledge of marketing concepts,2026-03-05,2026-04-15,B,audit-08
+audit-record-27,Management,Effective use of management strategies,2026-05-01,2026-06-10,A,audit-08
+audit-record-28,Finance,Accurate understanding of financial concepts,2026-07-01,2026-08-10,F,audit-08
+audit-record-29,Law,Ability to analyze legal issues,2026-09-01,2026-10-10,A_PLUS,audit-09
+audit-record-30,Medicine,Accurate understanding of medical concepts,2026-11-01,2026-12-10,B,audit-09
+audit-record-31,Nursing,Effective use of nursing techniques,2027-01-10,2027-02-20,C,audit-09
+audit-record-32,Dentistry,In-depth knowledge of dental procedures,2027-03-05,2027-04-15,F_MINUS,audit-10
+audit-record-33,Pharmacy,Ability to analyze drug interactions,2027-05-01,2027-06-10,A_PLUS,audit-10
+audit-record-34,Optometry,Accurate understanding of eye care concepts,2027-07-01,2027-08-10,B,audit-10
+audit-record-35,Veterinary Medicine,Effective use of veterinary techniques,2027-09-01,2027-10-10,A,audit-01
+audit-record-36,Public Health,In-depth knowledge of public health issues,2027-11-01,2027-12-10,F,audit-01
+audit-record-37,Environmental Science,Effective analysis of environmental concepts,2028-01-10,2028-02-20,C,audit-01
+audit-record-38,Social Work,Accurate understanding of social work concepts,2028-03-05,2028-04-15,A_PLUS,audit-01
+audit-record-39,Criminal Justice,Effective use of criminal justice concepts,2028-05-01,2028-06-10,F_MINUS,audit-01
+audit-record-40,Education,In-depth knowledge of educational concepts,2028-07-01,2028-08-10,B,audit-01
+audit-record-41,Information Science,Ability to design and develop information systems,2028-09-01,2028-10-10,A,audit-02
+audit-record-42,Library Science,Accurate understanding of library science concepts,2028-11-01,2028-12-10,C,audit-02
+audit-record-43,Psychiatry,Effective use of psychiatric theories,2029-01-10,2029-02-20,A_PLUS,audit-02
+audit-record-44,Surgery,In-depth knowledge of surgical procedures,2029-03-05,2029-04-15,A,audit-10
+audit-record-45,Mathematics,Understanding of mathematical concepts,2023-11-01,2023-12-10,B,audit-01
+audit-record-46,History,Knowledge of historical events and figures,2024-05-01,2024-06-10,C,audit-01
+audit-record-47,English,Ability to comprehend and analyze literary texts,2024-08-01,2024-09-10,D,audit-01
+audit-record-48,Physics,Understanding of physical laws and concepts,2025-01-01,2025-02-10,A_PLUS,audit-01
+audit-record-49,Music,Knowledge of musical theory and performance,2025-04-01,2025-05-10,A,audit-02
+audit-record-50,Art,Ability to create and interpret visual art,2025-09-01,2025-10-10,B,audit-02
