@@ -1,13 +1,7 @@
-
 package acme.roles;
 
-import java.util.Collection;
-
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -19,30 +13,31 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Lecturer extends AbstractRole {
+public class Auditor extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long		serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(min = 1, max = 75)
-	protected String			almaMater;
-
+	@Length(max=25)
+	protected String professionalId;
+	
 	@NotBlank
-	@Length(min = 1, max = 100)
-	protected String				resume;
-
+	@Length(max=75)
+	protected String firm;
+	
 	@NotBlank
-	@Length(min = 1, max = 100)
-	protected String				qualifications;
-
+	@Length(max=100)
+	protected String certifications;
+	
 	@NotBlank
 	@URL
-	protected String				link;
-
+	protected String link;
+		
+	
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------

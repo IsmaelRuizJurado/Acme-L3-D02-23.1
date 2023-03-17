@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.sessions;
 
 import java.util.Date;
 
@@ -8,15 +8,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.accounts.Any;
+import acme.entities.Tutorial;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Peep extends AbstractEntity {
+public class Session extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
@@ -33,28 +31,31 @@ public class Peep extends AbstractEntity {
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 75)
-	protected String			nick;
-
-	@NotBlank
 	@Length(max = 100)
-	protected String			message;
+	protected String			abstractt;
 
-	@Email
-	protected String			email;
+	@NotNull
+	protected SessionType		type;
 
 	@URL
 	protected String			link;
 
-	@PastOrPresent
-	@Temporal(TemporalType.DATE)
-	@NotBlank
 	@NotNull
+	@Temporal(TemporalType.DATE)
+	protected Date				startPeriod;
+
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	//CustomConstraint of the Service at least one day ahead, from one up to five hour long
+	protected Date				finishPeriod;
+
+	@NotNull
+	@Temporal(TemporalType.DATE)
 	protected Date				moment;
 
-	@Valid
 	@NotNull
-	@ManyToOne
-	protected Any				poster;
+	@Valid
+	@ManyToOne(optional = false)
+	protected Tutorial			tutorial;
 
 }

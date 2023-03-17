@@ -16,7 +16,7 @@ import javax.validation.constraints.PastOrPresent;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.accounts.Any;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,17 +24,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Peep extends AbstractEntity {
+public class Note extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
 	@NotBlank
 	@Length(max = 75)
 	protected String			title;
-
-	@NotBlank
-	@Length(max = 75)
-	protected String			nick;
 
 	@NotBlank
 	@Length(max = 100)
@@ -45,16 +41,20 @@ public class Peep extends AbstractEntity {
 
 	@URL
 	protected String			link;
-
+	//
 	@PastOrPresent
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotBlank
 	@NotNull
 	protected Date				moment;
 
+	@NotBlank
+	@Length(max = 75)
+	protected String			author;
+
 	@Valid
 	@NotNull
 	@ManyToOne
-	protected Any				poster;
+	protected Authenticated		principal;
 
 }
