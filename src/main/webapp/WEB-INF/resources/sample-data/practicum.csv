@@ -1,0 +1,20 @@
+key,code,title,abstractt,goals,key:company,key:course
+practicum-01,ABC1234,Base Practicum,Base Abstract,Base Goals,company-01,course-01
+practicum-02,XFL5678,T,Base Abstract,Base Goals,company-01,course-01
+practicum-03,QWE9876,TT,Base Abstract,Base Goals,company-01,course-01
+practicum-04,YJH9999,TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT,Base Abstract,Base Goals,company-01,course-01
+practicum-05,JKJ1234,TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT,Base Abstract,Base Goals,company-01,course-01
+practicum-06,KLM7898,TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT,Base Abstract,Base Goals,company-01,course-01
+practicum-07,KLM7890,Base Practicum,A,Base Goals,company-01,course-01
+practicum-08,GAF4321,Base Practicum,AA,Base Goals,company-01,course-01
+practicum-09,PQR1234,Base Practicum,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,Base Goals,company-01,course-01
+practicum-10,XYZ6789,Base Practicum,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,Base Goals,company-01,course-01
+practicum-11,KLM7892,Base Practicum,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,Base Goals,company-01,course-01
+practicum-12,KLM7891,Base Practicum,Base Abstract,G,company-01,course-01
+practicum-13,PLM3333,Base Practicum,Base Abstract,GG,company-01,course-01
+practicum-14,ZAB7777,Base Practicum,Base Abstract,GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG,company-01,course-01
+practicum-15,GGG1112,Base Practicum,Base Abstract,GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG,company-01,course-01
+practicum-16,GGG1111,Base Practicum,Base Abstract,GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG,company-01,course-01
+practicum-17,ABC1235,<title>ExampleHTML</title>,Base Abstract,Base Goals,company-01,course-01
+practicum-18,ABC1236,Base Practicum,<script>alert('exampleJS');</script>,Base Goals,company-01,course-01
+practicum-19,ABC1237,Base Practicum,Base Abstract,નમૂના ટેક્સ્ટ.,company-01,course-01

@@ -1,0 +1,3 @@
+key,key:user-account,professional_id,firm,certifications,link
+auditor-01,user-account-auditor-01,myauditor01professionalid,myauditor01professionalfirm,"Professional Information System Manager, System Administration, Business Oriented Management.",https://auditors.example.com/auditor-01
+auditor-02,user-account-auditor-02,myauditor02professionalid,myauditor02professionalfirm,"US Auditing Race Contest (1st place), Professional Records Administration.",https://auditors.example.com/auditor-02

@@ -1,0 +1,11 @@
+key,key:enrolment,title,abstractt,indication,startPeriod,finishPeriod,link
+activity-01,enrolment-01,This is a title,This is an abstract,THEORETICAL,2023/03/17  00:00,2023/04/17  00:00,https://www.us.es/
+activity-02,enrolment-01,"This is a title with symbols |!""@·#$~%€&¬/()=`+*^[]{}¨ç-.:,;","This is an abstract with symbols |!""@·#$~%€&¬/()=`+*^[]{}¨ç-.:,;",THEORETICAL,2023/03/17  00:00,2023/04/17  00:00,https://www.us.es/
+activity-03,enrolment-01,这是中文文本,这是中文文本,THEORETICAL,2023/03/17  00:00,2023/04/17  00:00,https://www.us.es/
+activity-04,enrolment-01,これは日本語のテキストです,これは日本語のテキストです,THEORETICAL,2023/03/17  00:00,2023/04/17  00:00,https://www.us.es/
+activity-05,enrolment-01,это текст на русском,это текст на русском,THEORETICAL,2023/03/17  00:00,2023/04/17  00:00,https://www.us.es/
+activity-10,enrolment-01,a,a,THEORETICAL,2023/03/17  00:00,2023/04/17  00:00,https://www.us.es/
+activity-11,enrolment-01,This is a title with 75 characters:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,This is an abstract with 75 characters: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,THEORETICAL,2023/03/17  00:00,2023/04/17  00:00,https://www.us.es/
+activity-13,enrolment-01,This is a title,This is an abstract,THEORETICAL,2023/03/17  00:00,2023/04/17  00:00,https://wallpapersafari.com/w/UrvL4y/
+activity-14,enrolment-01,This is a title,This is an abstract,HANDS_ON,2023/03/17  00:00,2023/04/17  00:00,https://wallpapersafari.com/w/UrvL4y/
+activity-15,enrolment-02,This is a title,This is an abstract,THEORETICAL,2023/01/17  00:00,2023/02/17  00:00,https://wallpapersafari.com/w/UrvL4y/
