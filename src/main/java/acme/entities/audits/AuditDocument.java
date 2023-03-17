@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Auditor;
 import lombok.Getter;
@@ -44,6 +45,10 @@ public class AuditDocument extends AbstractEntity {
 	
 	@NotNull
 	@ManyToOne
-	protected Auditor creator;
+	protected Auditor auditor;
+	
+	@NotNull
+	@ManyToOne
+	protected Course course;
 
 }
