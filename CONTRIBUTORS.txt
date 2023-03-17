@@ -1,5 +1,0 @@
-- Ismael Ruiz Jurado (ismruijur@alum.us.es)
-- Pedro Jesús Ruiz Aguilar (pedruiagu1@alum.us.es)
-- Jesús Cárdenas Conejo (jescarcon@alum.us.es)
-- Antonio López Cubiles (antlopcub@alum.us.es)
-- Adrián García-Baquero Porras (adrgarpor@alum.us.es)
