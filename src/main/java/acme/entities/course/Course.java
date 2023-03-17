@@ -47,10 +47,10 @@ public class Course extends AbstractEntity {
 	@Length(min = 1, max = 100)
 	protected String				abstractt;
 
-	protected CourseType			course_type;
+	protected CourseType		courseType;
 
 	@PositiveOrZero
-	protected Money					retailPrice;
+	protected Money				price;
 
 	@NotBlank
 	@URL

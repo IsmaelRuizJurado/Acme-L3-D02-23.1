@@ -50,6 +50,10 @@ public class Session extends AbstractEntity {
 	protected Date				finishPeriod;
 
 	@NotNull
+	@Temporal(TemporalType.DATE)
+	protected Date				moment;
+
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	protected Tutorial			tutorial;
