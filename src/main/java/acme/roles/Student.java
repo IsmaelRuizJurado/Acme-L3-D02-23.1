@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.enrolment.Enrolment;
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +20,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Lecturer extends AbstractRole {
+public class Student extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -29,15 +30,15 @@ public class Lecturer extends AbstractRole {
 
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String			almaMater;
+	protected String				statement;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String				resume;
+	protected String				strongFeatures;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String				qualifications;
+	protected String				weakFeatures;
 
 	@NotBlank
 	@URL
@@ -46,5 +47,8 @@ public class Lecturer extends AbstractRole {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
+	@Valid
+	@NotNull
+	@OneToMany(mappedBy = "enrolment_student")
+	protected Collection<Enrolment>	enrolments;
 }

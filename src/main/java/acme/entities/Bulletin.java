@@ -1,4 +1,3 @@
-
 package acme.entities;
 
 import java.util.Date;
@@ -16,7 +15,7 @@ import javax.validation.constraints.PastOrPresent;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.accounts.Any;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,9 +23,14 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Peep extends AbstractEntity {
+public class Bulletin extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
+
+	@Valid
+	@NotNull
+	@ManyToOne
+	protected Administrator poster;
 
 	@NotBlank
 	@Length(max = 75)
@@ -40,8 +44,8 @@ public class Peep extends AbstractEntity {
 	@Length(max = 100)
 	protected String			message;
 
-	@Email
-	protected String			email;
+	@NotNull
+	protected Boolean			flag;
 
 	@URL
 	protected String			link;
@@ -51,10 +55,5 @@ public class Peep extends AbstractEntity {
 	@NotBlank
 	@NotNull
 	protected Date				moment;
-
-	@Valid
-	@NotNull
-	@ManyToOne
-	protected Any				poster;
 
 }
