@@ -1,0 +1,14 @@
+key,code,title,abstractt,courseType,price,link,key:lecturer
+course-01,A 001,Normal Title,Normal Absctract,THEORETICAL,49.99 USD,https://www.example.com/course-01,lecturer-01
+course-02,BA 000,Normal Title,Normal Absctract,THEORETICAL,99.99 EUR,https://www.example.com/course-02,lecturer-02
+course-03,ZZZ 123,Normal Title,Normal Absctract,HANDS_ON,79.99 GBP,https://www.example.com/course-03,lecturer-01
+course-04,ACB 999,Normal Title,Normal Absctract,HANDS_ON,79.99 GBP,https://www.example.com/course-03,lecturer-01
+course-05,AS 004,X,Normal Absctract,THEORETICAL,59.99 USD,https://www.example.com/course-04,lecturer-02
+course-06,BB 005,Normal Title,"This courses teaches you how to create dynamic and responsive web pages using HTML ,CSS & java code.",HANDS_ON,89.99 USD,https://www.example.com/course-05,lecturer-01
+course-07,BB 025,Normal Title,X,HANDS_ON,89.99 USD,https://www.example.com/course-06,lecturer-01
+course-08,BB 026,Mastering the Art of Public Speaking:Techniques for Confident Communication,Normal Absctract,HANDS_ON,89.99 USD,https://www.example.com/course-06,lecturer-01
+course-09,BB 027,Normal Title,Normal Absctract,HANDS_ON,89.99 EUR,https://www.example.com/course-06,lecturer-01
+course-10,BB 028,Normal Title,Normal Absctract,HANDS_ON,89.99 GBP,https://www.example.com/course-06,lecturer-02
+course-11,BB 029,Normal Title,Normal Absctract,HANDS_ON,89.99 USD,https://www.example.com/course-06,lecturer-01
+course-012,A 004,Normal Title,Normal Absctract,THEORETICAL,49.99 USD,https://www.example.com/course-01,lecturer-01
+course-013,AB 012,Normal Title,Normal Absctract,HANDS_ON,49.99 USD,https://www.example.com/course-01,lecturer-01

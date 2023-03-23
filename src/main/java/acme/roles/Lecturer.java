@@ -1,13 +1,8 @@
 
 package acme.roles;
 
-import java.util.Collection;
-
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -23,7 +18,7 @@ public class Lecturer extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long		serialVersionUID	= 1L;
+	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
@@ -33,15 +28,15 @@ public class Lecturer extends AbstractRole {
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String				resume;
+	protected String			resume;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String				qualifications;
+	protected String			qualifications;
 
 	@NotBlank
 	@URL
-	protected String				link;
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
 

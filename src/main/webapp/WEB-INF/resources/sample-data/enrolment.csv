@@ -1,0 +1,8 @@
+key,key:student,key:course,code,motivation,goals,workTime
+enrolment-01,student-01,course-01,AVA1111,This are some motivations,This are some goals,8.0
+enrolment-02,student-01,course-01,BVG1111,This are some motivations with 75 characters: aaaaaaaaaaaaaaaaaaaaaaaaaaaaa,This are some goals with 75 characters: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,8.0
+enrolment-03,student-01,course-01,CCC1234,a,a,8.0
+enrolment-04,student-01,course-01,ACA1111,"This are some motivations with symbols |!""@·#$~%€&¬/()=`+*^[]{}¨ç-.:,;","This are some goals with symbols |!""@·#$~%€&¬/()=`+*^[]{}¨ç-.:,;",8.0
+enrolment-05,student-01,course-01,ARA1111,这是中文文本,这是中文文本,8.0
+enrolment-06,student-01,course-01,AAZ1111,これは日本語のテキストです,これは日本語のテキストです,99.0
+enrolment-07,student-02,course-01,AWA1111,это текст на русском,это текст на русском,0.0

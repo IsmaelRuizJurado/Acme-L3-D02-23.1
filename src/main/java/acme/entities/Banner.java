@@ -58,6 +58,6 @@ public class Banner extends AbstractEntity {
 
 	@Valid
 	@NotNull
-	@ManyToOne
+	@ManyToOne(optional = true)
 	protected Administrator		administrator;
 }

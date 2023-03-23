@@ -1,0 +1,9 @@
+key,key:userAccount,statement,strongFeatures,weakFeatures,link
+student-01,user-account-student-01,This is a statement.,"Well behaved, sincere and hard-working.","Silly, slow learner and too perfectionist.",https://www.us.es/
+student-02,user-account-student-02,This is a statement with numbers 1234567890.,This is a text with numbers 1234567890,This is a text with numbers 1234567890,https://www.us.es/
+student-03,user-account-student-03,这是一份中文声明,这是中文文本,这是中文文本,https://smiley.cool/emoji-list.php
+student-04,user-account-student-04,これは日本語での声明です,これは日本語のテキストです,これは日本語のテキストです,https://zipcon.net/~swhite/docs/computers/browsers/fonttest.html
+student-05,user-account-student-05,это заявление на русском языке,это текст на русском,это текст на русском,https://www.us.es/
+student-06,user-account-student-06,"This is a statement with symbols |!""@·#$~%€&¬/()=`+*^[]{}¨ç-.:,;","This is a text with symbols |!""@·#$~%€&¬/()=`+*^[]{}¨ç-.:,;","This is a text with symbols |!""@·#$~%€&¬/()=`+*^[]{}¨ç-.:,;",https://get.webgl.org
+student-07,user-account-student-07,a,a,a,https://www.us.es/
+student-08,user-account-student-08,This is a text with 75 characters: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,This is a text with 100 characters: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,This is a text with 100 characters: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,https://www.us.es/

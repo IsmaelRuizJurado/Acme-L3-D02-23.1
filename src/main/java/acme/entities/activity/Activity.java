@@ -43,11 +43,11 @@ public class Activity extends AbstractEntity {
 
 	//Start y finish
 	@NotNull
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				startPeriod;
 
 	@NotNull
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				finishPeriod;
 
 	@NotBlank
@@ -60,7 +60,7 @@ public class Activity extends AbstractEntity {
 
 	@Valid
 	@NotNull
-	@ManyToOne()
+	@ManyToOne(optional = false)
 	protected Enrolment			enrolment;
 
 }

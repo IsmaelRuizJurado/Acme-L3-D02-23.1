@@ -8,7 +8,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -32,7 +31,7 @@ public class Offer extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
 	protected Date				moment;
@@ -45,16 +44,16 @@ public class Offer extends AbstractEntity {
 	@Length(min = 1, max = 100)
 	protected String			summary;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				startAvailabilityPeriod;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				endAvailabilityPeriod;
 
+	@Valid
 	@NotNull
-	@Min(0)
 	protected Money				price;
 
 	@NotBlank
@@ -67,7 +66,7 @@ public class Offer extends AbstractEntity {
 
 	@Valid
 	@NotNull
-	@ManyToOne
-	protected Administrator		poster;
+	@ManyToOne(optional = true)
+	protected Administrator		administrator;
 
 }
