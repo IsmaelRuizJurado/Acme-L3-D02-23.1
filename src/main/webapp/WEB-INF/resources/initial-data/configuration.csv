@@ -1,2 +1,2 @@
-key,defaultCurrency,acceptedCurrencies
+key,system-currency,accepted-currencies
 configuration-01,"EUR","USD,GBP,EUR"
