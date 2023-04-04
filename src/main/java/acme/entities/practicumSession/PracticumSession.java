@@ -1,27 +1,28 @@
 
-package acme.entities;
+package acme.entities.practicumSession;
 
-import javax.persistence.Column;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
-import acme.entities.course.Course;
+import acme.entities.practicum.Practicum;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Practicum extends AbstractEntity {
+public class PracticumSession extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -29,10 +30,8 @@ public class Practicum extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
-	@Column(unique = true)
-	protected String			code;
+	@NotNull
+	protected Date				moment;
 
 	@NotBlank
 	@Length(min = 1, max = 75)
@@ -42,25 +41,24 @@ public class Practicum extends AbstractEntity {
 	@Length(min = 1, max = 100)
 	protected String			abstractt;
 
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	protected Date				startPeriod;
+
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	protected Date				endPeriod;
+
 	@NotBlank
-	@Length(min = 1, max = 100)
-	protected String			goals;
+	@URL
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
-
-	//Calculado de la suma de los periodos de las sesiones
-	@Transient
-	public Double				time;
 
 	// Relationships ----------------------------------------------------------
 
 	@Valid
 	@NotNull
-	@ManyToOne(optional = true)
-	protected Company			company;
-
-	@Valid
-	@NotNull
 	@ManyToOne(optional = false)
-	protected Course			course;
+	protected Practicum			practicum;
 }

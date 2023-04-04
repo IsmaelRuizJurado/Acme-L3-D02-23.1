@@ -1,29 +1,27 @@
 
-package acme.entities;
+package acme.entities.practicum;
 
-import java.util.Date;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.accounts.Administrator;
+import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Banner extends AbstractEntity {
+public class Practicum extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -31,26 +29,26 @@ public class Banner extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Temporal(TemporalType.DATE)
-	@Valid
-	@PastOrPresent
-	protected Date				moment;
-
-	protected Date				startDisplayPeriod;
-
-	protected Date				endDisplayPeriod;
-
-	@URL
 	@NotBlank
-	protected String			picture;
+	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
+	@Column(unique = true)
+	protected String			code;
 
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String			slogan;
+	protected String			title;
 
-	@URL
 	@NotBlank
-	protected String			link;
+	@Length(min = 1, max = 100)
+	protected String			abstractt;
+
+	@NotBlank
+	@Length(min = 1, max = 100)
+	protected String			goals;
+
+	@NotNull
+	@Positive
+	public Double				estimatedTime;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -59,5 +57,10 @@ public class Banner extends AbstractEntity {
 	@Valid
 	@NotNull
 	@ManyToOne(optional = true)
-	protected Administrator		administrator;
+	protected Company			company;
+
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Course			course;
 }
