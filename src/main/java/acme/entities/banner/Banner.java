@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.banner;
 
 import java.util.Date;
 
@@ -9,11 +9,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.components.accounts.Administrator;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class PracticumSession extends AbstractEntity {
+public class Banner extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -29,27 +30,27 @@ public class PracticumSession extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotNull
+	@Temporal(TemporalType.DATE)
+	@Valid
+	@PastOrPresent
 	protected Date				moment;
+
+	@Temporal(TemporalType.DATE)
+	protected Date				startDisplayPeriod;
+
+	@Temporal(TemporalType.DATE)
+	protected Date				endDisplayPeriod;
+
+	@URL
+	@NotBlank
+	protected String			picture;
 
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String			title;
+	protected String			slogan;
 
-	@NotBlank
-	@Length(min = 1, max = 100)
-	protected String			abstractt;
-
-	@NotNull
-	@Temporal(TemporalType.DATE)
-	protected Date				startPeriod;
-
-	@NotNull
-	@Temporal(TemporalType.DATE)
-	protected Date				endPeriod;
-
-	@NotBlank
 	@URL
+	@NotBlank
 	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
@@ -57,7 +58,6 @@ public class PracticumSession extends AbstractEntity {
 	// Relationships ----------------------------------------------------------
 
 	@Valid
-	@NotNull
-	@ManyToOne(optional = false)
-	protected Practicum			practicum;
+	@ManyToOne(optional = true)
+	protected Administrator		administrator;
 }
