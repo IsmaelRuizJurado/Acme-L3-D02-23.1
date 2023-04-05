@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.Practicum;
+import acme.entities.practicum.Practicum;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Company;
 

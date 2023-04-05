@@ -4,8 +4,9 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textarea code="company.practicum.form.label.code" path="code"/>
-	<acme:input-textarea code="company.practicum.form.label.title" path="title"/>
+	<acme:input-textbox code="company.practicum.form.label.code" path="code"/>
+	<acme:input-textbox code="company.practicum.form.label.title" path="title"/>
+	<acme:input-double code="company.practicum.form.label.estimatedTime" path="estimatedTime"/>
 	<acme:input-textarea code="company.practicum.form.label.abstractt" path="abstractt"/>
 	<acme:input-textarea code="company.practicum.form.label.goals" path="goals"/>
 </acme:form>
