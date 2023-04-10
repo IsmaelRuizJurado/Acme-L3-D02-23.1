@@ -1,0 +1,10 @@
+
+company.practicum.list.label.code = Código
+company.practicum.list.label.title = Título
+company.practicum.list.label.estimatedTime = Tiempo Estimado
+
+company.practicum.form.label.code = Código:
+company.practicum.form.label.title = Título:
+company.practicum.form.label.estimatedTime = Tiempo Estimado:
+company.practicum.form.label.abstractt = Abstracto:
+company.practicum.form.label.goals = Objetivos:
