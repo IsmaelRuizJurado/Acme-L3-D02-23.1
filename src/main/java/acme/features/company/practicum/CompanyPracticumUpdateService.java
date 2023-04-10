@@ -15,14 +15,13 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumShowService extends AbstractService<Company, Practicum> {
-
-	// Internal state ---------------------------------------------------------
+public class CompanyPracticumUpdateService extends AbstractService<Company, Practicum> {
 
 	@Autowired
 	protected CompanyPracticumRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	//	@Autowired
+	//	protected AuxiliarService				auxiliarService;
 
 
 	@Override
@@ -62,6 +61,41 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 	}
 
 	@Override
+	public void bind(final Practicum object) {
+		assert object != null;
+
+		int courseId;
+		Course course;
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findCourseById(courseId);
+
+		super.bind(object, "code", "title", "abstractt", "goals", "estimatedTime");
+		object.setCourse(course);
+	}
+
+	@Override
+	public void validate(final Practicum object) {
+		assert object != null;
+
+		//		if (!super.getBuffer().getErrors().hasErrors("title"))
+		//			super.state(this.auxiliarService.validateTextImput(object.getTitle()), "title", "company.practicum.form.error.spam");
+		//
+		//		if (!super.getBuffer().getErrors().hasErrors("abstract$"))
+		//			super.state(this.auxiliarService.validateTextImput(object.getAbstract$()), "abstract$", "company.practicum.form.error.spam");
+		//
+		//		if (!super.getBuffer().getErrors().hasErrors("goals"))
+		//			super.state(this.auxiliarService.validateTextImput(object.getGoals()), "goals", "company.practicum.form.error.spam");
+	}
+
+	@Override
+	public void perform(final Practicum object) {
+		assert object != null;
+
+		this.repository.save(object);
+	}
+
+	@Override
 	public void unbind(final Practicum object) {
 		assert object != null;
 
@@ -72,10 +106,11 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "title", "abstractt", "goals", "draftMode");
+		tuple = super.unbind(object, "code", "title", "abstractt", "goals", "estimatedTime");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}
+
 }

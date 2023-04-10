@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.practicum.Practicum;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
@@ -34,11 +35,11 @@ public class CompanyPracticumListService extends AbstractService<Company, Practi
 
 	@Override
 	public void load() {
-		int companyId;
 		Collection<Practicum> objects;
+		Principal principal;
 
-		companyId = super.getRequest().getPrincipal().getActiveRoleId();
-		objects = this.repository.findPracticumsByCompanyId(companyId);
+		principal = super.getRequest().getPrincipal();
+		objects = this.repository.findPracticumByCompanyId(principal.getActiveRoleId());
 
 		super.getBuffer().setData(objects);
 	}
@@ -50,6 +51,7 @@ public class CompanyPracticumListService extends AbstractService<Company, Practi
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "title", "estimatedTime");
+		tuple.put("courseCode", object.getCourse().getCode());
 
 		super.getResponse().setData(tuple);
 	}

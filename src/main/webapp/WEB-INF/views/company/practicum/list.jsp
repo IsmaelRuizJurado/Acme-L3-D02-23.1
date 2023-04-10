@@ -6,6 +6,9 @@
 
 <acme:list>
 	<acme:list-column code="company.practicum.list.label.code" path="code" width="25%"/>
-	<acme:list-column code="company.practicum.list.label.title" path="title" width="50%"/>
+	<acme:list-column code="company.practicum.list.label.title" path="title" width="25%"/>
 	<acme:list-column code="company.practicum.list.label.estimatedTime" path="estimatedTime" width="25%"/>
+	<acme:list-column code="company.practicum.list.label.courseCode" path="courseCode" width="25%"/>
 </acme:list>
+
+<acme:button code="company.practicum.list.button.create" action="/company/practicum/create"/>
