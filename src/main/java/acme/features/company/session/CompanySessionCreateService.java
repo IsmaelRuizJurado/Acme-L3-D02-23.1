@@ -65,7 +65,7 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstract$", "startPeriod", "endPeriod", "furtherInformationLink");
+		super.bind(object, "title", "abstractt", "startPeriod", "endPeriod", "link");
 	}
 
 	@Override
@@ -78,25 +78,25 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 
 		//		if (!super.getBuffer().getErrors().hasErrors("title"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getTitle()), "title", "company.practicum-session.form.error.spam");
+		//			super.state(this.auxiliarService.validateTextImput(object.getTitle()), "title", "company.practicumSession.form.error.spam");
 		//
 		//		if (!super.getBuffer().getErrors().hasErrors("abstract$"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getAbstractt()), "abstract$", "company.practicum-session.form.error.spam");
+		//			super.state(this.auxiliarService.validateTextImput(object.getAbstractt()), "abstract$", "company.practicumSession.form.error.spam");
 
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod")) {
 			Date minimumStartDate;
 			minimumStartDate = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfterOrEqual(object.getStartPeriod(), minimumStartDate), "startPeriod", "company.practicum-session.form.error.start-period");
+			super.state(MomentHelper.isAfterOrEqual(object.getStartPeriod(), minimumStartDate), "startPeriod", "company.practicumSession.form.error.startPeriod");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endPeriod")) {
 			Date minimumEndDate;
 			minimumEndDate = MomentHelper.deltaFromMoment(object.getStartPeriod(), 7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfterOrEqual(object.getEndPeriod(), minimumEndDate), "endPeriod", "company.practicum-session.form.error.end-period");
+			super.state(MomentHelper.isAfterOrEqual(object.getEndPeriod(), minimumEndDate), "endPeriod", "company.practicumSession.form.error.endPeriod");
 		}
 
 		//		if (!super.getBuffer().getErrors().hasErrors("furtherInformationLink"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getLink()), "furtherInformationLink", "company.practicum-session.form.error.spam");
+		//			super.state(this.auxiliarService.validateTextImput(object.getLink()), "furtherInformationLink", "company.practicumSession.form.error.spam");
 	}
 
 	@Override
@@ -112,7 +112,7 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstract$", "startPeriod", "endPeriod", "furtherInformationLink");
+		tuple = super.unbind(object, "title", "abstractt", "startPeriod", "endPeriod", "link");
 		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
 		tuple.put("draftMode", object.getPracticum().isDraftMode());
 		tuple.put("confirmation", false);

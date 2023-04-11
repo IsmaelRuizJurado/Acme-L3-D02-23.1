@@ -4,21 +4,17 @@ package acme.features.company.session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.PracticumSession;
-import acme.framework.components.accounts.Administrator;
-import acme.framework.components.jsp.SelectChoices;
+import acme.entities.practicum.Practicum;
+import acme.entities.practicumSession.PracticumSession;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Company;
 
 @Service
-public class CompanySessionShowService extends AbstractService<Administrator, PracticumSession> {
-
-	// Internal state ---------------------------------------------------------
+public class CompanySessionShowService extends AbstractService<Company, PracticumSession> {
 
 	@Autowired
 	protected CompanySessionRepository repository;
-
-	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -32,7 +28,15 @@ public class CompanySessionShowService extends AbstractService<Administrator, Pr
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int practicumSessionId;
+		Practicum practicum;
+
+		practicumSessionId = super.getRequest().getData("id", int.class);
+		practicum = this.repository.findPracticumByPracticumSessionId(practicumSessionId);
+		status = practicum != null && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -41,7 +45,7 @@ public class CompanySessionShowService extends AbstractService<Administrator, Pr
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOnePracticumSessionById(id);
+		object = this.repository.findPracticumSessionById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -50,15 +54,11 @@ public class CompanySessionShowService extends AbstractService<Administrator, Pr
 	public void unbind(final PracticumSession object) {
 		assert object != null;
 
-		final SelectChoices choices;
 		Tuple tuple;
 
-		//choices = SelectChoices.from(AnnouncementStatus.class, object.getStatus());
-
-		tuple = super.unbind(object, "title", "moment", "status", "text", "moreInfo");
-		//tuple.put("confirmation", false);
-		//tuple.put("readonly", true);
-		//tuple.put("statuses", choices);
+		tuple = super.unbind(object, "title", "abstractt", "startPeriod", "endPeriod", "link");
+		tuple.put("masterId", object.getPracticum().getId());
+		tuple.put("draftMode", object.getPracticum().isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}
