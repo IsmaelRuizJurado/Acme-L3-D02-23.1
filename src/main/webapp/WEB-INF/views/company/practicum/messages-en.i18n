@@ -1,0 +1,20 @@
+company.practicum.list.label.code = Code
+company.practicum.list.label.title = Title
+company.practicum.list.label.estimatedTime = Estimated Time
+company.practicum.list.label.courseCode = Course code
+
+company.practicum.list.button.create = Create
+
+company.practicum.form.label.course = Course:
+company.practicum.form.label.code = Code:
+company.practicum.form.label.title = Title:
+company.practicum.form.label.abstractt = Abstract:
+company.practicum.form.label.goals = Goals:
+company.practicum.form.label.estimatedTime = Estimated Time:
+
+company.practicum.form.button.create = Create
+company.practicum.form.button.update = Update
+company.practicum.form.button.delete = Delete
+company.practicum.form.button.publish = Publish
+
+company.practicum.form.error.spam = The introduced text contains words that is considered spam
