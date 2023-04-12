@@ -6,10 +6,10 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.google.common.util.concurrent.AbstractService;
-
 import acme.entities.Tutorial;
 import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.models.Tuple;
+import acme.framework.services.AbstractService;
 
 @Service
 public class AuthenticatedTutorialListService extends AbstractService<Authenticated, Tutorial> {
