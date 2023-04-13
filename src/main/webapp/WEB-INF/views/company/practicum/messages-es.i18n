@@ -1,0 +1,20 @@
+company.practicum.list.label.code = Código
+company.practicum.list.label.title = Título
+company.practicum.list.label.estimatedTime = Tiempo Estimado
+company.practicum.list.label.courseCode = Código del curso
+
+company.practicum.list.button.create = Crear
+
+company.practicum.form.label.course = Curso:
+company.practicum.form.label.code = Código de la práctica:
+company.practicum.form.label.title = Título de la práctica:
+company.practicum.form.label.abstractt = Resumen:
+company.practicum.form.label.goals = Objetivos:
+company.practicum.form.label.estimatedTime = Tiempo Estimado:
+
+company.practicum.form.button.create = Crear
+company.practicum.form.button.update = Actualizar
+company.practicum.form.button.delete = Eliminar
+company.practicum.form.button.publish = Publicar
+
+company.practicum.form.error.spam = Las palabras introducidas son consideradas spam
