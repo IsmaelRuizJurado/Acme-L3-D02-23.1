@@ -1,4 +1,5 @@
-package acme.entities;
+
+package acme.entities.bulletin;
 
 import java.util.Date;
 
@@ -7,7 +8,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -30,22 +30,18 @@ public class Bulletin extends AbstractEntity {
 	@Valid
 	@NotNull
 	@ManyToOne
-	protected Administrator poster;
+	protected Administrator		poster;
 
 	@NotBlank
 	@Length(max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 75)
-	protected String			nick;
-
-	@NotBlank
 	@Length(max = 100)
 	protected String			message;
 
 	@NotNull
-	protected Boolean			flag;
+	protected Boolean			critical;
 
 	@URL
 	protected String			link;
