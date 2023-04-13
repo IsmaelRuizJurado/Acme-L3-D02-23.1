@@ -38,6 +38,7 @@ master.menu.administrator.shut-down = Parar el sistema
 
 master.menu.company = Compañía
 master.menu.company.practicum = Prácticas
+master.menu.company.practicumSession = Sesiones de Prácticas
 
 # master.menu.provider ########################################################
 

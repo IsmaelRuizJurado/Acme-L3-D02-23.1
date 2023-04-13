@@ -1,0 +1,22 @@
+company.practicumSession.list.label.title = Título
+company.practicumSession.list.label.startPeriod = Fecha de inicio
+company.practicumSession.list.label.endPeriod = Fecha de fin
+
+company.practicumSession.list.button.create = Crear
+company.practicumSession.list.button.createExceptional = Crear sesión excepcional
+
+company.practicumSession.form.label.title = Título:
+company.practicumSession.form.label.abstractt = Resumen:
+company.practicumSession.form.label.startPeriod = Fecha de inicio:
+company.practicumSession.form.label.endPeriod = Fecha de fin:
+company.practicumSession.form.label.link = Más información:
+company.practicumSession.form.label.confirmation = Confirmar sesión de práctica excepcional
+
+company.practicumSession.form.button.create = Crear
+company.practicumSession.form.button.createExceptional = Crear sesión excepcional
+company.practicumSession.form.button.update = Actualizar
+company.practicumSession.form.button.delete = Eliminar
+
+company.practicumSession.form.error.spam = Las palabras introducidas son consideradas spam
+company.practicumSession.form.error.startPeriod = La fecha de inicio debe estar al menos una semana por delante del momento actual
+company.practicumSession.form.error.endPeriod = La fecha de fin debe estar al menos una semana por delante de la fecha de inicio

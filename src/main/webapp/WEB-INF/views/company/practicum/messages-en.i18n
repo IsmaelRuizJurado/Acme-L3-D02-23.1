@@ -12,6 +12,7 @@ company.practicum.form.label.abstractt = Abstract:
 company.practicum.form.label.goals = Goals:
 company.practicum.form.label.estimatedTime = Estimated Time:
 
+company.practicum.form.button.practicumSessions = Practicum sessions
 company.practicum.form.button.create = Create
 company.practicum.form.button.update = Update
 company.practicum.form.button.delete = Delete
