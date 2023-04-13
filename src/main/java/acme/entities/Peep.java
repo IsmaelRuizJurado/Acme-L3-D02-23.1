@@ -48,7 +48,6 @@ public class Peep extends AbstractEntity {
 
 	@PastOrPresent
 	@Temporal(TemporalType.DATE)
-	@NotBlank
 	@NotNull
 	protected Date				moment;
 

@@ -32,7 +32,7 @@ public class ConfigurationUpdateService extends AbstractService<Administrator, C
 	public void load() {
 		Configuration object;
 
-		object = this.repository.findConfiguration();
+		object = this.repository.findSystemConfiguration();
 
 		super.getBuffer().setData(object);
 	}
@@ -41,7 +41,7 @@ public class ConfigurationUpdateService extends AbstractService<Administrator, C
 	public void bind(final Configuration object) {
 		assert object != null;
 
-		super.bind(object, "defaultCurrency", "acceptedCurrencies");
+		super.bind(object, "systemCurrency", "acceptedCurrencies");
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class ConfigurationUpdateService extends AbstractService<Administrator, C
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "defaultCurrency", "acceptedCurrencies");
+		tuple = super.unbind(object, "systemCurrency", "acceptedCurrencies");
 
 		super.getResponse().setData(tuple);
 	}

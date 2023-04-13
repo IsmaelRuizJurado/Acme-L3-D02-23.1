@@ -8,6 +8,6 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.configuration.form.label.defaultCurrency = Default currency:
+administrator.configuration.form.label.systemCurrency = System currency:
 administrator.configuration.form.label.aceptedCurrencies = Accepted currencies:
 administrator.configuration.form.button.update = Update

@@ -43,7 +43,7 @@ public class ConfigurationShowService extends AbstractService<Administrator, Con
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "defaultCurrency", "acceptedCurrencies");
+		tuple = super.unbind(object, "systemCurrency", "acceptedCurrencies");
 
 		super.getResponse().setData(tuple);
 	}

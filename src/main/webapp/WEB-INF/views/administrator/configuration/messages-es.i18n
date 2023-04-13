@@ -8,6 +8,6 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.configuration.form.label.defaultCurrency = Moneda por defecto:
+administrator.configuration.form.label.systemCurrency = Moneda por defecto:
 administrator.configuration.form.label.aceptedCurrencies = Monedas aceptadas:
 administrator.configuration.form.button.update = Actualizar
