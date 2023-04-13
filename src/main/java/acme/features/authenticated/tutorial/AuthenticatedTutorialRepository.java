@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.Tutorial;
 import acme.entities.course.Course;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Assistant;
 
 @Repository
 public interface AuthenticatedTutorialRepository extends AbstractRepository {
@@ -21,6 +22,9 @@ public interface AuthenticatedTutorialRepository extends AbstractRepository {
 
 	@Query("select t from Tutorial t where t.id = :tutorialId")
 	Collection<Tutorial> findManyTutorialsByTutorialId(int tutorialId);
+
+	@Query("select a from Assistant a")
+	Collection<Assistant> findAssistants();
 
 	@Query("select t from Tutorial t")
 	Collection<Tutorial> findAllTutorials();
