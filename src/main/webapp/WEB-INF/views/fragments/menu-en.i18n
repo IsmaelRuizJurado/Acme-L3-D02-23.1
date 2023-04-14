@@ -43,6 +43,11 @@ master.menu.company = Company
 master.menu.company.practicum = Practicums
 master.menu.company.practicumSession = Practicum Sessions
 
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.practicum = Practicums
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
