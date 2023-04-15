@@ -4,8 +4,9 @@ package acme.features.company.session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.practicum.Practicum;
-import acme.entities.practicumSession.PracticumSession;
+import acme.entities.Practicum;
+import acme.entities.PracticumSession;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
@@ -29,12 +30,16 @@ public class CompanySessionShowService extends AbstractService<Company, Practicu
 	@Override
 	public void authorise() {
 		boolean status;
-		int practicumSessionId;
+		int sessionPracticumId;
+		PracticumSession sessionPracticum;
 		Practicum practicum;
+		Principal principal;
 
-		practicumSessionId = super.getRequest().getData("id", int.class);
-		practicum = this.repository.findPracticumByPracticumSessionId(practicumSessionId);
-		status = practicum != null && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+		principal = super.getRequest().getPrincipal();
+		sessionPracticumId = super.getRequest().getData("id", int.class);
+		sessionPracticum = this.repository.findOneSessionPracticumById(sessionPracticumId);
+		practicum = this.repository.findOnePracticumBySessionPracticumId(sessionPracticumId);
+		status = practicum != null && (!practicum.isDraftMode() && sessionPracticum.getConfirmed() || principal.hasRole(practicum.getCompany()));
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -45,7 +50,7 @@ public class CompanySessionShowService extends AbstractService<Company, Practicu
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findPracticumSessionById(id);
+		object = this.repository.findOneSessionPracticumById(id);
 
 		super.getBuffer().setData(object);
 	}

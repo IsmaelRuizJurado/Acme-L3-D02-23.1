@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.practicumSession.PracticumSession;
+import acme.entities.PracticumSession;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Company;
 
@@ -28,6 +28,9 @@ public class CompanySessionController extends AbstractController<Company, Practi
 	@Autowired
 	protected CompanySessionDeleteService	deleteService;
 
+	@Autowired
+	private CompanySessionConfirmService	confirmService;
+
 
 	@PostConstruct
 	protected void initialise() {
@@ -36,5 +39,6 @@ public class CompanySessionController extends AbstractController<Company, Practi
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
+		super.addCustomCommand("confirm", "update", this.confirmService);
 	}
 }

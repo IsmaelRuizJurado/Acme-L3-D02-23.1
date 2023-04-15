@@ -1,19 +1,19 @@
-key,moment,title,abstractt,start-period,end-period,link,key:practicum
-practicum-session-01,2022/07/30 00:00,Base Practicum Session,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-02,2022/07/30 00:00,P,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-03,2022/07/30 00:00,PP,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-04,2022/07/30 00:00,PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-05,2022/07/30 00:00,PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-06,2022/07/30 00:00,PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-07,2022/07/30 00:00,Base Practicum Session,A,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-08,2022/07/30 00:00,Base Practicum Session,AA,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-09,2022/07/30 00:00,Base Practicum Session,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-10,2022/07/30 00:00,Base Practicum Session,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-11,2022/07/30 00:00,Base Practicum Session,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-12,2022/07/30 00:00,Base Practicum Session,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-13,2022/07/30 00:00,Base Practicum Session,Base Abstract,2021/02/13 00:00,2021/02/13 00:10,https://es.linkedin.com,practicum-01
-practicum-session-14,2021/01/01 00:00,Base Practicum Session,Base Abstract,2021/01/01 00:00,2021/01/01 00:10,https://es.linkedin.com,practicum-01
-practicum-session-15,2022/07/30 00:00,Base Practicum Session,Base Abstract,2021/12/31 23:59,2024/01/01 00:00,https://es.linkedin.com,practicum-01
-practicum-session-16,2022/07/30 00:00,<title>ExampleHTML</title>,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-17,2022/07/30 00:00,Base Practicum Session,<script>alert('exampleJS');</script>,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
-practicum-session-18,2022/07/30 00:00,નમૂના ટેક્સ્ટ.,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,practicum-01
+key,moment,title,abstractt,start-period,end-period,link,code,key:practicum
+practicum-session-01,2022/07/30 00:00,Base Practicum Session,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,AAA123,practicum-01
+practicum-session-02,2022/07/30 00:00,P,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,XYZ678,practicum-01
+practicum-session-03,2022/07/30 00:00,PP,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,QQQ912,practicum-01
+practicum-session-04,2022/07/30 00:00,PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,DDD007,practicum-02
+practicum-session-05,2022/07/30 00:00,PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,ZZ999,practicum-02
+practicum-session-06,2022/07/30 00:00,PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,Z999,practicum-02
+practicum-session-07,2022/07/30 00:00,Base Practicum Session,A,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,AAA999,practicum-04
+practicum-session-08,2022/07/30 00:00,Base Practicum Session,AA,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,ZAZ999,practicum-04
+practicum-session-09,2022/07/30 00:00,Base Practicum Session,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,ZZA999,practicum-04
+practicum-session-10,2022/07/30 00:00,Base Practicum Session,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,AZZ999,practicum-06
+practicum-session-11,2022/07/30 00:00,Base Practicum Session,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,KLO234,practicum-06
+practicum-session-12,2022/07/30 00:00,Base Practicum Session,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,ASD111,practicum-06
+practicum-session-13,2022/07/30 00:00,Base Practicum Session,Base Abstract,2021/02/13 00:00,2021/02/13 00:10,https://es.linkedin.com,AWE345,practicum-08
+practicum-session-14,2021/01/01 00:00,Base Practicum Session,Base Abstract,2021/01/01 00:00,2021/01/01 00:10,https://es.linkedin.com,QFR365,practicum-08
+practicum-session-15,2022/07/30 00:00,Base Practicum Session,Base Abstract,2021/12/31 23:59,2024/01/01 00:00,https://es.linkedin.com,JUG758,practicum-08
+practicum-session-16,2022/07/30 00:00,<title>ExampleHTML</title>,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,DRS534,practicum-09
+practicum-session-17,2022/07/30 00:00,Base Practicum Session,<script>alert('exampleJS');</script>,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,POO890,practicum-09
+practicum-session-18,2022/07/30 00:00,નમૂના ટેક્સ્ટ.,Base Abstract,2023/08/21 19:30,2023/08/21 20:45,https://es.linkedin.com,BVH777,practicum-09

@@ -1,27 +1,29 @@
 
-package acme.entities.practicum;
+package acme.entities;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
-import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Practicum extends AbstractEntity {
+public class PracticumSession extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -29,10 +31,8 @@ public class Practicum extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
-	@Column(unique = true)
-	protected String			code;
+	@NotNull
+	protected Date				moment;
 
 	@NotBlank
 	@Length(min = 1, max = 75)
@@ -42,15 +42,26 @@ public class Practicum extends AbstractEntity {
 	@Length(min = 1, max = 100)
 	protected String			abstractt;
 
-	@NotBlank
-	@Length(min = 1, max = 100)
-	protected String			goals;
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	protected Date				startPeriod;
 
 	@NotNull
-	@Positive
-	protected Double			estimatedTime;
+	@Temporal(TemporalType.DATE)
+	protected Date				endPeriod;
 
-	protected boolean			draftMode;
+	@NotBlank
+	@URL
+	protected String			link;
+
+	protected Boolean			additional;
+
+	protected Boolean			confirmed;
+
+	@NotBlank
+	@Column(unique = true)
+	@Pattern(regexp = "^[A-Z]{1,3}[0-9]{3}$")
+	private String				code;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -59,9 +70,5 @@ public class Practicum extends AbstractEntity {
 	@Valid
 	@NotNull
 	@ManyToOne(optional = false)
-	protected Company			company;
-
-	@Valid
-	@ManyToOne(optional = true)
-	protected Course			course;
+	protected Practicum			practicum;
 }

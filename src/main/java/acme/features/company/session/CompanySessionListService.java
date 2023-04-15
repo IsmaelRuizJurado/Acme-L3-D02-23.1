@@ -6,8 +6,9 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.practicum.Practicum;
-import acme.entities.practicumSession.PracticumSession;
+import acme.entities.Practicum;
+import acme.entities.PracticumSession;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
@@ -31,12 +32,14 @@ public class CompanySessionListService extends AbstractService<Company, Practicu
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
-		Practicum practicum;
+		int pId;
+		Practicum p;
+		Principal principal;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		practicum = this.repository.findPracticumById(masterId);
-		status = practicum != null && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+		principal = super.getRequest().getPrincipal();
+		pId = super.getRequest().getData("masterId", int.class);
+		p = this.repository.findOnePracticumById(pId);
+		status = p != null && (!p.isDraftMode() || principal.hasRole(p.getCompany()));
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -47,7 +50,7 @@ public class CompanySessionListService extends AbstractService<Company, Practicu
 		int practicumId;
 
 		practicumId = super.getRequest().getData("masterId", int.class);
-		objects = this.repository.findPracticumSessionsByPracticumId(practicumId);
+		objects = this.repository.findManySessionPracticumsByPracticumId(practicumId);
 
 		super.getBuffer().setData(objects);
 	}
@@ -70,15 +73,17 @@ public class CompanySessionListService extends AbstractService<Company, Practicu
 		int practicumId;
 		Practicum practicum;
 		final boolean showCreate;
-		final boolean exceptionalCreate;
+		Principal principal;
+		boolean extraAvailable;
 
+		principal = super.getRequest().getPrincipal();
 		practicumId = super.getRequest().getData("masterId", int.class);
-		practicum = this.repository.findPracticumById(practicumId);
-		showCreate = super.getRequest().getPrincipal().hasRole(practicum.getCompany());
-		exceptionalCreate = practicum.isDraftMode();
+		practicum = this.repository.findOnePracticumById(practicumId);
+		showCreate = practicum.isDraftMode() && principal.hasRole(practicum.getCompany());
+		extraAvailable = objects.stream().noneMatch(PracticumSession::getAdditional);
 
 		super.getResponse().setGlobal("masterId", practicumId);
 		super.getResponse().setGlobal("showCreate", showCreate);
-		super.getResponse().setGlobal("exceptionalCreate", exceptionalCreate);
+		super.getResponse().setGlobal("extraAvailable", extraAvailable);
 	}
 }

@@ -1,22 +1,21 @@
 company.practicumSession.list.label.title = Title
 company.practicumSession.list.label.startPeriod = Start date
 company.practicumSession.list.label.endPeriod = End date
+company.practicumSession.list.label.code = Code
 
 company.practicumSession.list.button.create = Create
-company.practicumSession.list.button.createExceptional = Create exceptional session
 
 company.practicumSession.form.label.title = Title:
 company.practicumSession.form.label.abstractt = Abstract:
 company.practicumSession.form.label.startPeriod = Start date:
 company.practicumSession.form.label.endPeriod = End date:
 company.practicumSession.form.label.link = Further information:
-company.practicumSession.form.label.confirmation = Confirm exceptional practicum session
+company.practicumSession.form.label.code = Code:
 
 company.practicumSession.form.button.create = Create
-company.practicumSession.form.button.createExceptional = Create exceptional session
 company.practicumSession.form.button.update = Update
 company.practicumSession.form.button.delete = Delete
+company.practicumSession.form.label.confirm = Confirm exceptional practicum session
 
-company.practicumSession.form.error.spam = The introduced text contains words that are considered spam
-company.practicumSession.form.error.startPeriod = The start date must be at least one week ahead from the current date
-company.practicumSession.form.error.endPeriod = The end date must be at least one week ahead of the start date
+company.practicumSession.error.start-after-now = The start date must be after today
+company.practicumSession.error.end-after-start = The end date must be after the start date

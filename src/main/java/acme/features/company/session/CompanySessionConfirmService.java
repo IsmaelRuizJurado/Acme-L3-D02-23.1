@@ -9,27 +9,23 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Practicum;
 import acme.entities.PracticumSession;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanySessionCreateService extends AbstractService<Company, PracticumSession> {
+public class CompanySessionConfirmService extends AbstractService<Company, PracticumSession> {
 
 	@Autowired
-	protected CompanySessionRepository repository;
-
-	//	@Autowired
-	//	protected AuxiliarService			auxiliarService;
+	private CompanySessionRepository repository;
 
 
 	@Override
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("masterId", int.class);
+		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -37,19 +33,19 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 	@Override
 	public void authorise() {
 		boolean status;
-		int practicumId;
-		Practicum practicum;
+		int psId;
+		PracticumSession object;
+		Practicum p;
 		boolean hasExtraAvailable;
-		Principal principal;
 
-		principal = super.getRequest().getPrincipal();
-		practicumId = super.getRequest().getData("masterId", int.class);
-		practicum = this.repository.findOnePracticumById(practicumId);
-		if (practicum == null)
+		psId = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneSessionPracticumById(psId);
+		p = this.repository.findOnePracticumBySessionPracticumId(psId);
+		if (p == null)
 			status = false;
 		else {
-			hasExtraAvailable = this.repository.findManySessionPracticumsByExtraAvailableAndPracticumId(practicum.getId()).isEmpty();
-			status = (practicum.isDraftMode() || hasExtraAvailable) && principal.hasRole(practicum.getCompany());
+			hasExtraAvailable = this.repository.findManySessionPracticumsByExtraAvailableAndPracticumId(p.getId()).isEmpty();
+			status = object != null && (!object.getConfirmed() && !p.isDraftMode() && hasExtraAvailable || p.isDraftMode()) && super.getRequest().getPrincipal().hasRole(p.getCompany());
 		}
 
 		super.getResponse().setAuthorised(status);
@@ -58,25 +54,20 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 	@Override
 	public void load() {
 		PracticumSession object;
-		int practicumId;
-		Practicum practicum;
+		int psId;
 
-		practicumId = super.getRequest().getData("masterId", int.class);
-		practicum = this.repository.findOnePracticumById(practicumId);
+		psId = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneSessionPracticumById(psId);
+		object.setConfirmed(true);
 
-		object = new PracticumSession();
-		object.setPracticum(practicum);
-		object.setAdditional(!practicum.isDraftMode());
-		object.setConfirmed(practicum.isDraftMode());
-
-		super.getBuffer().setData(object);
+		super.getRequest().setData(object);
 	}
 
 	@Override
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstractt", "startPeriod", "endPeriod", "link");
+		super.bind(object, "code", "title", "abstractt", "description", "startPeriod", "endPeriod", "link");
 	}
 
 	@Override
@@ -85,8 +76,12 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			boolean isUnique;
+			int psId;
+			PracticumSession old;
 
-			isUnique = this.repository.findManySessionPracticumsByCode(object.getCode()).isEmpty();
+			psId = super.getRequest().getData("id", int.class);
+			old = this.repository.findOneSessionPracticumById(psId);
+			isUnique = this.repository.findManySessionPracticumsByCode(object.getCode()).isEmpty() || old.getCode().equals(object.getCode());
 			super.state(isUnique, "code", "company.practicum.form.error.not-unique-code");
 		}
 
@@ -119,6 +114,7 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 	public void perform(final PracticumSession object) {
 		assert object != null;
 
+		object.setConfirmed(true);
 		this.repository.save(object);
 	}
 
@@ -128,10 +124,8 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractt", "startPeriod", "endPeriod", "link", "additional", "confirmed");
-		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
+		tuple = super.unbind(object, "code", "title", "abstractt", "startPeriod", "endPeriod", "link", "additional", "confirmed");
+		tuple.put("masterId", object.getPracticum().getId());
 		tuple.put("draftMode", object.getPracticum().isDraftMode());
-
-		super.getResponse().setData(tuple);
 	}
 }

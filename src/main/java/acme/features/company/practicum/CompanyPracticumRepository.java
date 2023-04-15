@@ -6,9 +6,9 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.Practicum;
+import acme.entities.PracticumSession;
 import acme.entities.course.Course;
-import acme.entities.practicum.Practicum;
-import acme.entities.practicumSession.PracticumSession;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Company;
 
