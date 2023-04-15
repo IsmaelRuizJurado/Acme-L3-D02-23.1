@@ -10,4 +10,5 @@
 	<acme:input-textbox code="authenticated.practicum.form.label.goals" path="goals"/>
 	<acme:input-textbox code="authenticated.practicum.form.label.estimatedTime" path="estimatedTime"/>
 	<acme:input-textbox code="authenticated.practicum.form.label.company" path="company"/>
+	<acme:input-textbox code="authenticated.practicum.form.label.course" path="course"/>
 </acme:form>

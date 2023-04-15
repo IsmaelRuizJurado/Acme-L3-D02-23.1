@@ -62,7 +62,6 @@ public class Practicum extends AbstractEntity {
 	protected Company			company;
 
 	@Valid
-	@NotNull
 	@ManyToOne(optional = true)
 	protected Course			course;
 }

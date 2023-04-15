@@ -4,7 +4,9 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.practicum.list.label.code" path="code" width="33%"/>
-	<acme:list-column code="authenticated.practicum.list.label.title" path="title" width="33%"/>
-	<acme:list-column code="authenticated.practicum.list.label.estimatedTime" path="estimatedTime" width="33%"/>
+	<acme:list-column code="authenticated.practicum.list.label.code" path="code" width="20%"/>
+	<acme:list-column code="authenticated.practicum.list.label.title" path="title" width="20%"/>
+	<acme:list-column code="authenticated.practicum.list.label.estimatedTime" path="estimatedTime" width="20%"/>
+	<acme:list-column code="authenticated.practicum.list.label.company" path="company" width="20%"/>
+	<acme:list-column code="authenticated.practicum.list.label.course" path="course" width="20%"/>
 </acme:list>

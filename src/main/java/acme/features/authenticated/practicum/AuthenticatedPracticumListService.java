@@ -10,7 +10,6 @@ import acme.entities.course.Course;
 import acme.entities.practicum.Practicum;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
@@ -40,10 +39,12 @@ public class AuthenticatedPracticumListService extends AbstractService<Authentic
 		Collection<Practicum> objects;
 		Principal p;
 		int uaId;
+		Course nullCourse;
 
+		nullCourse = null;
 		p = super.getRequest().getPrincipal();
 		uaId = p.getAccountId();
-		objects = this.repository.findManyPracticumByUserAccountId(uaId);
+		objects = this.repository.findManyPracticumByUserAccountId(uaId, nullCourse);
 		super.getBuffer().setData(objects);
 	}
 
@@ -51,15 +52,10 @@ public class AuthenticatedPracticumListService extends AbstractService<Authentic
 	public void unbind(final Practicum object) {
 		assert object != null;
 
-		Collection<Course> courses;
-		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
 		tuple = super.unbind(object, "code", "title", "estimatedTime");
-		tuple.put("course", choices);
-		tuple.put("courses", courses);
+		tuple.put("course", object.getCourse().getCode());
 		tuple.put("company", object.getCompany().getName());
 
 		super.getResponse().setData(tuple);

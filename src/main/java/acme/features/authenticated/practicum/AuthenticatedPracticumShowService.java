@@ -1,15 +1,11 @@
 
 package acme.features.authenticated.practicum;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.course.Course;
 import acme.entities.practicum.Practicum;
 import acme.framework.components.accounts.Authenticated;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
@@ -60,15 +56,10 @@ public class AuthenticatedPracticumShowService extends AbstractService<Authentic
 	public void unbind(final Practicum object) {
 		assert object != null;
 
-		Collection<Course> courses;
-		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
 		tuple = super.unbind(object, "code", "title", "estimatedTime", "abstractt", "goals", "draftMode");
-		tuple.put("course", choices);
-		tuple.put("courses", courses);
+		tuple.put("course", object.getCourse().getCode());
 		tuple.put("company", object.getCompany().getName());
 
 		super.getResponse().setData(tuple);
