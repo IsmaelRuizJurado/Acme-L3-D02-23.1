@@ -13,21 +13,21 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface CompanySessionRepository extends AbstractRepository {
 
-	@Query("select p from Practicum p where p.id = ?1")
+	@Query("select p from Practicum p where p.id = :pId")
 	Practicum findOnePracticumById(int pId);
 
-	@Query("select ps from PracticumSession ps where ps.id = ?1")
-	PracticumSession findOneSessionPracticumById(int psId);
+	@Query("select ps from PracticumSession ps where ps.id = :psId")
+	PracticumSession findOneSessionById(int psId);
 
-	@Query("select ps from PracticumSession ps where ps.practicum.id = ?1")
-	Collection<PracticumSession> findManySessionPracticumsByPracticumId(int pId);
+	@Query("select ps from PracticumSession ps where ps.practicum.id = :pId")
+	Collection<PracticumSession> findManySessionByPracticumId(int pId);
 
-	@Query("select ps.practicum from PracticumSession ps where ps.id = ?1")
-	Practicum findOnePracticumBySessionPracticumId(int psId);
+	@Query("select ps.practicum from PracticumSession ps where ps.id = :psId")
+	Practicum findOnePracticumBySessionId(int psId);
 
-	@Query("select ps from PracticumSession ps where ps.practicum.id != ?1 and ps.confirmed = false")
-	Collection<PracticumSession> findManySessionPracticumsByExtraAvailableAndPracticumId(int id);
+	@Query("select ps from PracticumSession ps where ps.practicum.id != :id and ps.confirmed = false")
+	Collection<PracticumSession> findManySessionByExtraAvailableAndPracticumId(int id);
 
-	@Query("select ps from PracticumSession ps where ps.code = ?1")
-	Collection<PracticumSession> findManySessionPracticumsByCode(String code);
+	@Query("select ps from PracticumSession ps where ps.code = :code")
+	Collection<PracticumSession> findManySessionByCode(String code);
 }

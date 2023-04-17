@@ -41,9 +41,9 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 
 		principal = super.getRequest().getPrincipal();
 		practicumSessionId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneSessionPracticumById(practicumSessionId);
-		practicum = this.repository.findOnePracticumBySessionPracticumId(practicumSessionId);
-		status = practicum != null && (practicum.isDraftMode() || object.getAdditional()) && principal.hasRole(practicum.getCompany());
+		object = this.repository.findOneSessionById(practicumSessionId);
+		practicum = this.repository.findOnePracticumBySessionId(practicumSessionId);
+		status = practicum != null && (practicum.isDraftMode() || object.isAdditional()) && principal.hasRole(practicum.getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -54,7 +54,7 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneSessionPracticumById(id);
+		object = this.repository.findOneSessionById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -76,8 +76,8 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 			PracticumSession old;
 
 			psId = super.getRequest().getData("id", int.class);
-			old = this.repository.findOneSessionPracticumById(psId);
-			isUnique = this.repository.findManySessionPracticumsByCode(object.getCode()).isEmpty() || old.getCode().equals(object.getCode());
+			old = this.repository.findOneSessionById(psId);
+			isUnique = this.repository.findManySessionByCode(object.getCode()).isEmpty() || old.getCode().equals(object.getCode());
 			super.state(isUnique, "code", "company.practicum.form.error.not-unique-code");
 		}
 

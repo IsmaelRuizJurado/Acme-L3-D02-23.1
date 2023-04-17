@@ -35,7 +35,7 @@ public class CompanySessionDeleteService extends AbstractService<Company, Practi
 
 		principal = super.getRequest().getPrincipal();
 		sessionPracticumId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneSessionPracticumById(sessionPracticumId);
+		object = this.repository.findOneSessionById(sessionPracticumId);
 		status = object != null && principal.hasRole(object.getPracticum().getCompany());
 
 		super.getResponse().setAuthorised(status);
@@ -47,7 +47,7 @@ public class CompanySessionDeleteService extends AbstractService<Company, Practi
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneSessionPracticumById(id);
+		object = this.repository.findOneSessionById(id);
 
 		super.getBuffer().setData(object);
 	}

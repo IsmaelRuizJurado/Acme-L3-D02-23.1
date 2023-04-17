@@ -47,10 +47,10 @@ public class CompanySessionListService extends AbstractService<Company, Practicu
 	@Override
 	public void load() {
 		Collection<PracticumSession> objects;
-		int practicumId;
+		int pId;
 
-		practicumId = super.getRequest().getData("masterId", int.class);
-		objects = this.repository.findManySessionPracticumsByPracticumId(practicumId);
+		pId = super.getRequest().getData("masterId", int.class);
+		objects = this.repository.findManySessionByPracticumId(pId);
 
 		super.getBuffer().setData(objects);
 	}
@@ -61,7 +61,7 @@ public class CompanySessionListService extends AbstractService<Company, Practicu
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "startPeriod", "endPeriod");
+		tuple = super.unbind(object, "code", "title", "startPeriod", "endPeriod");
 
 		super.getResponse().setData(tuple);
 	}
@@ -72,7 +72,7 @@ public class CompanySessionListService extends AbstractService<Company, Practicu
 
 		int practicumId;
 		Practicum practicum;
-		final boolean showCreate;
+		boolean showCreate;
 		Principal principal;
 		boolean extraAvailable;
 
@@ -80,7 +80,7 @@ public class CompanySessionListService extends AbstractService<Company, Practicu
 		practicumId = super.getRequest().getData("masterId", int.class);
 		practicum = this.repository.findOnePracticumById(practicumId);
 		showCreate = practicum.isDraftMode() && principal.hasRole(practicum.getCompany());
-		extraAvailable = objects.stream().noneMatch(PracticumSession::getAdditional);
+		extraAvailable = objects.stream().noneMatch(PracticumSession::isAdditional);
 
 		super.getResponse().setGlobal("masterId", practicumId);
 		super.getResponse().setGlobal("showCreate", showCreate);

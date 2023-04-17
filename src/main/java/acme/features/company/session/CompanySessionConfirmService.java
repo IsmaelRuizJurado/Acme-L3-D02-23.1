@@ -1,7 +1,7 @@
 
 package acme.features.company.session;
 
-import java.util.Calendar;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Practicum;
 import acme.entities.PracticumSession;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -36,16 +37,22 @@ public class CompanySessionConfirmService extends AbstractService<Company, Pract
 		int psId;
 		PracticumSession object;
 		Practicum p;
-		boolean hasExtraAvailable;
 
 		psId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneSessionPracticumById(psId);
-		p = this.repository.findOnePracticumBySessionPracticumId(psId);
-		if (p == null)
-			status = false;
-		else {
-			hasExtraAvailable = this.repository.findManySessionPracticumsByExtraAvailableAndPracticumId(p.getId()).isEmpty();
-			status = object != null && (!object.getConfirmed() && !p.isDraftMode() && hasExtraAvailable || p.isDraftMode()) && super.getRequest().getPrincipal().hasRole(p.getCompany());
+		object = this.repository.findOneSessionById(psId);
+		p = this.repository.findOnePracticumBySessionId(psId);
+		status = false;
+
+		if (p != null && object != null) {
+			Principal principal;
+			boolean hasExtraAvailable;
+			boolean isPublishedAndHasExtraAvailable;
+
+			principal = super.getRequest().getPrincipal();
+			hasExtraAvailable = this.repository.findManySessionByExtraAvailableAndPracticumId(p.getId()).isEmpty();
+			isPublishedAndHasExtraAvailable = !object.isConfirmed() && !p.isDraftMode() && hasExtraAvailable;
+
+			status = isPublishedAndHasExtraAvailable && principal.hasRole(p.getCompany());
 		}
 
 		super.getResponse().setAuthorised(status);
@@ -57,7 +64,7 @@ public class CompanySessionConfirmService extends AbstractService<Company, Pract
 		int psId;
 
 		psId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneSessionPracticumById(psId);
+		object = this.repository.findOneSessionById(psId);
 		object.setConfirmed(true);
 
 		super.getRequest().setData(object);
@@ -80,28 +87,22 @@ public class CompanySessionConfirmService extends AbstractService<Company, Pract
 			PracticumSession old;
 
 			psId = super.getRequest().getData("id", int.class);
-			old = this.repository.findOneSessionPracticumById(psId);
-			isUnique = this.repository.findManySessionPracticumsByCode(object.getCode()).isEmpty() || old.getCode().equals(object.getCode());
+			old = this.repository.findOneSessionById(psId);
+			isUnique = this.repository.findManySessionByCode(object.getCode()).isEmpty() || old.getCode().equals(object.getCode());
+
 			super.state(isUnique, "code", "company.practicum.form.error.not-unique-code");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod") || !super.getBuffer().getErrors().hasErrors("endPeriod")) {
-			final Date start;
-			final Date end;
-			final Date now;
+			Date start;
+			Date end;
+			Date inAWeekFromNow;
+			Date inAWeekFromStart;
 
 			start = object.getStartPeriod();
 			end = object.getEndPeriod();
-			now = MomentHelper.getCurrentMoment();
-
-			final Calendar calendar = Calendar.getInstance();
-			calendar.setTime(now);
-			calendar.add(Calendar.WEEK_OF_YEAR, 1);
-			final Date inAWeekFromNow = calendar.getTime();
-
-			calendar.setTime(start);
-			calendar.add(Calendar.WEEK_OF_YEAR, 1);
-			final Date inAWeekFromStart = calendar.getTime();
+			inAWeekFromNow = MomentHelper.deltaFromCurrentMoment(1, ChronoUnit.WEEKS);
+			inAWeekFromStart = MomentHelper.deltaFromMoment(start, 1, ChronoUnit.WEEKS);
 
 			if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
 				super.state(MomentHelper.isAfter(start, inAWeekFromNow), "startPeriod", "company.practicumSession.error.start-after-now");

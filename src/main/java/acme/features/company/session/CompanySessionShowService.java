@@ -37,9 +37,9 @@ public class CompanySessionShowService extends AbstractService<Company, Practicu
 
 		principal = super.getRequest().getPrincipal();
 		sessionPracticumId = super.getRequest().getData("id", int.class);
-		sessionPracticum = this.repository.findOneSessionPracticumById(sessionPracticumId);
-		practicum = this.repository.findOnePracticumBySessionPracticumId(sessionPracticumId);
-		status = practicum != null && (!practicum.isDraftMode() && sessionPracticum.getConfirmed() || principal.hasRole(practicum.getCompany()));
+		sessionPracticum = this.repository.findOneSessionById(sessionPracticumId);
+		practicum = this.repository.findOnePracticumBySessionId(sessionPracticumId);
+		status = practicum != null && (!practicum.isDraftMode() && sessionPracticum.isConfirmed() || principal.hasRole(practicum.getCompany()));
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -50,7 +50,7 @@ public class CompanySessionShowService extends AbstractService<Company, Practicu
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneSessionPracticumById(id);
+		object = this.repository.findOneSessionById(id);
 
 		super.getBuffer().setData(object);
 	}

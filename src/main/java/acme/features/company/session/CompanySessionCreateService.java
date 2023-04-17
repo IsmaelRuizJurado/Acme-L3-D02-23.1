@@ -21,9 +21,6 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 	@Autowired
 	protected CompanySessionRepository repository;
 
-	//	@Autowired
-	//	protected AuxiliarService			auxiliarService;
-
 
 	@Override
 	public void check() {
@@ -39,7 +36,7 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 		boolean status;
 		int practicumId;
 		Practicum practicum;
-		boolean hasExtraAvailable;
+		//boolean hasExtraAvailable;
 		Principal principal;
 
 		principal = super.getRequest().getPrincipal();
@@ -47,10 +44,10 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 		practicum = this.repository.findOnePracticumById(practicumId);
 		if (practicum == null)
 			status = false;
-		else {
-			hasExtraAvailable = this.repository.findManySessionPracticumsByExtraAvailableAndPracticumId(practicum.getId()).isEmpty();
-			status = (practicum.isDraftMode() || hasExtraAvailable) && principal.hasRole(practicum.getCompany());
-		}
+		else
+			//hasExtraAvailable = this.repository.findManySessionPracticumsByExtraAvailableAndPracticumId(practicum.getId()).isEmpty();
+			//status = (practicum.isDraftMode() || hasExtraAvailable) && principal.hasRole(practicum.getCompany());
+			status = !(practicum.isDraftMode() || principal.hasRole(practicum.getCompany()));
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -66,8 +63,8 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 
 		object = new PracticumSession();
 		object.setPracticum(practicum);
-		object.setAdditional(!practicum.isDraftMode());
-		object.setConfirmed(practicum.isDraftMode());
+		//object.setAdditional(!practicum.isDraftMode());
+		//object.setConfirmed(practicum.isDraftMode());
 
 		super.getBuffer().setData(object);
 	}
@@ -86,7 +83,7 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			boolean isUnique;
 
-			isUnique = this.repository.findManySessionPracticumsByCode(object.getCode()).isEmpty();
+			isUnique = this.repository.findManySessionByCode(object.getCode()).isEmpty();
 			super.state(isUnique, "code", "company.practicum.form.error.not-unique-code");
 		}
 

@@ -31,9 +31,6 @@ public class PracticumSession extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotNull
-	protected Date				moment;
-
 	@NotBlank
 	@Length(min = 1, max = 75)
 	protected String			title;
@@ -43,20 +40,20 @@ public class PracticumSession extends AbstractEntity {
 	protected String			abstractt;
 
 	@NotNull
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				startPeriod;
 
 	@NotNull
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endPeriod;
 
 	@NotBlank
 	@URL
 	protected String			link;
 
-	protected Boolean			additional;
+	protected boolean			additional;
 
-	protected Boolean			confirmed;
+	protected boolean			confirmed;
 
 	@NotBlank
 	@Column(unique = true)
