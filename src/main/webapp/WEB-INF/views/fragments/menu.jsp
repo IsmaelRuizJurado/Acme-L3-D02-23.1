@@ -50,6 +50,7 @@
 			<acme:menu-suboption code="master.menu.assistant.tutorial.list-mine" action="/assistant/tutorial/list-mine"/>
 			<acme:menu-suboption code="master.menu.assistant.tutorial.list-all" action="/assistant/tutorial/list-all"/>	
 		</acme:menu-option>
+		<acme:menu-option code="any.menu.peep.list" action="/any/peep/list"/>
 	</acme:menu-left>
 
 	<acme:menu-right>

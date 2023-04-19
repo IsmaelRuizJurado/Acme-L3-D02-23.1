@@ -60,3 +60,6 @@ master.menu.user-account.assistant = Datos de asistente
 master.menu.user-account.become-assistant = Hazte asistente
 master.menu.assistant.tutorial.list-mine = Listar mis tutoriales
 master.menu.assistant.tutorial.list-all = Listar todos los tutoriales
+
+# master.menu.any ####################################################
+any.menu.peep.list=Comentarios
