@@ -67,7 +67,7 @@ public class CompanySessionConfirmService extends AbstractService<Company, Pract
 		object = this.repository.findOneSessionById(psId);
 		object.setConfirmed(true);
 
-		super.getRequest().setData(object);
+		super.getBuffer().setData(object);
 	}
 
 	@Override

@@ -61,7 +61,7 @@ public class CompanySessionListService extends AbstractService<Company, Practicu
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "startPeriod", "endPeriod");
+		tuple = super.unbind(object, "code", "title", "startPeriod", "endPeriod", "additional");
 
 		super.getResponse().setData(tuple);
 	}

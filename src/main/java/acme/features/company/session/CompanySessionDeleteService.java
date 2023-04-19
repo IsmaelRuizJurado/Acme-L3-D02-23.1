@@ -4,6 +4,7 @@ package acme.features.company.session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.Practicum;
 import acme.entities.PracticumSession;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
@@ -32,12 +33,23 @@ public class CompanySessionDeleteService extends AbstractService<Company, Practi
 		int sessionPracticumId;
 		PracticumSession object;
 		Principal principal;
+		Practicum p;
+		Boolean isDraftMode;
+		Boolean isAdditional;
 
 		principal = super.getRequest().getPrincipal();
 		sessionPracticumId = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneSessionById(sessionPracticumId);
-		status = object != null && principal.hasRole(object.getPracticum().getCompany());
+		status = false;
 
+		if (object != null) {
+			p = object.getPracticum();
+
+			isDraftMode = p.isDraftMode();
+			isAdditional = !object.isConfirmed() && !isDraftMode;
+
+			status = (isDraftMode || isAdditional) && principal.hasRole(p.getCompany());
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -56,7 +68,7 @@ public class CompanySessionDeleteService extends AbstractService<Company, Practi
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstractt", "startPeriod", "endPeriod", "link", "additional", "confirmed");
+		super.bind(object, "code", "title", "abstractt", "startPeriod", "endPeriod", "link");
 	}
 
 	@Override
@@ -77,7 +89,7 @@ public class CompanySessionDeleteService extends AbstractService<Company, Practi
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractt", "startPeriod", "endPeriod", "link", "additional", "confirmed");
+		tuple = super.unbind(object, "code", "title", "abstractt", "startPeriod", "endPeriod", "link");
 		tuple.put("masterId", object.getPracticum().getId());
 		tuple.put("draftMode", object.getPracticum().isDraftMode());
 

@@ -47,7 +47,6 @@ public class PracticumSession extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endPeriod;
 
-	@NotBlank
 	@URL
 	protected String			link;
 

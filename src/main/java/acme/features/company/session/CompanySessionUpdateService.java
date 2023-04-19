@@ -1,7 +1,7 @@
 
 package acme.features.company.session;
 
-import java.util.Calendar;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,20 +84,13 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod") || !super.getBuffer().getErrors().hasErrors("endPeriod")) {
 			final Date start;
 			final Date end;
-			final Date now;
+			Date inAWeekFromNow;
+			Date inAWeekFromStart;
 
 			start = object.getStartPeriod();
 			end = object.getEndPeriod();
-			now = MomentHelper.getCurrentMoment();
-
-			final Calendar calendar = Calendar.getInstance();
-			calendar.setTime(now);
-			calendar.add(Calendar.WEEK_OF_YEAR, 1);
-			final Date inAWeekFromNow = calendar.getTime();
-
-			calendar.setTime(start);
-			calendar.add(Calendar.WEEK_OF_YEAR, 1);
-			final Date inAWeekFromStart = calendar.getTime();
+			inAWeekFromNow = MomentHelper.deltaFromCurrentMoment(1, ChronoUnit.WEEKS);
+			inAWeekFromStart = MomentHelper.deltaFromMoment(start, 1, ChronoUnit.WEEKS);
 
 			if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
 				super.state(MomentHelper.isAfter(start, inAWeekFromNow), "startPeriod", "company.practicumSession.error.start-after-now");

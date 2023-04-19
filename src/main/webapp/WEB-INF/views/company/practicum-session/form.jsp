@@ -11,13 +11,13 @@
 	<acme:input-moment code="company.practicumSession.form.label.startPeriod" path="startPeriod"/>
 	<acme:input-moment code="company.practicumSession.form.label.endPeriod" path="endPeriod"/>
 	<acme:input-url code="company.practicumSession.form.label.link" path="link"/>
-	
+		
 	<jstl:choose>
         <jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
             <acme:submit code="company.practicumSession.form.button.update" action="/company/practicum-session/update"/>
             <acme:submit code="company.practicumSession.form.button.delete" action="/company/practicum-session/delete"/>
         </jstl:when>
-        <jstl:when test="${acme:anyOf(_command, 'show|update|delete|confirm') && draftMode == false && confirmed==false}">
+        <jstl:when test="${acme:anyOf(_command, 'show|update|delete|confirm') && draftMode == false && confirmed == false}">
             <acme:submit code="company.practicumSession.form.button.update" action="/company/practicum-session/update"/>
             <acme:submit code="company.practicumSession.form.button.delete" action="/company/practicum-session/delete"/>
             <acme:submit code="company.practicumSession.form.button.confirm" action="/company/practicum-session/confirm"/>
