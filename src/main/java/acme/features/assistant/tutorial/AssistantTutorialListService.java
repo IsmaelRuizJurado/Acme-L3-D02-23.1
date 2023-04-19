@@ -44,7 +44,7 @@ public class AssistantTutorialListService extends AbstractService<Assistant, Tut
 	public void unbind(final Tutorial object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "title", "abstractt", "goals");
+		tuple = super.unbind(object, "code", "title", "abstractt", "goals", "totalTime");
 		super.getResponse().setData(tuple);
 	}
 }

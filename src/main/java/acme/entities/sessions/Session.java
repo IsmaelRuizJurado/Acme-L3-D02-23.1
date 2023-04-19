@@ -49,9 +49,7 @@ public class Session extends AbstractEntity {
 	//CustomConstraint of the Service at least one day ahead, from one up to five hour long
 	protected Date				finishPeriod;
 
-	@NotNull
-	@Temporal(TemporalType.DATE)
-	protected Date				moment;
+	protected boolean			draftMode;
 
 	@NotNull
 	@Valid

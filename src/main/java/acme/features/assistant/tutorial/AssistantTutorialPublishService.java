@@ -72,6 +72,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		assert object != null;
 		int id;
 		final Tutorial otherTutorial;
+		// El código de un tutorial debe ser único.
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			id = super.getRequest().getData("id", int.class);
 			otherTutorial = this.repository.findATutorialByCode(object.getCode());

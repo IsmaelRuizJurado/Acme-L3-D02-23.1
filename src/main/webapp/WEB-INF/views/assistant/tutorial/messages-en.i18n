@@ -19,6 +19,7 @@ assistant.tutorial.form.button.update = Update
 assistant.tutorial.form.button.delete = Delete
 assistant.tutorial.form.button.publish = Publish
 assistant.tutorial.form.button.list-all = List all
+assistant.session.form.button.list=List of Sessions
 
 assistant.tutorial.list.label.code = Code
 assistant.tutorial.list.label.title = Title

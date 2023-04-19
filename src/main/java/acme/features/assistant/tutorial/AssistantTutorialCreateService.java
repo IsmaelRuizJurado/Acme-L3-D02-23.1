@@ -70,6 +70,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void validate(final Tutorial object) {
 		assert object != null;
+		// El código de un tutorial debe ser único.
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Tutorial isCodeUnique;
 			isCodeUnique = this.repository.findATutorialByCode(object.getCode());

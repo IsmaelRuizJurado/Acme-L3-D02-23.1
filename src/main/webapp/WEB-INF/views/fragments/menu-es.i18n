@@ -55,7 +55,8 @@ master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 
 # master.menu.authenticated.tutorial ####################################################
-master.menu.authenticated.tutorial= Tutorial
-master.menu.authenticated.tutorial.list= Listado de tutoriales
+master.menu.authenticated.Assistant= Asistente
 master.menu.user-account.assistant = Datos de asistente
 master.menu.user-account.become-assistant = Hazte asistente
+master.menu.assistant.tutorial.list-mine = Listar mis tutoriales
+master.menu.assistant.tutorial.list-all = Listar todos los tutoriales
