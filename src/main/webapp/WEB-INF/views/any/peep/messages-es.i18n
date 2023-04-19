@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 any.peep.list.label.title=Titulo
 any.peep.list.label.message=Mensaje
-any.peep.form.label.instantiation=Momento de Creacion
+any.peep.form.label.moment=Momento de Creacion
 any.peep.form.label.title=Titulo
 any.peep.form.label.nick=Usuario
 any.peep.form.label.message=Mensaje
