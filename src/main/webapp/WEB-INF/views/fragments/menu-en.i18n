@@ -36,6 +36,7 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.configuration = Show system configuration
 
 # master.menu.provider ########################################################
 
@@ -49,6 +50,9 @@ master.menu.consumer.favourite-link = Favourite link
 
 # master.menu.user-account ####################################################
 
+
+
+
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
 master.menu.user-account.provider = Provider data
@@ -57,3 +61,10 @@ master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 
 any.menu.peep.list=Peeps
+
+# master.menu.authenticated.tutorial ####################################################
+master.menu.authenticated.tutorial= Tutorial
+master.menu.authenticated.tutorial.list= List of tutorials
+master.menu.user-account.assistant = Assistant data
+master.menu.user-account.become-assistant = Become an assistant
+
