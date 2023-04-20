@@ -33,9 +33,21 @@ master.menu.anonymous.favourite-link-jesus = 47566818-N: Cárdenas Conejo, Jesú
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.banner = Banners
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+
+# master.menu.company ########################################################
+
+master.menu.company = Company
+master.menu.company.practicum = Practicums
+master.menu.company.practicumSession = Practicum Sessions
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.practicum = Practicums
 
 # master.menu.provider ########################################################
 
@@ -60,3 +72,5 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.become-company = Become a company
+master.menu.user-account.company= Company data

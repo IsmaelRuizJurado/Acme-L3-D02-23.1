@@ -1,0 +1,13 @@
+authenticated.practicum.form.label.code = Code:
+authenticated.practicum.form.label.title = Title:
+authenticated.practicum.form.label.abstractt = Abstract:
+authenticated.practicum.form.label.goals = Goals:
+authenticated.practicum.form.label.estimatedTime = Estimated Time:
+authenticated.practicum.form.label.course = Course:
+authenticated.practicum.form.label.company = Company:
+
+authenticated.practicum.list.label.code = Code
+authenticated.practicum.list.label.title = Title
+authenticated.practicum.list.label.estimatedTime = Estimated Time
+authenticated.practicum.list.label.company = Company
+authenticated.practicum.list.label.course = Course

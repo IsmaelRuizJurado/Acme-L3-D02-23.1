@@ -1,30 +1,24 @@
 
 package acme.form;
 
-import javax.validation.constraints.PositiveOrZero;
-
-import acme.framework.data.AbstractForm;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class Stats extends AbstractForm {
-
-	// Serialisation identifier -----------------------------------------------
-
-	protected static final long	serialVersionUID	= 1L;
+@AllArgsConstructor
+public class Stats {
 
 	// Attributes -------------------------------------------------------------
-	private Double				average;
+	int		count;
 
-	private Double				deviation;
+	double	average;
 
-	private Double				minimum;
+	double	deviation;
 
-	private Double				maximum;
+	double	minimum;
 
-	@PositiveOrZero
-	private Integer				entity_count;//Counts how many entities are.
+	double	maximum;
 
 }

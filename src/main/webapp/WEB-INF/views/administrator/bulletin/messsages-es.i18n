@@ -1,5 +1,7 @@
-authenticated.bulletin.form.label.title = Título
-authenticated.bulletin.form.label.message = Mensaje
-authenticated.bulletin.form.label.critical = Crítico
-authenticated.bulletin.form.label.link = Link
-authenticated.bulletin.form.label.moment = Momento de Instantiación.
+administrator.bulletin.form.label.title = Título
+administrator.bulletin.form.label.message = Mensaje
+administrator.bulletin.form.label.critical = Crítico
+administrator.bulletin.form.label.link = Link
+administrator.bulletin.form.label.moment = Momento de Instantiación
+administrator.bulletin.form.label.confirm = CONFIRMO que quiero postear este boletín (no podrás editarlo ni borrarlo luego).
+administrator.bulletin.form.error.confirmation-not-match = Por favor, confirme esta acción
