@@ -1,0 +1,5 @@
+authenticated.bulletin.form.label.title = Título
+authenticated.bulletin.form.label.message = Mensaje
+authenticated.bulletin.form.label.critical = Crítico
+authenticated.bulletin.form.label.link = Link
+authenticated.bulletin.form.label.moment = Momento de Instantiación.
