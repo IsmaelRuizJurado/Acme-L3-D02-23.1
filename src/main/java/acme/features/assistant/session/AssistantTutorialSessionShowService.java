@@ -40,7 +40,7 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 		session = this.repository.findTutorialSessionById(sessionId);
 		tutorial = this.repository.findTutorialByTutorialSessionId(sessionId);
 		assistant = session == null ? null : session.getTutorial().getAssistant();
-		status = session != null && (!tutorial.isDraftMode() || principal.hasRole(assistant));
+		status = session != null && (!tutorial.isDraftMode() || principal.hasRole(assistant)) && assistant.getId() == principal.getActiveRoleId();
 		super.getResponse().setAuthorised(status);
 	}
 

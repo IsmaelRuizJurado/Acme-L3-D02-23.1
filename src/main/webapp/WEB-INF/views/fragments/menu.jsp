@@ -24,6 +24,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-ismruijur" action="https://play.pokemonshowdown.com"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-pedruiagu1" action="https://www.youtube.com/watch?v=5VVu3rdBPdA"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-jesus" action="https://openai.com/blog/chatgpt/"/>
+			<acme:menu-suboption code="any.menu.peep.list" action="/any/peep/list"/>
 			
 
 		</acme:menu-option>
@@ -46,11 +47,12 @@
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
-		<acme:menu-option code="master.menu.authenticated.assistant" access="isAuthenticated()">
+		<acme:menu-option code="master.menu.authenticated.assistant" access="hasRole('Assistant')">
 			<acme:menu-suboption code="master.menu.assistant.tutorial.list-mine" action="/assistant/tutorial/list-mine"/>
-			<acme:menu-suboption code="master.menu.assistant.tutorial.list-all" action="/assistant/tutorial/list-all"/>	
 		</acme:menu-option>
-		<acme:menu-option code="any.menu.peep.list" action="/any/peep/list"/>
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="any.menu.peep.list" action="/any/peep/list"/>
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>

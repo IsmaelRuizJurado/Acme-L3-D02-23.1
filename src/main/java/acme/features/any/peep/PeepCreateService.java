@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Peep;
+import acme.framework.components.accounts.Anonymous;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.accounts.UserAccount;
@@ -62,6 +63,10 @@ public class PeepCreateService extends AbstractService<Any, Peep> {
 	@Override
 	public void validate(final Peep object) {
 		assert object != null;
+		Principal principal;
+		principal = super.getRequest().getPrincipal();
+		if (!principal.hasRole(Anonymous.class))
+			super.state(object.getNick().isEmpty(), "nick", "PONGAN ALGO");
 	}
 
 	@Override
