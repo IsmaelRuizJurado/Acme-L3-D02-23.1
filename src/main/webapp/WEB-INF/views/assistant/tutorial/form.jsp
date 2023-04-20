@@ -18,7 +18,7 @@
 <acme:form> 
 	<acme:input-textbox code="assistant.tutorial.form.label.code" path="code"/>
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>
-	<acme:input-textarea code="assistant.tutorial.form.label.abstractTutorial" path="abstractt"/>
+	<acme:input-textarea code="assistant.tutorial.form.label.abstractt" path="abstractt"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
 	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
 	<jstl:choose>	

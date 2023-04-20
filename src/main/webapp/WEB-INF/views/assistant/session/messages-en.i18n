@@ -21,6 +21,8 @@ assistant.session.form.button.delete = Delete
 
 assistant.session.list.label.title = Title
 assistant.session.list.label.abstractt = Abstract
+assistant.session.list.label.startPeriod= Start Period
+assistant.session.list.label.finishPeriod=Finish Period
 
 assistant.session.list.button.create = Create
 
