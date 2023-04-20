@@ -1,0 +1,19 @@
+student.activity.list.label.title = Título
+student.activity.list.label.startPeriod = Fecha Comienzo
+student.activity.list.label.finishPeriod = Fecha Final
+student.activity.list.label.indication = Indicación
+
+student.activity.list.button.create = Create
+
+student.activity.form.label.title = Título:
+student.activity.form.label.abstractt = Resumen:
+student.activity.form.label.startPeriod = Fecha Comienzo:
+student.activity.form.label.finishPeriod = Fecha Final:
+student.activity.form.label.link = Further information:
+student.activity.form.label.indication = Indicación:
+student.activity.form.label.practicum = Enrolamiento:
+
+student.activity.form.button.create = Crear
+student.activity.form.button.update = Actualizar
+student.activity.form.button.delete = Borrar
+student.activity.form.button.confirm = Confirmar sesión de enrolamiento excepcional

@@ -50,7 +50,7 @@ master.menu.consumer.favourite-link = Favourite link
 # master.menu.student ##########################################################
 
 master.menu.student = Student
-master.menu.student.favourite-link = Favourite link
+master.menu.student.enrolment = Enrolments
 
 # master.menu.user-account ####################################################
 

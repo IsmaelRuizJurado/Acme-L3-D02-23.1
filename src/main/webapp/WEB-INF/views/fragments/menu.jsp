@@ -46,8 +46,13 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
-			<acme:menu-suboption code="master.menu.student.favourite-link" action="http://www.example.com/"/>
+			<acme:menu-suboption code="master.menu.student.enrolment" action="/student/enrolment/list"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated() && !(hasRole('Student'))">
+			<acme:menu-suboption code="master.menu.authenticated.enrolment" action="/authenticated/enrolment/list"/>
+		</acme:menu-option>
+		
 	</acme:menu-left>
 
 	<acme:menu-right>

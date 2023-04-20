@@ -44,6 +44,8 @@ public class Enrolment extends AbstractEntity {
 	@PositiveOrZero
 	protected Double			workTime;
 
+	protected boolean			finalised;
+
 	// Derived attributes -----------------------------------------------------
 	// Relations -----------------------------------------------------
 	@Valid

@@ -1,0 +1,19 @@
+student.activity.list.label.title = Title
+student.activity.list.label.startPeriod = Start date
+student.activity.list.label.finishPeriod = Finish date
+student.activity.list.label.indication = Indication
+
+student.activity.list.button.create = Create
+
+student.activity.form.label.title = Title:
+student.activity.form.label.abstractt = Abstract:
+student.activity.form.label.startPeriod = Start date:
+student.activity.form.label.finishPeriod = Finish date:
+student.activity.form.label.link = Further information:
+student.activity.form.label.indication = Indication:
+student.activity.form.label.practicum = Enrolment:
+
+student.activity.form.button.create = Create
+student.activity.form.button.update = Update
+student.activity.form.button.delete = Delete
+student.activity.form.button.confirm = Confirm exceptional enrolment session

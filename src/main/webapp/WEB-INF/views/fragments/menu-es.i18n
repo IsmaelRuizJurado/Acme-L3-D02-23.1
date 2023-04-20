@@ -47,7 +47,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 # master.menu.student ##########################################################
 
 master.menu.student = Estudiante
-master.menu.student.favourite-link = Enlace favorito
+master.menu.student.enrolment = Enrolamientos
 
 # master.menu.user-account ####################################################
 
