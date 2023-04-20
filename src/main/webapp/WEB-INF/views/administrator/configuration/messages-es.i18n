@@ -11,3 +11,4 @@
 administrator.configuration.form.label.systemCurrency = Moneda por defecto:
 administrator.configuration.form.label.aceptedCurrencies = Monedas aceptadas:
 administrator.configuration.form.button.update = Actualizar
+administrator.configuration.acceptedCurrencies=La moneda por defecta debe ser una aceptada

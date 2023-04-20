@@ -1,5 +1,5 @@
 key,moment,title,nick,message,email,link
-peep-01,2021/02/05 23:59,"Educational Announcement","lecturer1","We have added a new educational offer for the next academic course.It's about a master on Analisis of Data ","note-01@acme.com",null
+peep-01,2021/02/05 23:59,"Educational Announcement","lecturer1","We have added a new educational offer for the next academic course.","note-01@acme.com",null
 peep-02,2021/03/12 00:00,"New Educational Announcement","lecturer2","We have added a new educational offer for the next academic course.It's about a master on Big Data","note-02@acme.com",null
 peep-03,2021/05/12 00:01,"New Educational Announcement","lecturer3","We have added a new educational offer for the next academic course.It's about a master on Big Data","note-03@acme.com",null
 peep-04,2022/07/30 00:00,"New Educational Announcement","lecturer4","We have added a new educational offer for the next academic course.It's about a master on Big Data","note-04@acme.com",null
