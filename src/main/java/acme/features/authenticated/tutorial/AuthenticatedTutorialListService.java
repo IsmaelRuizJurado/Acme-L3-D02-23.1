@@ -44,7 +44,8 @@ public class AuthenticatedTutorialListService extends AbstractService<Authentica
 	public void unbind(final Tutorial object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "title", "abstractt", "goals");
+		tuple = super.unbind(object, "code", "title", "abstractt", "goals", "course");
+		tuple.put("course", object.getCourse().getCode());
 		super.getResponse().setData(tuple);
 	}
 

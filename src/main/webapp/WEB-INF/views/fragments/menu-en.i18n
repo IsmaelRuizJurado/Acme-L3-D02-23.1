@@ -67,3 +67,4 @@ master.menu.user-account.become-assistant = Become an assistant
 # master.menu.any ####################################################
 any.menu.peep.list=Peeps
 master.menu.authenticated=Authenticated
+authenticated.menu.tutorial.list=Tutorial's list

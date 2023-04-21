@@ -64,3 +64,4 @@ master.menu.assistant.tutorial.list-all = Listar todos los tutoriales
 # master.menu.any ####################################################
 any.menu.peep.list=Comentarios
 master.menu.authenticated=Atenticado
+authenticated.menu.tutorial.list=Listado de Tutoriales
