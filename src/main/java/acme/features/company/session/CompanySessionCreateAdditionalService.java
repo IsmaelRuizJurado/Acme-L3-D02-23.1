@@ -16,17 +16,17 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanySessionConfirmService extends AbstractService<Company, PracticumSession> {
+public class CompanySessionCreateAdditionalService extends AbstractService<Company, PracticumSession> {
 
 	@Autowired
-	private CompanySessionRepository repository;
+	protected CompanySessionRepository repository;
 
 
 	@Override
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("masterId", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -34,26 +34,16 @@ public class CompanySessionConfirmService extends AbstractService<Company, Pract
 	@Override
 	public void authorise() {
 		boolean status;
-		int psId;
-		PracticumSession object;
-		Practicum p;
+		int practicumId;
+		Practicum practicum;
+		Principal principal;
 
-		psId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneSessionById(psId);
-		p = this.repository.findOnePracticumBySessionId(psId);
+		principal = super.getRequest().getPrincipal();
+		practicumId = super.getRequest().getData("masterId", int.class);
+		practicum = this.repository.findOnePracticumById(practicumId);
 		status = false;
-
-		if (p != null && object != null) {
-			Principal principal;
-			boolean hasExtraAvailable;
-			boolean isPublishedAndHasExtraAvailable;
-
-			principal = super.getRequest().getPrincipal();
-			hasExtraAvailable = this.repository.findManySessionByExtraAvailableAndPracticumId(p.getId()).isEmpty();
-			isPublishedAndHasExtraAvailable = !object.isConfirmed() && !p.isDraftMode() && hasExtraAvailable;
-
-			status = isPublishedAndHasExtraAvailable && principal.hasRole(p.getCompany());
-		}
+		if (practicum != null)
+			status = principal.hasRole(practicum.getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -61,11 +51,16 @@ public class CompanySessionConfirmService extends AbstractService<Company, Pract
 	@Override
 	public void load() {
 		PracticumSession object;
-		int psId;
+		int practicumId;
+		Practicum practicum;
 
-		psId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneSessionById(psId);
-		object.setConfirmed(true);
+		practicumId = super.getRequest().getData("masterId", int.class);
+		practicum = this.repository.findOnePracticumById(practicumId);
+
+		object = new PracticumSession();
+		object.setPracticum(practicum);
+		object.setAdditional(!practicum.isDraftMode());
+		object.setConfirmed(practicum.isDraftMode());
 
 		super.getBuffer().setData(object);
 	}
@@ -74,7 +69,7 @@ public class CompanySessionConfirmService extends AbstractService<Company, Pract
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstractt", "description", "startPeriod", "endPeriod", "link");
+		super.bind(object, "code", "title", "abstractt", "startPeriod", "endPeriod", "link", "confirmed");
 	}
 
 	@Override
@@ -83,14 +78,9 @@ public class CompanySessionConfirmService extends AbstractService<Company, Pract
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			boolean isUnique;
-			int psId;
-			PracticumSession old;
 
-			psId = super.getRequest().getData("id", int.class);
-			old = this.repository.findOneSessionById(psId);
-			isUnique = this.repository.findManySessionByCode(object.getCode()).isEmpty() || old.getCode().equals(object.getCode());
-
-			super.state(isUnique, "code", "company.practicum.form.error.not-unique-code");
+			isUnique = this.repository.findManySessionByCode(object.getCode()).isEmpty();
+			super.state(isUnique, "code", "company.practicumSession.form.error.not-unique-code");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod") || !super.getBuffer().getErrors().hasErrors("endPeriod")) {
@@ -98,16 +88,22 @@ public class CompanySessionConfirmService extends AbstractService<Company, Pract
 			Date end;
 			Date inAWeekFromNow;
 			Date inAWeekFromStart;
+			boolean c;
 
 			start = object.getStartPeriod();
 			end = object.getEndPeriod();
 			inAWeekFromNow = MomentHelper.deltaFromCurrentMoment(1, ChronoUnit.WEEKS);
 			inAWeekFromStart = MomentHelper.deltaFromMoment(start, 1, ChronoUnit.WEEKS);
 
+			c = object.isConfirmed();
+
 			if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
 				super.state(MomentHelper.isAfter(start, inAWeekFromNow), "startPeriod", "company.practicumSession.error.start-after-now");
 			if (!super.getBuffer().getErrors().hasErrors("endPeriod"))
 				super.state(MomentHelper.isAfter(end, inAWeekFromStart), "endPeriod", "company.practicumSession.error.end-after-start");
+
+			if (!super.getBuffer().getErrors().hasErrors("confirmed"))
+				super.state(c, "confirmed", "company.practicumSession.form.error.not-confirmed-additional-session");
 		}
 	}
 
@@ -115,7 +111,6 @@ public class CompanySessionConfirmService extends AbstractService<Company, Pract
 	public void perform(final PracticumSession object) {
 		assert object != null;
 
-		object.setConfirmed(true);
 		this.repository.save(object);
 	}
 
@@ -124,9 +119,13 @@ public class CompanySessionConfirmService extends AbstractService<Company, Pract
 		assert object != null;
 
 		Tuple tuple;
+		final boolean isExtra = true;
 
 		tuple = super.unbind(object, "code", "title", "abstractt", "startPeriod", "endPeriod", "link", "additional", "confirmed");
 		tuple.put("masterId", object.getPracticum().getId());
+		tuple.put("isExtra", isExtra);
 		tuple.put("draftMode", object.getPracticum().isDraftMode());
+
+		super.getResponse().setData(tuple);
 	}
 }

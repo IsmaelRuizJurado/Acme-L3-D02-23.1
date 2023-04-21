@@ -78,7 +78,7 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 			psId = super.getRequest().getData("id", int.class);
 			old = this.repository.findOneSessionById(psId);
 			isUnique = this.repository.findManySessionByCode(object.getCode()).isEmpty() || old.getCode().equals(object.getCode());
-			super.state(isUnique, "code", "company.practicum.form.error.not-unique-code");
+			super.state(isUnique, "code", "company.practicumSession.form.error.not-unique-code");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod") || !super.getBuffer().getErrors().hasErrors("endPeriod")) {

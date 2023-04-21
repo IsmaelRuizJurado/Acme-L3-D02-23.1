@@ -36,7 +36,7 @@
 //
 //		principal = super.getRequest().getPrincipal();
 //		userAccountId = principal.getAccountId();
-//		company = this.repository.findOneCompanyByUserAccountId(userAccountId);
+//		company = this.repository.findCompanyByUserAccountId(userAccountId);
 //
 //		status = company != null && principal.hasRole(Company.class);
 //
@@ -69,7 +69,7 @@
 //
 //		principal = super.getRequest().getPrincipal();
 //		userAccountId = principal.getAccountId();
-//		company = this.repository.findOneCompanyByUserAccountId(userAccountId);
+//		company = this.repository.findCompanyByUserAccountId(userAccountId);
 //		companyId = company.getId();
 //
 //		averageSessionLength = this.repository.findAverageSessionLength(companyId);
@@ -77,14 +77,14 @@
 //		minimumSessionLength = this.repository.findMinimumSessionLength(companyId);
 //		maximumSessionLength = this.repository.findMaximumSessionLength(companyId);
 //		countSession = this.repository.findCountSession(companyId);
-//		sessionLength = new Stats(countSession, averageSessionLength, deviationSessionLength, minimumSessionLength, maximumSessionLength);
+//		sessionLength = new Stats(countSession, averageSessionLength, maximumSessionLength, minimumSessionLength, deviationSessionLength);
 //
 //		averagePracticaLength = this.repository.findAveragePracticaLength(companyId);
 //		deviationPracticaLength = this.repository.findDeviationPracticaLength(companyId);
 //		minimumPracticaLength = this.repository.findMinimumPracticaLength(companyId);
 //		maximumPracticaLength = this.repository.findMaximumPracticaLength(companyId);
 //		countPractica = this.repository.findCountPractica(companyId);
-//		practicaLength = new Stats(countPractica, averagePracticaLength, deviationPracticaLength, minimumPracticaLength, maximumPracticaLength);
+//		practicaLength = new Stats(countPractica, averagePracticaLength, maximumPracticaLength, minimumPracticaLength, deviationPracticaLength);
 //
 //		totalNumberOfPracticaByMonth = this.repository.findTotalNumberOfPracticaByMonth(companyId).stream().collect(Collectors.toMap(key -> Month.of((int) key[0]).toString(), value -> (long) value[1]));
 //

@@ -4,7 +4,6 @@ administrator.banner.list.label.endDisplayPeriod = Fin de Muestra
 
 administrator.banner.list.button.create = Crear
 
-administrator.banner.form.label.moment = Momento de creación:
 administrator.banner.form.label.startDisplayPeriod = Inicio Periodo de Muestra:
 administrator.banner.form.label.endDisplayPeriod = Fin Periodo de Muestra:
 administrator.banner.form.label.slogan = Eslogan:
@@ -15,3 +14,5 @@ administrator.banner.form.button.update = Actualizar
 administrator.banner.form.button.delete = Eliminar
 
 administrator.banner.form.button.create = Crear
+
+administrator.banner.error.end-after-start = El final del periodo debe ser anterior al inicio

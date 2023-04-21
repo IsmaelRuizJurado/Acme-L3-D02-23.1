@@ -39,6 +39,7 @@ public class CompanySessionShowService extends AbstractService<Company, Practicu
 		sessionPracticumId = super.getRequest().getData("id", int.class);
 		sessionPracticum = this.repository.findOneSessionById(sessionPracticumId);
 		practicum = this.repository.findOnePracticumBySessionId(sessionPracticumId);
+
 		status = practicum != null && (!practicum.isDraftMode() && sessionPracticum.isConfirmed() || principal.hasRole(practicum.getCompany()));
 
 		super.getResponse().setAuthorised(status);

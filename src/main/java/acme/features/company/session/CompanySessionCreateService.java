@@ -36,18 +36,15 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 		boolean status;
 		int practicumId;
 		Practicum practicum;
-		boolean hasExtraAvailable;
 		Principal principal;
 
 		principal = super.getRequest().getPrincipal();
 		practicumId = super.getRequest().getData("masterId", int.class);
 		practicum = this.repository.findOnePracticumById(practicumId);
 		status = false;
+		if (practicum != null)
+			status = principal.hasRole(practicum.getCompany());
 
-		if (practicum != null) {
-			hasExtraAvailable = this.repository.findManySessionByExtraAvailableAndPracticumId(practicum.getId()).isEmpty();
-			status = (practicum.isDraftMode() || hasExtraAvailable) && principal.hasRole(practicum.getCompany());
-		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -83,7 +80,7 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 			boolean isUnique;
 
 			isUnique = this.repository.findManySessionByCode(object.getCode()).isEmpty();
-			super.state(isUnique, "code", "company.practicum.form.error.not-unique-code");
+			super.state(isUnique, "code", "company.practicumSession.form.error.not-unique-code");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod") || !super.getBuffer().getErrors().hasErrors("endPeriod")) {
