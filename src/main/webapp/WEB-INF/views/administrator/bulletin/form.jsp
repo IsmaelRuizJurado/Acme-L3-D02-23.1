@@ -10,5 +10,5 @@
 	<acme:input-textbox code="administrator.bulletin.form.label.link" path="link"/>
 	<acme:input-textbox code="administrator.bulletin.form.label.moment" path="moment" readonly="true"/>
 	<acme:input-checkbox code="administrator.bulletin.form.label.confirm" path="confirmation"/>
-	<acme:submit code="submi" action="/administrator/bulletin/create"/>
+	<acme:submit code="administrator.bulletin.form.submit" action="/administrator/bulletin/create"/>
 </acme:form>
