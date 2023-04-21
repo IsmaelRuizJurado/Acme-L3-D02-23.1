@@ -1,0 +1,5 @@
+auditor.audit.list.label.code = Código
+auditor.audit.list.label.mark = Nota
+auditor.audit.list.label.strongPoints = Puntos Fuertes
+auditor.audit.list.label.weakPoints = Puntos Débiles
+auditor.audit.list.label.conclusion = Conclusión
