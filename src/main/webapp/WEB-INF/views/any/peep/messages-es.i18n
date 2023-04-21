@@ -1,4 +1,4 @@
-# messages-en.i18n
+# messages-es.i18n
 #
 # Copyright (C) 2012-2023 Rafael Corchuelo.
 #
@@ -7,9 +7,14 @@
 # this software. It has been tested carefully, but it is not guaranteed for any particular
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
+any.peep.list.label.title=Titulo
+any.peep.list.label.message=Mensaje
+any.peep.form.label.moment=Momento de Creacion
+any.peep.form.label.title=Titulo
+any.peep.form.label.nick=Usuario
+any.peep.form.label.message=Mensaje
+any.peep.form.label.email=Correo electronico
+any.peep.form.label.link=Link
+any.peep.form.button.create=Crear
 
-authenticated.provider.form.label.company = Company: 
-authenticated.provider.form.label.sector = Sector:
-
-authenticated.provider.form.button.create = Register
-authenticated.provider.form.button.update = Update
+any.peep.nick-must-be-fill=El usuario no puede dejarse en blanco

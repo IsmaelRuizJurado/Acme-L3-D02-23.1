@@ -38,6 +38,7 @@ master.menu.administrator.bulletin = Post new Bulletin
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.configuration = Show system configuration
 
 # master.menu.company ########################################################
 
@@ -74,5 +75,17 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+
+# master.menu.authenticated.assistant ####################################################
+master.menu.authenticated.assistant= Assistant
+master.menu.assistant.tutorial.list-mine = List my tutorials
+master.menu.assistant.tutorial.list-all = List all tutorials
+master.menu.user-account.assistant = Assistant data
+master.menu.user-account.become-assistant = Become an assistant
+
+# master.menu.any ####################################################
+any.menu.peep.list=Peeps
+master.menu.authenticated=Authenticated
+authenticated.menu.tutorial.list=Tutorial's list
 master.menu.user-account.become-company = Become a company
 master.menu.user-account.company= Company data

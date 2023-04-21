@@ -8,8 +8,14 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.provider.form.label.company = Company: 
-authenticated.provider.form.label.sector = Sector:
+any.peep.list.label.title=Title
+any.peep.list.label.message=Message
+any.peep.form.label.moment=Instantiation Moment
+any.peep.form.label.title=Title
+any.peep.form.label.nick=Nick
+any.peep.form.label.message=Message
+any.peep.form.label.email=Email
+any.peep.form.label.link=Link
+any.peep.form.button.create=Create
 
-authenticated.provider.form.button.create = Register
-authenticated.provider.form.button.update = Update
+any.peep.nick-must-be-fill=Nick cant be blank

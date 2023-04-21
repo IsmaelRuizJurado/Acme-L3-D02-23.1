@@ -1,4 +1,4 @@
-# messages-en.i18n
+# messages-es.i18n
 #
 # Copyright (C) 2012-2023 Rafael Corchuelo.
 #
@@ -8,8 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.provider.form.label.company = Company: 
-authenticated.provider.form.label.sector = Sector:
-
-authenticated.provider.form.button.create = Register
-authenticated.provider.form.button.update = Update
+administrator.configuration.form.label.systemCurrency = Moneda por defecto:
+administrator.configuration.form.label.aceptedCurrencies = Monedas aceptadas:
+administrator.configuration.form.button.update = Actualizar
+administrator.configuration.acceptedCurrencies=La moneda por defecta debe ser una aceptada
+administrator.configuration.acceptedCurrencies-Default-ones=Las monedas aceptadas deben contener las predeterminadas(USD,EUR,GBP)
