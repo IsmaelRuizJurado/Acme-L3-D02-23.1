@@ -11,13 +11,13 @@
 	<acme:input-double code="student.enrolment.form.label.workTime" path="workTime"/>
 	
 	<jstl:choose>
-		<jstl:when test="${_command == 'show' && finalised == false}">
+		<jstl:when test="${_command == 'show' && finalised == true}">
 			<acme:button code="student.enrolment.form.button.activities" action="/student/activity/list?masterId=${id}"/>			
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && finalised == true}">
-			<acme:button code="student.enrolment.form.button.activities" action="/student/activity/list?masterId=${id}"/>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|finalise') && finalised == false}">
 			<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
 			<acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
+			<acme:submit code="student.enrolment.form.button.finalise" action="/student/enrolment/finalise"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="student.enrolment.form.button.create" action="/student/enrolment/create"/>

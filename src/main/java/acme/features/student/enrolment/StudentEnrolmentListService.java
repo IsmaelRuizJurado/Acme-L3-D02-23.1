@@ -50,7 +50,7 @@ public class StudentEnrolmentListService extends AbstractService<Student, Enrolm
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "workTime");
+		tuple = super.unbind(object, "code", "goals", "motivation", "workTime");
 		if (object.getCourse() == null)
 			tuple.put("courseCode", "None");
 		else

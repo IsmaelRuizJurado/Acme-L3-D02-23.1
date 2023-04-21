@@ -15,7 +15,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentPublishService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentFinaliseService extends AbstractService<Student, Enrolment> {
 
 	@Autowired
 	protected StudentEnrolmentRepository repository;
@@ -80,7 +80,7 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 	public void perform(final Enrolment object) {
 		assert object != null;
 
-		object.setFinalised(false);
+		object.setFinalised(true);
 		this.repository.save(object);
 	}
 
