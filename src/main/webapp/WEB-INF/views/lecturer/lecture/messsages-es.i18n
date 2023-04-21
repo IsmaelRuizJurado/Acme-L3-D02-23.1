@@ -1,0 +1,11 @@
+lecturer.lecture.label.title = Titulo de la clase
+lecturer.lecture.label.abstractt = Abstracto
+lecturer.lecture.label.body = Cuerpo
+lecturer.lecture.label.lectureType = Tipo de Clase
+lecturer.lecture.label.learningTime = Tiempo de aprendizaje en horas
+lecturer.lecture.label.link = Link
+
+lecturer.lecture.button.create = Crear
+lecturer.lecture.button.update = Actualizar
+lecturer.lecture.button.delete = Borrar
+lecturer.course-lecture.button.add = Añadir
