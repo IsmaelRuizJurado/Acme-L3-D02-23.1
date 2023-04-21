@@ -53,7 +53,9 @@ public class Course extends AbstractEntity {
 	@URL
 	protected String			link;
 
+
 	protected boolean			borrador;
+
 
 	// Derived attributes -----------------------------------------------------
 

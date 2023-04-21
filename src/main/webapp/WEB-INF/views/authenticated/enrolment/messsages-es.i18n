@@ -1,0 +1,12 @@
+authenticated.enrolment.form.label.code = Código:
+authenticated.enrolment.form.label.motivation = Motivación:
+authenticated.enrolment.form.label.goals = Metas:
+authenticated.enrolment.form.label.workTime = Tiempo de Trabajo:
+authenticated.enrolment.form.label.course = Curso:
+authenticated.enrolment.form.label.student = Estudiante:
+
+authenticated.enrolment.list.label.code = Código
+authenticated.enrolment.list.label.motivation = Motivación
+authenticated.enrolment.list.label.goals = Metas
+authenticated.enrolment.list.label.student = Estudiante
+authenticated.enrolment.list.label.course = Curso
