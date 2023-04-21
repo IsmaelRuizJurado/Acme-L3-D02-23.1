@@ -18,7 +18,7 @@
 <acme:form>
 	<acme:input-textbox code="assistant.session.form.label.title" path="title"/>
 	<acme:input-textarea code="assistant.session.form.label.abstractt" path="abstractt"/>
-	<acme:input-textbox code="assistant.session.form.label.type" path="type"/>
+	<acme:input-select code="assistant.session.form.label.type" path="type" choices="${type}"/>
 	<acme:input-moment code="assistant.session.form.label.startPeriod" path="startPeriod"/>
 	<acme:input-moment code="assistant.session.form.label.finishPeriod" path="finishPeriod"/>
 	<acme:input-url code="assistant.session.form.label.link" path="link"/>

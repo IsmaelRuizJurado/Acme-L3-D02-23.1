@@ -66,7 +66,7 @@ public class PeepCreateService extends AbstractService<Any, Peep> {
 		Principal principal;
 		principal = super.getRequest().getPrincipal();
 		if (!principal.hasRole(Anonymous.class))
-			super.state(object.getNick().isEmpty(), "nick", "PONGAN ALGO");
+			super.state(!object.getNick().isEmpty(), "nick", "any.peep.nick-must-be-fill");
 	}
 
 	@Override

@@ -49,6 +49,7 @@ public class ConfigurationUpdateService extends AbstractService<Administrator, C
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("acceptedCurrencies"))
 			super.state(object.getAcceptedCurrencies().contains(object.getSystemCurrency()), "acceptedCurrencies", "administrator.configuration.acceptedCurrencies");
+		super.state(object.getAcceptedCurrencies().contains("EUR") && object.getAcceptedCurrencies().contains("USD") && object.getAcceptedCurrencies().contains("GBP"), "acceptedCurrencies", "administrator.configuration.acceptedCurrencies-Default-ones");
 	}
 
 	@Override

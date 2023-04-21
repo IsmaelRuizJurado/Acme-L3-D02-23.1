@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Tutorial;
 import acme.entities.sessions.Session;
+import acme.entities.sessions.SessionType;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
@@ -57,8 +59,11 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 	public void unbind(final Session tutorialSession) {
 		assert tutorialSession != null;
 		Tuple tuple;
+		SelectChoices choices;
+		choices = SelectChoices.from(SessionType.class, tutorialSession.getType());
 		tuple = super.unbind(tutorialSession, "title", "abstractt", "type", "startPeriod", "finishPeriod", "link", "draftMode");
 		tuple.put("masterId", super.getRequest().getData("id", int.class));
+		tuple.put("type", choices);
 		tuple.put("draftMode", !tutorialSession.getTutorial().isDraftMode() && tutorialSession.isDraftMode());
 		super.getResponse().setData(tuple);
 	}

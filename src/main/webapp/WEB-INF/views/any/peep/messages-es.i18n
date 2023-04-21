@@ -16,3 +16,5 @@ any.peep.form.label.message=Mensaje
 any.peep.form.label.email=Correo electronico
 any.peep.form.label.link=Link
 any.peep.form.button.create=Crear
+
+any.peep.nick-must-be-fill=El usuario no puede dejarse en blanco

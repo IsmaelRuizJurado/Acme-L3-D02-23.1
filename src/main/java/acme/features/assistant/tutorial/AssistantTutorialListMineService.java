@@ -28,6 +28,7 @@ public class AssistantTutorialListMineService extends AbstractService<Assistant,
 
 	@Override
 	public void authorise() {
+
 		super.getResponse().setAuthorised(true);
 	}
 

@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Tutorial;
 import acme.entities.sessions.Session;
+import acme.entities.sessions.SessionType;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -37,11 +39,13 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		boolean status;
 		Principal principal;
 		Tutorial tutorial;
+		final Assistant assistant;
 		int tutorialId;
 		tutorialId = super.getRequest().getData("masterId", int.class);
 		tutorial = this.repository.findTutorialById(tutorialId);
 		principal = super.getRequest().getPrincipal();
-		status = tutorial != null && (tutorial.isDraftMode() || principal.hasRole(Assistant.class));
+		assistant = tutorial == null ? null : tutorial.getAssistant();
+		status = tutorial != null && (tutorial.isDraftMode() || principal.hasRole(Assistant.class)) && assistant.getId() == principal.getActiveRoleId();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -97,8 +101,11 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 	public void unbind(final Session tutorialSession) {
 		assert tutorialSession != null;
 		Tuple tuple;
+		SelectChoices choices;
+		choices = SelectChoices.from(SessionType.class, tutorialSession.getType());
 		tuple = super.unbind(tutorialSession, "title", "abstractt", "type", "startPeriod", "finishPeriod", "link", "draftMode");
 		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
+		tuple.put("type", choices);
 		tuple.put("draftMode", !tutorialSession.getTutorial().isDraftMode() && tutorialSession.isDraftMode());
 		super.getResponse().setData(tuple);
 	}

@@ -18,6 +18,7 @@ assistant.session.form.label.link = Enlace
 assistant.session.form.button.create = Crear
 assistant.session.form.button.update = Actualizar
 assistant.session.form.button.delete = Borrar
+assistant.session.form.button.publish= Publicar
 
 assistant.session.list.label.title = Título
 assistant.session.list.label.abstractt = Abstracto

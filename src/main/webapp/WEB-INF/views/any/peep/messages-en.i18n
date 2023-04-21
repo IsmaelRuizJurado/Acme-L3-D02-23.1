@@ -17,3 +17,5 @@ any.peep.form.label.message=Message
 any.peep.form.label.email=Email
 any.peep.form.label.link=Link
 any.peep.form.button.create=Create
+
+any.peep.nick-must-be-fill=Nick cant be blank
