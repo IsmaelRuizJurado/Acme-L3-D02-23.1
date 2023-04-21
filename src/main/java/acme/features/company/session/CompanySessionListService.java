@@ -32,14 +32,14 @@ public class CompanySessionListService extends AbstractService<Company, Practicu
 	@Override
 	public void authorise() {
 		boolean status;
-		int pId;
-		Practicum p;
+		int practicumId;
+		Practicum practicum;
 		Principal principal;
 
 		principal = super.getRequest().getPrincipal();
-		pId = super.getRequest().getData("masterId", int.class);
-		p = this.repository.findOnePracticumById(pId);
-		status = p != null && (!p.isDraftMode() || principal.hasRole(p.getCompany()));
+		practicumId = super.getRequest().getData("masterId", int.class);
+		practicum = this.repository.findOnePracticumById(practicumId);
+		status = practicum != null && (!practicum.isDraftMode() || principal.hasRole(practicum.getCompany()));
 
 		super.getResponse().setAuthorised(status);
 	}

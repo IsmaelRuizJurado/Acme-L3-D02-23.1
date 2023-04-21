@@ -4,7 +4,6 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-moment code="administrator.banner.form.label.moment" path="moment"/>
 	<acme:input-moment code="administrator.banner.form.label.startDisplayPeriod" path="startDisplayPeriod"/>
 	<acme:input-moment code="administrator.banner.form.label.endDisplayPeriod" path="endDisplayPeriod"/>
 	<acme:input-textbox code="administrator.banner.form.label.slogan" path="slogan"/>

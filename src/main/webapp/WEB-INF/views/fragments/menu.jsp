@@ -54,9 +54,6 @@
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.bulletins" action="/authenticated/bulletin/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.auditor" action="/authenticated/auditor/create"/>
-		</acme:menu-option>
-		
-		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated() && !(hasRole('Company'))">
 			<acme:menu-suboption code="master.menu.authenticated.practicum" action="/authenticated/practicum/list"/>
 		</acme:menu-option>
 

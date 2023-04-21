@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Banner;
 import acme.framework.components.accounts.Administrator;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
@@ -30,7 +31,13 @@ public class AdministratorBannerShowService extends AbstractService<Administrato
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status = false;
+		final Principal principal = super.getRequest().getPrincipal();
+
+		if (principal.hasRole(Administrator.class))
+			status = true;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

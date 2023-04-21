@@ -14,22 +14,22 @@ import acme.roles.Company;
 public class CompanySessionController extends AbstractController<Company, PracticumSession> {
 
 	@Autowired
-	protected CompanySessionListService		listService;
+	protected CompanySessionListService				listService;
 
 	@Autowired
-	protected CompanySessionShowService		showService;
+	protected CompanySessionShowService				showService;
 
 	@Autowired
-	protected CompanySessionCreateService	createService;
+	protected CompanySessionCreateService			createService;
 
 	@Autowired
-	protected CompanySessionUpdateService	updateService;
+	protected CompanySessionUpdateService			updateService;
 
 	@Autowired
-	protected CompanySessionDeleteService	deleteService;
+	protected CompanySessionDeleteService			deleteService;
 
 	@Autowired
-	private CompanySessionConfirmService	confirmService;
+	protected CompanySessionCreateAdditionalService	createAdditionalService;
 
 
 	@PostConstruct
@@ -39,6 +39,6 @@ public class CompanySessionController extends AbstractController<Company, Practi
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
-		super.addCustomCommand("confirm", "update", this.confirmService);
+		super.addCustomCommand("createAdditional", "create", this.createAdditionalService);
 	}
 }

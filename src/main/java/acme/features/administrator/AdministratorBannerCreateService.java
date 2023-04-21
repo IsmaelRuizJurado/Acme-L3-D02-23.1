@@ -1,12 +1,16 @@
 
 package acme.features.administrator;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Banner;
 import acme.framework.components.accounts.Administrator;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -23,7 +27,13 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status = false;
+		final Principal principal = super.getRequest().getPrincipal();
+
+		if (principal.hasRole(Administrator.class))
+			status = true;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -31,6 +41,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 		Banner object;
 
 		object = new Banner();
+		object.setMoment(MomentHelper.getCurrentMoment());
 
 		super.getBuffer().setData(object);
 	}
@@ -45,11 +56,23 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("startDisplayPeriod") || !super.getBuffer().getErrors().hasErrors("endDisplayPeriod")) {
+			Date start;
+			Date end;
+
+			start = object.getStartDisplayPeriod();
+			end = object.getEndDisplayPeriod();
+
+			if (!super.getBuffer().getErrors().hasErrors("endDisplayPeriod") && !super.getBuffer().getErrors().hasErrors("startDisplayPeriod"))
+				super.state(MomentHelper.isAfter(end, start), "endDisplayPeriod", "administrator.banner.error.end-after-start");
+		}
 	}
 
 	@Override
 	public void perform(final Banner object) {
 		assert object != null;
+
+		object.setMoment(MomentHelper.getCurrentMoment());
 
 		this.repository.save(object);
 	}
