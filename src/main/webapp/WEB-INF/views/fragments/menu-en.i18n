@@ -64,6 +64,7 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.bulletins = Bulletins
+master.menu.authenticated.auditor = Sign Up as Auditor
 
 # master.menu.user-account ####################################################
 

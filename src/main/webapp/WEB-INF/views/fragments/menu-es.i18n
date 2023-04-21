@@ -46,6 +46,7 @@ master.menu.company.practicumSession = Sesiones de Prácticas
 
 master.menu.authenticated = Autentificado
 master.menu.authenticated.practicum = Prácticas
+master.menu.authenticated.auditor = Registrarse como Auditor
 
 # master.menu.provider ########################################################
 
