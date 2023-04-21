@@ -3,6 +3,7 @@ package acme.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -10,6 +11,7 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -29,9 +31,6 @@ public class PracticumSession extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotNull
-	protected Date				moment;
-
 	@NotBlank
 	@Length(min = 1, max = 75)
 	protected String			title;
@@ -41,16 +40,24 @@ public class PracticumSession extends AbstractEntity {
 	protected String			abstractt;
 
 	@NotNull
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				startPeriod;
 
 	@NotNull
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endPeriod;
 
-	@NotBlank
 	@URL
 	protected String			link;
+
+	protected boolean			additional;
+
+	protected boolean			confirmed;
+
+	@NotBlank
+	@Column(unique = true)
+	@Pattern(regexp = "^[A-Z]{1,3}[0-9]{3}$")
+	private String				code;
 
 	// Derived attributes -----------------------------------------------------
 

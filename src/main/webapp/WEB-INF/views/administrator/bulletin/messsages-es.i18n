@@ -1,0 +1,8 @@
+administrator.bulletin.form.label.title = Título
+administrator.bulletin.form.label.message = Mensaje
+administrator.bulletin.form.label.critical = Crítico
+administrator.bulletin.form.label.link = Enlace
+administrator.bulletin.form.label.moment = Momento de Instantiación
+administrator.bulletin.form.label.confirm = CONFIRMO que quiero postear este boletín (no podrás editarlo ni borrarlo luego).
+administrator.bulletin.form.error.confirmation-not-match = Por favor, confirme esta acción
+administrator.bulletin.form.submit = Enviar

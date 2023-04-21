@@ -33,10 +33,23 @@ master.menu.anonymous.favourite-link-jesus = 47566818-N: Cárdenas Conejo, Jesú
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.banner = Banners
+master.menu.administrator.bulletin = Post new Bulletin
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 master.menu.administrator.configuration = Show system configuration
+
+# master.menu.company ########################################################
+
+master.menu.company = Company
+master.menu.company.practicum = Practicums
+master.menu.company.practicumSession = Practicum Sessions
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.practicum = Practicums
 
 # master.menu.provider ########################################################
 
@@ -47,6 +60,12 @@ master.menu.provider.favourite-link = Favourite link
 
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
+
+# master.menu.authenticated ##########################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.bulletins = Bulletins
+master.menu.authenticated.auditor = Sign Up as Auditor
 
 # master.menu.user-account ####################################################
 
@@ -68,3 +87,5 @@ master.menu.user-account.become-assistant = Become an assistant
 any.menu.peep.list=Peeps
 master.menu.authenticated=Authenticated
 authenticated.menu.tutorial.list=Tutorial's list
+master.menu.user-account.become-company = Become a company
+master.menu.user-account.company= Company data
