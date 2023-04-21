@@ -1,0 +1,15 @@
+company.dashboard.form.title.general-indicators = Indicadores generales
+
+company.dashboard.form.title.practicumLength = Duración de las prácticas
+company.dashboard.form.label.practicumLength.average = Media
+company.dashboard.form.label.practicumLength.minimun = Mínimo
+company.dashboard.form.label.practicumLength.maximun = Máximo
+company.dashboard.form.label.practicumLength.deviation = Desviación
+
+company.dashboard.form.title.practicumSessionLength = Duración de las sesiones
+company.dashboard.form.label.practicumSessionLength.average = Media
+company.dashboard.form.label.practicumSessionLength.minimun = Mínimo
+company.dashboard.form.label.practicumSessionLength.maximun = Máximo
+company.dashboard.form.label.practicumSessionLength.deviation = Desviación
+
+company.dashboard.form.title.totalPracticumByMonthLastYear = Número total de prácticas por mes el año pasado
