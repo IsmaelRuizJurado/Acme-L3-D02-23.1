@@ -47,8 +47,7 @@ public class Bulletin extends AbstractEntity {
 	protected String			link;
 
 	@PastOrPresent
-	@Temporal(TemporalType.DATE)
-	@NotBlank
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				moment;
 
