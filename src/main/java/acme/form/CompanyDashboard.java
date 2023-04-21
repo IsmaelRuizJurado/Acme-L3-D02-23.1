@@ -13,17 +13,17 @@ public class CompanyDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long		serialVersionUID	= 1L;
+	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	private Stats					practicumStats;
+	private Stats				practicumLength;
 
-	private Stats					practicumSessionStats;
+	private Stats				practicumSessionLength;
+
+	private Map<String, Long>	totalPracticumByMonthLastYear;
 
 	// Derived attributes -----------------------------------------------------
-
-	private Map<String, Integer>	totalPracticumByMonthLastYear;
 
 	// Relationships ----------------------------------------------------------
 

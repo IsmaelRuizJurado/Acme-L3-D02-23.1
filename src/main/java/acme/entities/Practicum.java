@@ -4,11 +4,11 @@ package acme.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -46,21 +46,22 @@ public class Practicum extends AbstractEntity {
 	@Length(min = 1, max = 100)
 	protected String			goals;
 
-	// Derived attributes -----------------------------------------------------
+	@NotNull
+	@Positive
+	protected Double			estimatedTime;
 
-	//Calculado de la suma de los periodos de las sesiones
-	@Transient
-	public Double				time;
+	protected boolean			draftMode;
+
+	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 
 	@Valid
 	@NotNull
-	@ManyToOne(optional = true)
+	@ManyToOne(optional = false)
 	protected Company			company;
 
 	@Valid
-	@NotNull
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	protected Course			course;
 }

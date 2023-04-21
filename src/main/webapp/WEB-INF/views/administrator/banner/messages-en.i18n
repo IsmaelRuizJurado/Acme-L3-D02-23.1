@@ -1,0 +1,18 @@
+administrator.banner.list.label.slogan = Slogan
+administrator.banner.list.label.startDisplayPeriod = Start Display Period
+administrator.banner.list.label.endDisplayPeriod = End Display Period
+
+administrator.banner.list.button.create = Create
+
+administrator.banner.form.label.startDisplayPeriod = Start Display Period:
+administrator.banner.form.label.endDisplayPeriod = End Display Period:
+administrator.banner.form.label.slogan = Slogan:
+administrator.banner.form.label.picture = Picture:
+administrator.banner.form.label.link = Link:
+
+administrator.banner.form.button.update = Update
+administrator.banner.form.button.delete = Delete
+
+administrator.banner.form.button.create = Create
+
+administrator.banner.error.end-after-start = End period must be before Start period

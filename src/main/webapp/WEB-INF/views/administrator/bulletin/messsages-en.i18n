@@ -1,0 +1,8 @@
+administrator.bulletin.form.label.title = Title
+administrator.bulletin.form.label.message = Message
+administrator.bulletin.form.label.critical = Critical
+administrator.bulletin.form.label.link = Link
+administrator.bulletin.form.label.moment = Instatiation Moment
+administrator.bulletin.form.label.confirm = I CONFIRM that I want to post this bulletin (you cannot update it or delete it further).
+administrator.bulletin.form.error.confirmation-not-match = Please confirm this action
+administrator.bulletin.form.submit = Submit

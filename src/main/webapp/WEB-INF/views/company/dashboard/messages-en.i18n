@@ -1,0 +1,15 @@
+company.dashboard.form.title.general-indicators = General indicators
+
+company.dashboard.form.title.practicumLength = Practicum Length
+company.dashboard.form.label.practicumLength.average = Average
+company.dashboard.form.label.practicumLength.minimun = Minimum
+company.dashboard.form.label.practicumLength.maximun = Maximum
+company.dashboard.form.label.practicumLength.deviation = Deviation
+
+company.dashboard.form.title.practicumSessionLength = Session Length
+company.dashboard.form.label.practicumSessionLength.average = Average
+company.dashboard.form.label.practicumSessionLength.minimun = Minimum
+company.dashboard.form.label.practicumSessionLength.maximun = Maximum
+company.dashboard.form.label.practicumSessionLength.deviation = Deviation
+
+company.dashboard.form.title.totalPracticumByMonthLastYear = Total number of practica by month last year
