@@ -1,0 +1,12 @@
+authenticated.enrolment.form.label.code = Code:
+authenticated.enrolment.form.label.motivation = Motivation:
+authenticated.enrolment.form.label.goals = Goals:
+authenticated.enrolment.form.label.workTime = Work Time:
+authenticated.enrolment.form.label.course = Course:
+authenticated.enrolment.form.label.student = Student:
+
+authenticated.enrolment.list.label.code = Code
+authenticated.enrolment.list.label.motivation = Motivation
+authenticated.enrolment.list.label.goals = Goals
+authenticated.enrolment.list.label.student = Student
+authenticated.enrolment.list.label.course = Course

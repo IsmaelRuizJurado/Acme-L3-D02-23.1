@@ -1,0 +1,20 @@
+student.enrolment.list.label.code = Código
+student.enrolment.list.label.motivation = Motivación
+student.enrolment.list.label.goals = Metas
+student.enrolment.list.label.courseCode = Código de Curso
+
+student.enrolment.list.button.create = Crear
+
+student.enrolment.form.label.course = Curso:
+student.enrolment.form.label.code = Código:
+student.enrolment.form.label.motivation = Motivación:
+student.enrolment.form.label.goals = Metas:
+student.enrolment.form.label.workTime = Tiempo de Trabajo:
+
+student.enrolment.form.button.activities = Actividades
+student.enrolment.form.button.create = Crear
+student.enrolment.form.button.update = Actualizar
+student.enrolment.form.button.delete = Borrar
+student.enrolment.form.button.finalise = Finalizar
+
+student.enrolment.form.error.spam = Las palabras introducidas son consideradas spam
