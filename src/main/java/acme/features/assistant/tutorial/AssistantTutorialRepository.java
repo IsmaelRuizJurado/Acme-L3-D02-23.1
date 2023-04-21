@@ -27,7 +27,7 @@ public interface AssistantTutorialRepository extends AbstractRepository {
 	@Query("select c from Course c")
 	Collection<Course> findAllCourses();
 
-	@Query("select c from Course c where c.draftMode = false")
+	@Query("select c from Course c where c.borrador = false")
 	Collection<Course> findNotInDraftCourses();
 
 	@Query("select t from Tutorial t where t.draftMode = false")
