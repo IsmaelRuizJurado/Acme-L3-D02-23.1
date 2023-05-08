@@ -1,0 +1,15 @@
+lecturer.course.label.code = Código
+lecturer.course.label.title = Título
+lecturer.course.label.abstractt = Abstracto
+lecturer.course.label.courseType = Tipo
+lecturer.course.label.price = Precio
+lecturer.course.label.link = Link
+lecturer.course.label.borrador = Borrador
+lecturer.course.lectures = Lecciones
+
+lecturer.course.create = Crear
+
+lecturer.course.button.create = Crear
+lecturer.course.button.update = Actualizar
+lecturer.course.button.delete = Borrar
+lecturer.course.button.lectureList = Lista de lecciones

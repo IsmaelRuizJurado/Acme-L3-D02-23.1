@@ -35,6 +35,7 @@ master.menu.administrator.bulletin = Crear nuevo Boletín
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.configuration = Mostrar configuración del sistema
 
 # master.menu.company ########################################################
 
@@ -58,10 +59,23 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+
+# master.menu.lecturer ########################################################
+
+master.menu.lecturer = Profesor
+master.menu.lecturer.course.list = Mis cursos
+
+
+# master.menu.student ##########################################################
+
+master.menu.student = Estudiante
+master.menu.student.enrolment = Enrolamientos
+
 # master.menu.authenticated ##########################################################
 
 master.menu.authenticated = Autenticado
 master.menu.authenticated.bulletins = Boletines
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
@@ -70,5 +84,24 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+
+master.menu.user-account.become-lecturer= Hazte profesor
+master.menu.user-account.lecturer = Datos de profesor
+
+master.menu.user-account.student = Datos de estudiante
+master.menu.user-account.become-student = Hazte estudiante
+
+# master.menu.authenticated.tutorial ####################################################
+master.menu.authenticated.Assistant= Asistente
+master.menu.user-account.assistant = Datos de asistente
+master.menu.user-account.become-assistant = Hazte asistente
+master.menu.assistant.tutorial.list-mine = Listar mis tutoriales
+master.menu.assistant.tutorial.list-all = Listar todos los tutoriales
+
+# master.menu.any ####################################################
+any.menu.peep.list=Comentarios
+master.menu.authenticated=Autenticado
+authenticated.menu.tutorial.list=Listado de Tutoriales
 master.menu.user-account.become-company = Hazte una compañía
 master.menu.user-account.company= Datos de la compañía
+
