@@ -41,7 +41,7 @@ master.menu.administrator.configuration = Mostrar configuración del sistema
 
 master.menu.company = Compañía
 master.menu.company.practicum = Prácticas
-master.menu.company.practicumSession = Sesiones de Prácticas
+master.menu.company.dashboard = Dashboard de prácticas
 
 # master.menu.authenticated ###################################################
 
