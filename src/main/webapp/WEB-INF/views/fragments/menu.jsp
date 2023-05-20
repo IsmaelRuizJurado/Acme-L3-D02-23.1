@@ -60,7 +60,11 @@
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.authenticated.assistant" access="hasRole('Assistant')">
+		
 			<acme:menu-suboption code="master.menu.assistant.tutorial.list-mine" action="/assistant/tutorial/list-mine"/>
+			
+			<acme:menu-separator/>
+            <acme:menu-suboption code="master.menu.assistant.dashboard" action="/assistant/dashboard/show"/> 
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
