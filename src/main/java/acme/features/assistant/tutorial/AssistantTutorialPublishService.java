@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Tutorial;
 import acme.entities.course.Course;
+import acme.entities.sessions.Session;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -58,6 +59,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		Assistant assistant;
 		int courseId;
 		Course course;
+		final Collection<Session> sessions;
 		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
 		assistant = this.repository.findAssistantById(assistantId);
 		courseId = super.getRequest().getData("course", int.class);
@@ -72,11 +74,14 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		assert object != null;
 		int id;
 		final Tutorial otherTutorial;
+		Collection<Session> sessions;
+		sessions = this.repository.findSessionsByTutorialId(object.getId());
 		// El código de un tutorial debe ser único.
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			id = super.getRequest().getData("id", int.class);
 			otherTutorial = this.repository.findATutorialByCode(object.getCode());
 			super.state(otherTutorial == null || otherTutorial.getCode().equals(object.getCode()) && otherTutorial.getId() == object.getId(), "code", "assistant.tutorial.form.error.code-uniqueness");
+			super.state(!sessions.isEmpty(), "code", "assistant.tutorial.form.error.code-uniqueness");
 		}
 	}
 
@@ -94,7 +99,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		Collection<Course> courses;
 		Tuple tuple;
 		courses = this.repository.findNotInDraftCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 		tuple = super.unbind(object, "code", "title", "abstractt", "goals");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);

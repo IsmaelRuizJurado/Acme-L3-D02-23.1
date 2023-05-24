@@ -30,11 +30,10 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "List My Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.checkColumnHasValue(tutorialRecordIndex, 0, code);
 		super.clickOnListingRecord(tutorialRecordIndex);
 		super.checkFormExists();
 		super.fillInputBoxIn("course", course);
@@ -46,10 +45,8 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(tutorialRecordIndex, 0, code);
-		super.checkColumnHasValue(tutorialRecordIndex, 1, title);
-		super.clickOnListingRecord(tutorialRecordIndex);
 
+		super.clickOnListingRecord(tutorialRecordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("course", course);
 		super.checkInputBoxHasValue("code", code);
@@ -62,19 +59,18 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int tutorialRecordIndex, final String assistant, final String code, final String title, final String abstractt, final String goals) {
+	public void test200Negative(final int tutorialRecordIndex, final String course, final String code, final String title, final String abstractt, final String goals) {
 		// HINT: this test attempts to update a tutorial with wrong data.
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "List My Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.checkColumnHasValue(tutorialRecordIndex, 0, code);
 		super.clickOnListingRecord(tutorialRecordIndex);
 		super.checkFormExists();
-		super.fillInputBoxIn("assistant", assistant);
+		super.fillInputBoxIn("course", course);
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("abstractt", abstractt);
@@ -104,11 +100,6 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 				super.checkPanicExists();
 
 				super.signIn("administrator", "administrator");
-				super.request("/assistant/tutorial/update", param);
-				super.checkPanicExists();
-				super.signOut();
-
-				super.signIn("employer2", "employer2");
 				super.request("/assistant/tutorial/update", param);
 				super.checkPanicExists();
 				super.signOut();

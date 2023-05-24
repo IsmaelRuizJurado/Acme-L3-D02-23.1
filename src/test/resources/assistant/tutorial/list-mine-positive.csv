@@ -1,6 +1,7 @@
 recordTutorialIndex,code,title
-0,T003,Title 1
-1,T004,Title 2
-2,T005,Title 6
-3,TUT001,Title 7
-4,TU002,Title 8
+0,T003,How to get into Java.
+1,T026,How to get into Java.
+2,T027,How to get into Java.
+3,TUT001,How to get into Java.
+4,TUT005,This title will reach exactly 75 - 1 char so the restriction can be proved
+5,TUT007,T1

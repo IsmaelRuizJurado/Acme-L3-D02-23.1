@@ -1,2 +1,2 @@
-recordTutorialIndex,code
-3,T010
+recordTutorialIndex,course,code,title,abstractTutorial,goals
+0,A 001,T003,How to get into Java.,In this tutorial it is explained how to get into java development.,"goal1, goal2, goal3"

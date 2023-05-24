@@ -21,39 +21,57 @@ public class AssistantTutorialPublishTest extends TestHarness {
 	// Test methods -----------------------------------------------------------
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordTutorialIndex, final String code) {
+	public void test100Positive(final int recordTutorialIndex, final String course, final String code, final String title, final String abstractt, final String goals) {
 		// HINT: this test authenticates as an assistant, lists his or her tutorials,
 		// then selects one of them, and publishes it.
 		super.signIn("assistant1", "assistant1");
-
-		super.clickOnMenu("Assistant", "List My Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(recordTutorialIndex, 0, code);
 
 		super.clickOnListingRecord(recordTutorialIndex);
 		super.checkFormExists();
+		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("course", course);
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("abstractt", abstractt);
+		super.fillInputBoxIn("goals", goals);
 		super.clickOnSubmit("Publish");
-		super.checkNotErrorsExist();
+
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.clickOnListingRecord(recordTutorialIndex);
+		super.checkFormExists();
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("course", course);
+		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("abstractt", abstractt);
+		super.checkInputBoxHasValue("goals", goals);
 
 		super.signOut();
 	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordTutorialIndex, final String code) {
-		// HINT: this test attempts to publish a tutorial that cannot be published, yet.
+	public void test200Negative(final int recordTutorialIndex, final String course, final String code, final String title, final String abstractt, final String goals) {
+		// HINT: this test attempts to publish a tutorial that cannot be published.
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "List My Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.checkColumnHasValue(recordTutorialIndex, 0, code);
 		super.clickOnListingRecord(recordTutorialIndex);
 		super.checkFormExists();
-		super.clickOnSubmit("Publish");
-		super.checkAlertExists(false);
+		super.fillInputBoxIn("course", course);
+		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("abstractt", abstractt);
+		super.fillInputBoxIn("goals", goals);
+		super.clickOnSubmit("Update");
+
+		super.checkErrorsExist();
 
 		super.signOut();
 	}

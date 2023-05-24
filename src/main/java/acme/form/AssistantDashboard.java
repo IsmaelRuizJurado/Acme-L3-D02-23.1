@@ -13,6 +13,10 @@ public class AssistantDashboard extends AbstractForm {
 
 	protected Integer			totalNumberOfTutorial;
 
+	protected Integer			totalNumTheoryTutorials;
+
+	protected Integer			totalNumHandsOnTutorials;
+
 	protected Stats				sessionTime;
 
 	protected Stats				tutorialTime;

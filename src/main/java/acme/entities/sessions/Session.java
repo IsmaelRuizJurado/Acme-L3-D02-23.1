@@ -51,8 +51,6 @@ public class Session extends AbstractEntity {
 	//CustomConstraint of the Service at least one day ahead, from one up to five hour long
 	protected Date				finishPeriod;
 
-	protected boolean			draftMode;
-
 
 	public double estimatedLearningTime() {
 		double estimatedLearningTime;

@@ -1,11 +1,6 @@
-tutorialRecordIndex,code,sessionRecordIndex,title,abstractt
-0,T010,0,Title 1,Abstract 1
-1,T010,0,Title 2,Abstract 2
-1,T011,0,Title 3,Abstract 3
-1,T011,1,Title 4,Abstract 4
-1,T011,1,Title 5,Abstract 5
-1,T012,0,Title 6,Abstract 6
-2,T012,1,Title 7,Abstract 7
-2,T013,2,Title 8,Abstract 8
-2,T013,0,Title 9,Abstract 9
-2,T013,2,Title 10,Abstract 10
+tutorialRecordIndex,code,sessionRecordIndex,title,abstractt,type,startPeriod,finishPeriod,link
+0,T003,1,Session 1: Introduction to Data Structures and Algorithms,This abstract is going to reach exactly 100 characters so it can be proven the specific restriction.,THEORETICAL,2023/09/04 15:00,2023/09/04 16:30,https://www.google.es/
+0,T003,2,Session 1: Introduction to Data Structures and Algorithms,"In this session, we will introduce fundamental data structures",THEORETICAL,2023/09/04 15:00,2023/09/04 16:00,https://www.google.es/
+0,T003,3,Session 1: Introduction to Data Structures and Algorithms,示例文本。,THEORETICAL,2023/09/04 15:00,2023/09/04 16:30,https://www.google.es/
+0,T003,4,Session 1: Introduction to Data Structures and Algorithms,A,THEORETICAL,2023/09/04 15:00,2023/09/04 16:30,https://www.google.es/
+0,T003,5,This session is going to reach 74 chars in order to prove the restriction.,"In this session, we will introduce fundamental data structures",THEORETICAL,2023/09/04 15:00,2023/09/04 16:30,https://www.google.es/

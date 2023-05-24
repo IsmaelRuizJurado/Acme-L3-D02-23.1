@@ -14,14 +14,9 @@ import acme.roles.Assistant;
 @Service
 public class AssistantDashboardShowService extends AbstractService<Assistant, AssistantDashboard> {
 
-	// Constants --------------------------------------------------------------
-	protected static final String[]			PROPERTIES	= {
-		"totalNumberOfTutorial", "sessionLength", "tutorialLength"
-	};
-
 	// Internal state ---------------------------------------------------------
 	@Autowired
-	protected AssistantDashboardRepository	repository;
+	protected AssistantDashboardRepository repository;
 
 
 	// AbstractService Interface ----------------------------------------------
@@ -36,76 +31,64 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		final Assistant assistant;
 		Principal principal;
 		int userAccountId;
-
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		assistant = this.repository.findOneAssistantByUserAccountId(userAccountId);
-
+		assistant = this.repository.findAssistantByUserAccountId(userAccountId);
 		status = assistant != null && principal.hasRole(Assistant.class);
-
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		final Integer assistantId;
+		final int assistantId;
 		final AssistantDashboard assistantDashboard;
 		final Principal principal;
 		int userAccountId;
 		final Assistant assistant;
 
-		final Stats sessionTime;
-		final double averageSessionTime;
-		final double deviationSessionTime;
-		final double minimumSessionTime;
-		final double maximumSessionTime;
+		final Stats sessionLength;
+		final double averageSessionLength;
+		final double deviationSessionLength;
+		final double minimumSessionLength;
+		final double maximumSessionLength;
 		int countSession;
 
-		final Stats tutorialTime;
-		final double averageTutorialTime;
-		final double deviationTutorialTime;
-		final double minimumTutorialTime;
-		final double maximumTutorialTime;
-		final Integer countTutorial;
-
-		final int totalNumberOfTutorial;
+		final Stats tutorialLength;
+		final double averageTutorialLength;
+		final double deviationTutorialLength;
+		final double minimumTutorialLength;
+		final double maximumTutorialLength;
+		final int countTutorial;
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		assistant = this.repository.findOneAssistantByUserAccountId(userAccountId);
+		assistant = this.repository.findAssistantByUserAccountId(userAccountId);
 		assistantId = assistant.getId();
 
-		averageSessionTime = this.repository.findAverageSessionTime(assistantId);
-		deviationSessionTime = this.repository.findDeviationSessionTime(assistantId);
-		minimumSessionTime = this.repository.findMinimumSessionTime(assistantId);
-		maximumSessionTime = this.repository.findMaximumSessionTime(assistantId);
-		countSession = this.repository.findCountSession(assistantId);
-		sessionTime = new Stats(countSession, averageSessionTime, maximumSessionTime, minimumSessionTime, deviationSessionTime);
+		averageSessionLength = this.repository.findAverageTutorialSessionLength(assistantId);
+		deviationSessionLength = this.repository.findDeviationTutorialSessionLength(assistantId);
+		minimumSessionLength = this.repository.findMinimumTutorialSessionLength(assistantId);
+		maximumSessionLength = this.repository.findMaximumTutorialSessionLength(assistantId);
+		countSession = this.repository.findCountTutorialSession(assistantId);
+		sessionLength = new Stats(countSession, averageSessionLength, maximumSessionLength, minimumSessionLength, deviationSessionLength);
 
-		averageTutorialTime = this.repository.findAverageTutorialTime(assistantId);
-		deviationTutorialTime = this.repository.findDeviationTutorialTime(assistantId);
-		minimumTutorialTime = this.repository.findMinimumTutorialTime(assistantId);
-		maximumTutorialTime = this.repository.findMaximumTutorialTime(assistantId);
+		averageTutorialLength = this.repository.findAvgTutorialLength(assistantId);
+		deviationTutorialLength = this.repository.findDevTutorialLength(assistantId);
+		minimumTutorialLength = this.repository.findMinTutorialLength(assistantId);
+		maximumTutorialLength = this.repository.findMaxTutorialLength(assistantId);
 		countTutorial = this.repository.findCountTutorial(assistantId);
-		tutorialTime = new Stats(countTutorial, averageTutorialTime, maximumTutorialTime, minimumTutorialTime, deviationTutorialTime);
-
-		totalNumberOfTutorial = this.repository.findTotalNumberOfTutorial(assistantId).intValue();
+		tutorialLength = new Stats(countTutorial, averageTutorialLength, maximumTutorialLength, minimumTutorialLength, deviationTutorialLength);
 
 		assistantDashboard = new AssistantDashboard();
-
-		assistantDashboard.setTotalNumberOfTutorial(totalNumberOfTutorial);
-		assistantDashboard.setSessionTime(sessionTime);
-		assistantDashboard.setTutorialTime(tutorialTime);
-
+		assistantDashboard.setSessionTime(sessionLength);
+		assistantDashboard.setTutorialTime(tutorialLength);
 		super.getBuffer().setData(assistantDashboard);
 	}
 
 	@Override
 	public void unbind(final AssistantDashboard assistantDashboard) {
 		Tuple tuple;
-
-		tuple = super.unbind(assistantDashboard, AssistantDashboardShowService.PROPERTIES);
-
+		tuple = super.unbind(assistantDashboard, "totalNumTheoryTutorials", "totalNumHandsOnTutorials", "sessionTime", "tutorialTime");
 		super.getResponse().setData(tuple);
 	}
 }

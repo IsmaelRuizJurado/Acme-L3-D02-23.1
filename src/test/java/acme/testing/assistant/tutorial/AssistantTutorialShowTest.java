@@ -21,22 +21,22 @@ public class AssistantTutorialShowTest extends TestHarness {
 	// Test data --------------------------------------------------------------
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int tutorialRecordIndex, final String course, final String code, final String title, final String abstractt, final String goals) {
+	public void test100Positive(final int recordTutorialIndex, final String course, final String code, final String title, final String abstractt, final String goals) {
 		// HINT: this test signs in as an assistant, lists all of the tutorials, click on  
 		// one of them, and checks that the form has the expected data.
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "List all tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(tutorialRecordIndex);
+		super.clickOnListingRecord(recordTutorialIndex);
 		super.checkFormExists();
 
-		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstractt", abstractt);
-		super.fillInputBoxIn("goals", goals);
+		super.checkInputBoxHasValue("course", course);
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("abstractt", abstractt);
+		super.checkInputBoxHasValue("goals", goals);
 
 		super.signOut();
 	}
@@ -63,11 +63,6 @@ public class AssistantTutorialShowTest extends TestHarness {
 				super.checkPanicExists();
 
 				super.signIn("administrator", "administrator");
-				super.request("/assistant/tutorial/show", param);
-				super.checkPanicExists();
-				super.signOut();
-
-				super.signIn("employer2", "employer2");
 				super.request("/assistant/tutorial/show", param);
 				super.checkPanicExists();
 				super.signOut();

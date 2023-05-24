@@ -17,7 +17,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "List My Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
 
 		super.clickOnButton("Create");
@@ -28,7 +28,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.fillInputBoxIn("goals", goals);
 		super.clickOnSubmit("Create");
 
-		super.clickOnMenu("Assistant", "List My Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(tutorialRecordIndex, 0, code);
@@ -42,7 +42,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.checkInputBoxHasValue("abstractt", abstractt);
 		super.checkInputBoxHasValue("goals", goals);
 
-		super.clickOnButton("Sessions");
+		super.clickOnButton("List of Sessions");
 
 		super.checkListingExists();
 		super.checkListingEmpty();
@@ -57,7 +57,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "List My Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.clickOnButton("Create");
 		super.checkFormExists();
 
