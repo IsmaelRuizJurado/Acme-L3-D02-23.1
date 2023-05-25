@@ -82,13 +82,14 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		assistantDashboard = new AssistantDashboard();
 		assistantDashboard.setSessionTime(sessionLength);
 		assistantDashboard.setTutorialTime(tutorialLength);
+		assistantDashboard.setTotalNumberOfTutorial(countTutorial);
 		super.getBuffer().setData(assistantDashboard);
 	}
 
 	@Override
 	public void unbind(final AssistantDashboard assistantDashboard) {
 		Tuple tuple;
-		tuple = super.unbind(assistantDashboard, "totalNumTheoryTutorials", "totalNumHandsOnTutorials", "sessionTime", "tutorialTime");
+		tuple = super.unbind(assistantDashboard, "totalNumberOfTutorial", "sessionTime", "tutorialTime");
 		super.getResponse().setData(tuple);
 	}
 }
