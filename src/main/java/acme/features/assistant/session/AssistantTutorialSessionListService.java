@@ -57,7 +57,7 @@ public class AssistantTutorialSessionListService extends AbstractService<Assista
 	public void unbind(final Session tutorialSession) {
 		assert tutorialSession != null;
 		Tuple tuple;
-		tuple = super.unbind(tutorialSession, "title", "abstractt", "type", "startPeriod", "finishPeriod", "link", "draftMode");
+		tuple = super.unbind(tutorialSession, "title", "abstractt", "type", "startPeriod", "finishPeriod", "link");
 		super.getResponse().setData(tuple);
 	}
 

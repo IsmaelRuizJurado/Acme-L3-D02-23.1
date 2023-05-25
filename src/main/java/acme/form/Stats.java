@@ -13,12 +13,12 @@ public class Stats {
 	// Attributes -------------------------------------------------------------
 	int		count;
 
-	double	average;
+	Double	average;
 
-	double	deviation;
+	Double	deviation;
 
-	double	minimum;
+	Double	min;
 
-	double	maximum;
+	Double	max;
 
 }
