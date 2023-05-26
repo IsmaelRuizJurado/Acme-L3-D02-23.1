@@ -90,61 +90,7 @@
 </h2>
 
 <div>
-	<canvas id="canvas"></canvas>
-	Total ${totalPracticumByMonthLastYear.get('FEBRUARY')}
+	Total ${totalPracticumByMonthLastYear}
 </div>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		var data = {
-			labels : [
-					"JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"
-			],
-			datasets : [
-				{
-					data : [
-						<jstl:out value="${totalNumberOfPracticaByMonth.get('JANUARY')}"/>,
-						<jstl:out value="${totalNumberOfPracticaByMonth.get('FEBRUARY')}"/>,
-						<jstl:out value="${totalNumberOfPracticaByMonth.get('MARCH')}"/>,
-						<jstl:out value="${totalNumberOfPracticaByMonth.get('APRIL')}"/>,
-						<jstl:out value="${totalNumberOfPracticaByMonth.get('MAY')}"/>,
-						<jstl:out value="${totalNumberOfPracticaByMonth.get('JUNE')}"/>,
-						<jstl:out value="${totalNumberOfPracticaByMonth.get('JULY')}"/>,
-						<jstl:out value="${totalNumberOfPracticaByMonth.get('AUGUST')}"/>,
-						<jstl:out value="${totalNumberOfPracticaByMonth.get('SEPTEMBER')}"/>,
-						<jstl:out value="${totalNumberOfPracticaByMonth.get('OCTOBER')}"/>,
-						<jstl:out value="${totalNumberOfPracticaByMonth.get('NOVEMBER')}"/>,
-						<jstl:out value="${totalNumberOfPracticaByMonth.get('DECEMBER')}"/>
-					]
-				}
-			]
-		};
-		var options = {
-			scales : {
-				yAxes : [
-					{
-						ticks : {
-							suggestedMin : 0.0,
-							suggestedMax : 1.0
-						}
-					}
-				]
-			},
-			legend : {
-				display : false
-			}
-		};
-	
-		var canvas, context;
-	
-		canvas = document.getElementById("canvas");
-		context = canvas.getContext("2d");
-		new Chart(context, {
-			type : "bar",
-			data : data,
-			options : options
-		});
-	});
-</script>
 
 <acme:return/>

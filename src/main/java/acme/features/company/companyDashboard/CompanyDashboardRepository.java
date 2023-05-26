@@ -47,6 +47,6 @@ public interface CompanyDashboardRepository extends AbstractRepository {
 	@Query("select count(p) from Practicum p where p.company.id = ?1")
 	int findCountPractica(int companyId);
 
-	@Query("SELECT FUNCTION('MONTH', sp.startPeriod), COUNT(sp) FROM PracticumSession sp WHERE sp.practicum.company.id = ?1 GROUP BY FUNCTION('MONTH', sp.startPeriod) ORDER BY COUNT(sp) DESC")
+	@Query("SELECT MONTH(sp.startPeriod), COUNT(sp) FROM PracticumSession sp WHERE sp.practicum.company.id = ?1 GROUP BY MONTH(sp.startPeriod) ORDER BY COUNT(sp) DESC")
 	List<Object[]> findTotalNumberOfPracticaByMonth(int companyId);
 }

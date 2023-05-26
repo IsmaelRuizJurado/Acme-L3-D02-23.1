@@ -48,7 +48,7 @@ public class CompanySessionDeleteService extends AbstractService<Company, Practi
 			isDraftMode = p.isDraftMode();
 			isAdditional = !object.isConfirmed() && !isDraftMode;
 
-			status = (isDraftMode || isAdditional) && principal.hasRole(p.getCompany());
+			status = (isDraftMode || isAdditional) && p.getCompany().getId() == principal.getActiveRoleId() && p.isDraftMode();
 		}
 		super.getResponse().setAuthorised(status);
 	}

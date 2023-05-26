@@ -21,6 +21,6 @@ company.practicumSession.form.button.update = Update
 company.practicumSession.form.button.delete = Delete
 
 company.practicumSession.error.start-after-now = The start date must be after today
-company.practicumSession.error.end-after-start = The end date must be after the start date
+company.practicumSession.error.end-after-start = The end date must be after one week of the start date
 company.practicumSession.form.error.not-unique-code = Not unique code
 company.practicumSession.form.error.not-confirmed-additional-session = The additional session must be confirmed
