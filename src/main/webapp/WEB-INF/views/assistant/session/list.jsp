@@ -21,5 +21,6 @@
 	<acme:list-column code="assistant.session.list.label.startPeriod" path="startPeriod"/>
 	<acme:list-column code="assistant.session.list.label.finishPeriod" path="finishPeriod"/>
 </acme:list>
-
+<jstl:if test="${showCreate}">
 <acme:button code="assistant.session.list.button.create" action="/assistant/session/create?masterId=${masterId}"/>	
+</jstl:if>

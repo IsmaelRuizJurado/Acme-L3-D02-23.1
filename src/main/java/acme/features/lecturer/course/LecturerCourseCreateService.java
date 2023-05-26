@@ -40,7 +40,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		lecturer = this.repository.findOneLecturerById(userAccountId);
 
 		object = new Course();
-		object.setBorrador(true);
+		object.setDraftMode(true);
 		object.setLecturer(lecturer);
 		super.getBuffer().setData(object);
 	}

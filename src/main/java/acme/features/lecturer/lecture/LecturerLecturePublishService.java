@@ -5,13 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.lecture.Lecture;
+import acme.entities.lecture.LectureType;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerLectureShowService extends AbstractService<Lecturer, Lecture> {
+public class LecturerLecturePublishService extends AbstractService<Lecturer, Lecture> {
 
 	@Autowired
 	protected LecturerLectureRepository repository;
@@ -29,15 +31,15 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 	@Override
 	public void authorise() {
 		boolean status;
-		Lecture object;
 		int objectId;
+		Lecture object;
 		final Principal principal;
 		final int userAccountId;
 
-		objectId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneLectureById(objectId);
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
+		objectId = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneLectureById(objectId);
 
 		status = object.getCourse().getLecturer().getUserAccount().getId() == userAccountId;
 
@@ -46,8 +48,8 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 
 	@Override
 	public void load() {
-		Lecture object;
 		int objectId;
+		Lecture object;
 
 		objectId = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneLectureById(objectId);
@@ -56,15 +58,39 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 	}
 
 	@Override
-	public void unbind(final Lecture object) {
+	public void bind(final Lecture object) {
 		assert object != null;
 
+		super.bind(object, "title", "lectureAbstract", "body", "lectureType", "link");
+	}
+
+	@Override
+	public void validate(final Lecture object) {
+		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("draftMode")) {
+			final boolean draftMode = object.isDraftMode();
+			super.state(draftMode, "draftMode", "lecturer.lecture.error.draftMode.published");
+		}
+	}
+
+	@Override
+	public void perform(final Lecture object) {
+		object.setDraftMode(false);
+		this.repository.save(object);
+	}
+
+	@Override
+	public void unbind(final Lecture object) {
+		assert object != null;
 		Tuple tuple;
+		final SelectChoices choices;
 
-		tuple = super.unbind(object, "title", "abstractt", "learningTime", "body", "lectureType", "link");
-		tuple.put("courseId", object.getCourse().getId());
-		tuple.put("draftMode", object.getCourse().isDraftMode());
+		choices = SelectChoices.from(LectureType.class, object.getLectureType());
 
+		tuple = super.unbind(object, "title", "lectureAbstract", "body", "lectureType", "link");
+		tuple.put("lectureType", choices.getSelected().getKey());
+		tuple.put("lectureTypes", choices);
 		super.getResponse().setData(tuple);
 	}
 

@@ -41,7 +41,7 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 		course = this.repository.findOneCourseById(courseId);
 		lecturer = course == null ? null : course.getLecturer();
 
-		status = course != null && course.isBorrador() && super.getRequest().getPrincipal().hasRole(lecturer);
+		status = course != null && course.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -58,14 +58,8 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	@Override
 	public void bind(final Course object) {
 		assert object != null;
-		int lecturerId;
-		Lecturer lecturer;
-
-		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
-		lecturer = this.repository.findOneLecturerById(lecturerId);
 
 		super.bind(object, "code", "title", "abstractt", "courseType", "price");
-		object.setLecturer(lecturer);
 	}
 
 	@Override
@@ -83,23 +77,23 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 		Collection<AuditDocument> auditDocument;
 
 		lectures = this.repository.findCourseLecturesByCourseId(object.getId());
-		if (lectures != null && lectures.size() > 0)
+		if (lectures != null && !lectures.isEmpty())
 			this.repository.deleteAll(lectures);
 
 		enrolments = this.repository.findEnrolmentsByCourseId(object.getId());
-		if (enrolments != null && enrolments.size() > 0)
+		if (enrolments != null && !enrolments.isEmpty())
 			this.repository.deleteAll(enrolments);
 
 		tutorials = this.repository.findTutorialsByCourseId(object.getId());
-		if (tutorials != null && tutorials.size() > 0)
+		if (tutorials != null && !tutorials.isEmpty())
 			this.repository.deleteAll(tutorials);
 
 		practicums = this.repository.findPracticumsByCourseId(object.getId());
-		if (practicums != null && practicums.size() > 0)
+		if (practicums != null && !practicums.isEmpty())
 			this.repository.deleteAll(practicums);
 
 		auditDocument = this.repository.findAuditsByCourseId(object.getId());
-		if (auditDocument != null && auditDocument.size() > 0)
+		if (auditDocument != null && !auditDocument.isEmpty())
 			this.repository.deleteAll(auditDocument);
 
 		this.repository.delete(object);
@@ -112,7 +106,7 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 
 		tuple = super.unbind(object, "code", "title", "abstractt", "courseType", "price");
 		tuple.put("id", object.getId());
-		tuple.put("borrador", object.isBorrador());
+		tuple.put("draftMode", object.isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}

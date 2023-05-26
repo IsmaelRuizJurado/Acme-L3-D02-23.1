@@ -80,7 +80,7 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 		principal = super.getRequest().getPrincipal();
 		courseId = super.getRequest().getData("courseId", int.class);
 		course = this.repository.findOneCourseById(courseId);
-		showCreate = course.isBorrador() && principal.hasRole(course.getLecturer());
+		showCreate = course.isDraftMode() && principal.hasRole(course.getLecturer());
 
 		super.getResponse().setGlobal("courseId", courseId);
 		super.getResponse().setGlobal("showCreate", showCreate);

@@ -66,6 +66,8 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.lecturer = Lecturer
 master.menu.lecturer.course.list = My Course List
+master.menu.lecturer.course.list-all = Course List
+master.menu.lecturer.course.dashboard = Dashboard
 
 # master.menu.student ##########################################################
 

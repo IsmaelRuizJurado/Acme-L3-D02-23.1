@@ -4,7 +4,7 @@ lecturer.course.label.abstractt = Abstract
 lecturer.course.label.courseType = Type
 lecturer.course.label.price = Price
 lecturer.course.label.link = Link
-lecturer.course.label.borrador = Draft
+lecturer.course.label.draftMode = Published
 lecturer.course.lectures = Lectures
 
 lecturer.course.create = Create
@@ -14,3 +14,14 @@ lecturer.course.button.update = Update
 lecturer.course.button.delete = Delete
 lecturer.course.button.publish = Publish
 lecturer.course.button.lectureList = Lectures list
+
+
+lecturer.course.error.draftMode.published = Can't create a course already published
+lecturer.course.error.code.duplicated = This course code is already in use
+lecturer.course.error.price.negative = Price must be greater than zero
+ 
+## PUBLISH ----------------------------------------------------------------------------
+
+lecturer.course.form.error.noLecture = Can't publish course without lectures
+lecturer.course.form.error.noHandsOn = Can't publish course without hands on lectures
+lecturer.course.form.error.lectureNotPublished = Can't publish course with not published lectures
