@@ -1,6 +1,9 @@
 
 package acme.entities;
 
+import java.util.Collection;
+import java.util.Optional;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -12,6 +15,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import acme.entities.course.Course;
+import acme.entities.sessions.Session;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Assistant;
 import lombok.Getter;
@@ -43,14 +47,25 @@ public class Tutorial extends AbstractEntity {
 
 	protected boolean			draftMode;
 
+
+	public Double totalTime(final Collection<Session> sessions) {
+		double estimatedTotalTime = 0.;
+		Optional<Double> optEstimatedTotalTime;
+		optEstimatedTotalTime = sessions.stream().map(Session::estimatedLearningTime).reduce(Double::sum);
+		if (optEstimatedTotalTime.isPresent())
+			estimatedTotalTime = optEstimatedTotalTime.get();
+		return estimatedTotalTime;
+	}
+
+
 	@Valid
 	@NotNull
 	@ManyToOne(optional = false)
-	protected Assistant			assistant;
+	protected Assistant	assistant;
 
 	@Valid
 	@NotNull
 	@ManyToOne(optional = true)
-	protected Course			course;
+	protected Course	course;
 
 }

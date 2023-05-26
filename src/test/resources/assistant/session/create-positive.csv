@@ -1,0 +1,24 @@
+recordTutorialIndex,recordSessionIndex,title,abstractt,type,startPeriod,finishPeriod,link
+0,0,#નમૂના ટેક્સ્ટ.,Abstract,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,
+0,1,<script>alert('exampleJS');</script>,Abstract,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,
+0,2,<title>ExampleHTML</title>,Abstract,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,
+0,3,A,Abstract,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,http://www.acme.org
+0,4,A1,Abstract,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,http://localhost
+0,5,Ahis session is going to reach 74 chars in order to prove the restriction.,Abstract,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,http://www.acme.com/master/welcome
+0,6,Ahis session is going to reach 75 characs in order to prove the restriction,Abstract,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,http://www.example.com
+0,7,ATitle,Abstract,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,http://www.example.com
+0,8,ATitle,This abstract is going to reach exactly 100 characters so it can be proven the specific restriction.,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,
+0,9,ATitle,This abstract is going to reach exactly 99 characters so it can be proven the specific restriction.,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,
+0,10,ATitle,A,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,
+0,11,ATitle,A1,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,
+0,12,ATitle,<title>ExampleHTML</title>,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,
+0,13,ATitle,<script>alert('exampleJS');</script>,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,
+0,14,ATitle,نص بسيط,HANDS_ON,2023/08/21 19:30,2023/08/21 20:45,
+0,15,ATitle,Abstract,THEORY,2023/08/21 19:30,2023/08/21 20:45,
+0,16,ATitle,Abstract,THEORY,2023/12/31 00:00,2023/12/31 05:00,
+0,17,ATitle,Abstract,THEORY,2023/08/21 00:00,2023/08/21 04:59,
+0,18,ATitle,Abstract,THEORY,2023/08/21 00:00,2023/08/21 01:00,
+0,19,ATitle,Abstract,THEORY,2023/08/21 00:00,2023/08/21 01:01,
+0,20,ATitle,Abstract,THEORY,2023/12/31 23:59,2024/01/01 01:45,
+0,21,ATitle,Abstract,THEORY,2000/01/01 00:00,2000/01/01 03:00,
+0,22,ATitle,Abstract,THEORY,2100/12/31 21:30,2100/12/31 23:59,http://www.example.com

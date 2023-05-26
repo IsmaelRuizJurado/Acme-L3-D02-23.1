@@ -57,7 +57,6 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		tutorialId = super.getRequest().getData("masterId", int.class);
 		tutorial = this.repository.findTutorialById(tutorialId);
 		tutorialSession = new Session();
-		tutorialSession.setDraftMode(true);
 		tutorialSession.setTutorial(tutorial);
 		super.getBuffer().setData(tutorialSession);
 	}
@@ -103,10 +102,10 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		Tuple tuple;
 		SelectChoices choices;
 		choices = SelectChoices.from(SessionType.class, tutorialSession.getType());
-		tuple = super.unbind(tutorialSession, "title", "abstractt", "type", "startPeriod", "finishPeriod", "link", "draftMode");
+		tuple = super.unbind(tutorialSession, "title", "abstractt", "type", "startPeriod", "finishPeriod", "link");
 		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
 		tuple.put("type", choices);
-		tuple.put("draftMode", !tutorialSession.getTutorial().isDraftMode() && tutorialSession.isDraftMode());
+		tuple.put("draftMode", tutorialSession.getTutorial().isDraftMode());
 		super.getResponse().setData(tuple);
 	}
 }
