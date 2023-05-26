@@ -10,6 +10,8 @@ import acme.entities.Practicum;
 import acme.entities.course.Course;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.controllers.HttpMethod;
+import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -18,9 +20,6 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 
 	@Autowired
 	protected CompanyPracticumRepository repository;
-
-	//@Autowired
-	//protected AuxiliarService				auxiliarService;
 
 
 	@Override
@@ -64,14 +63,13 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 	public void validate(final Practicum object) {
 		assert object != null;
 
-		//		if (!super.getBuffer().getErrors().hasErrors("title"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getTitle()), "title", "company.practicum.form.error.spam");
-		//
-		//		if (!super.getBuffer().getErrors().hasErrors("abstract$"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getAbstractt()), "abstractt", "company.practicum.form.error.spam");
-		//
-		//		if (!super.getBuffer().getErrors().hasErrors("goals"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getGoals()), "goals", "company.practicum.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			boolean isUnique;
+
+			isUnique = this.repository.findManyPracticumByCode(object.getCode()).isEmpty();
+
+			super.state(isUnique, "code", "company.practicum.form.error.not-unique-code");
+		}
 	}
 
 	@Override
@@ -97,5 +95,11 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
+	}
+
+	@Override
+	public void onSuccess() {
+		if (super.getRequest().getMethod().equals(HttpMethod.POST))
+			PrincipalHelper.handleUpdate();
 	}
 }

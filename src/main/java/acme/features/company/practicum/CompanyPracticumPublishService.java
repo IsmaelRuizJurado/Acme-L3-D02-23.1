@@ -1,16 +1,22 @@
 
 package acme.features.company.practicum;
 
+import java.time.Duration;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Practicum;
+import acme.entities.PracticumSession;
 import acme.entities.course.Course;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.controllers.HttpMethod;
+import acme.framework.helpers.MomentHelper;
+import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -74,6 +80,48 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			boolean isUnique;
+			boolean noChangeCode;
+			Practicum oldPracticum;
+			int practicumId;
+
+			practicumId = super.getRequest().getData("id", int.class);
+			oldPracticum = this.repository.findPracticumById(practicumId);
+			isUnique = this.repository.findManyPracticumByCode(object.getCode()).isEmpty();
+			noChangeCode = oldPracticum.getCode().equals(object.getCode()) && oldPracticum.getId() == object.getId();
+
+			super.state(isUnique || noChangeCode, "code", "company.practicum.form.error.not-unique-code");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("estimatedTime")) {
+			Collection<PracticumSession> sessions;
+			double estimatedTimeInHours;
+			double totalHours;
+			boolean moreThan90Percent;
+			boolean lessThan110Percent;
+
+			estimatedTimeInHours = object.getEstimatedTime();
+			sessions = this.repository.findPracticumSessionsByPracticumId(object.getId());
+
+			totalHours = sessions.stream().mapToDouble(session -> {
+				Date start;
+				Date end;
+				Duration duration;
+
+				start = session.getStartPeriod();
+				end = session.getEndPeriod();
+				duration = MomentHelper.computeDuration(start, end);
+
+				return duration.toHours();
+			}).sum();
+
+			moreThan90Percent = estimatedTimeInHours >= totalHours * 0.9;
+			lessThan110Percent = estimatedTimeInHours <= totalHours * 1.1;
+
+			super.state(moreThan90Percent && lessThan110Percent, "estimatedTime", "company.practicum.form.error.not-in-range");
+		}
 	}
 
 	@Override
@@ -102,4 +150,9 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 		super.getResponse().setData(tuple);
 	}
 
+	@Override
+	public void onSuccess() {
+		if (super.getRequest().getMethod().equals(HttpMethod.POST))
+			PrincipalHelper.handleUpdate();
+	}
 }

@@ -43,7 +43,7 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 		practicum = this.repository.findOnePracticumById(practicumId);
 		status = false;
 		if (practicum != null)
-			status = principal.hasRole(practicum.getCompany());
+			status = practicum.getCompany().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
