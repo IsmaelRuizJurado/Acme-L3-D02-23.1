@@ -11,7 +11,14 @@ public class AssistantDashboard extends AbstractForm {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	protected Stats				sessionStats;
-	protected Stats				tutorialStats;
+	protected Integer			totalNumberOfTutorial;
+
+	protected Integer			totalNumTheoryTutorials;
+
+	protected Integer			totalNumHandsOnTutorials;
+
+	protected Stats				sessionTime;
+
+	protected Stats				tutorialTime;
 
 }

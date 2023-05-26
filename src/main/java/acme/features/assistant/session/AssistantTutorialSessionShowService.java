@@ -59,12 +59,16 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 	public void unbind(final Session tutorialSession) {
 		assert tutorialSession != null;
 		Tuple tuple;
+		Double estimatedTotalTime;
 		SelectChoices choices;
 		choices = SelectChoices.from(SessionType.class, tutorialSession.getType());
-		tuple = super.unbind(tutorialSession, "title", "abstractt", "type", "startPeriod", "finishPeriod", "link", "draftMode");
+		tuple = super.unbind(tutorialSession, "title", "abstractt", "type", "startPeriod", "finishPeriod", "link");
+		estimatedTotalTime = tutorialSession.estimatedLearningTime();
+		if (estimatedTotalTime != null)
+			tuple.put("estimatedTotalTime", estimatedTotalTime);
 		tuple.put("masterId", super.getRequest().getData("id", int.class));
 		tuple.put("type", choices);
-		tuple.put("draftMode", !tutorialSession.getTutorial().isDraftMode() && tutorialSession.isDraftMode());
+		tuple.put("draftMode", tutorialSession.getTutorial().isDraftMode());
 		super.getResponse().setData(tuple);
 	}
 }

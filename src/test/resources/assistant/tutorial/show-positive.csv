@@ -1,0 +1,7 @@
+recordTutorialIndex,course,code,title,abstractTutorial,goals
+0,A 001,T003,How to get into Java.,In this tutorial it is explained how to get into java development.,"goal1, goal2, goal3"
+1,A 001,T026,How to get into Java.,Example abstract.,"goal-1, goal-2, goal-3"
+2,A 001,T027,How to get into Java.,Example abstract.,"goal-1, goal-2, goal-3"
+3,A 001,TUT001,How to get into Java.,In this tutorial it is explained how to get into java development.,"goal1, goal2, goal3"
+4,A 001,TUT005,This title will reach exactly 75 - 1 char so the restriction can be proved,In this tutorial it is explained how to get into java development.,"goal1, goal2, goal3"
+5,A 001,TUT007,T1,In this tutorial it is explained how to get into java development.,"goal1, goal2, goal3"

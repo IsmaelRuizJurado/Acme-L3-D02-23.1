@@ -1,5 +1,5 @@
 key,code,title,abstractt,goals,draftMode,key:assistant,key:course
-tutorial-01,TUT001,How to get into Java.,In this tutorial it is explained how to get into java development.,"goal1, goal2, goal3",true,assistant-01,course-01
+tutorial-01,TUT001,How to get into Java.,In this tutorial it is explained how to get into java development.,"goal1, goal2, goal3",false,assistant-01,course-01
 tutorial-02,TU002,How to get into Java.,In this tutorial it is explained how to get into java development.,"goal1, goal2, goal3",true,assistant-02,course-01
 tutorial-03,T003,How to get into Java.,In this tutorial it is explained how to get into java development.,"goal1, goal2, goal3",true,assistant-01,course-01
 tutorial-04,TUT004,This title is going to reach exactly 75chr so the restriction can be proved,In this tutorial it is explained how to get into java development.,"goal1, goal2, goal3",false,assistant-02,course-01
@@ -24,3 +24,6 @@ tutorial-022,TUT022,How to get into Java.,In this tutorial it is explained how t
 tutorial-023,TUT023,How to get into Java.,In this tutorial it is explained how to get into java development.,<script>alert('hi');</script>,false,assistant-01,course-01
 tutorial-024,TUT024,How to get into Java.,In this tutorial it is explained how to get into java development.,示例文本。,false,assistant-02,course-01
 tutorial-025,TUT025,How to get into Java.,In this tutorial it is explained how to get into java development.,"goal1, goal2, goal3",false,assistant-01,course-01
+tutorial-026,T026,How to get into Java.,Example abstract.,"goal-1, goal-2, goal-3",true,assistant-01,course-01
+tutorial-027,T027,How to get into Java.,Example abstract.,"goal-1, goal-2, goal-3",true,assistant-01,course-01
+tutorial-028,WOW616,How to get into Java.,Example abstract.,"goal-1, goal-2, goal-3",true,assistant-01,course-01
