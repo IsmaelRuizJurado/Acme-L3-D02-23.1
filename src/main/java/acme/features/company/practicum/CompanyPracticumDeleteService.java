@@ -10,8 +10,6 @@ import acme.entities.Practicum;
 import acme.entities.PracticumSession;
 import acme.entities.course.Course;
 import acme.framework.components.accounts.Principal;
-import acme.framework.components.jsp.SelectChoices;
-import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -44,7 +42,7 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		object = this.repository.findPracticumById(practicumId);
 		principal = super.getRequest().getPrincipal();
 
-		status = object.getCompany().getId() == principal.getActiveRoleId();
+		status = object.getCompany().getId() == principal.getActiveRoleId() && object.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -89,23 +87,4 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		this.repository.deleteAll(practicumSessions);
 		this.repository.delete(object);
 	}
-
-	@Override
-	public void unbind(final Practicum object) {
-		assert object != null;
-
-		Collection<Course> courses;
-		SelectChoices choices;
-		Tuple tuple;
-
-		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "code", object.getCourse());
-
-		tuple = super.unbind(object, "code", "title", "abstractt", "goals", "estimatedTime");
-		tuple.put("course", choices.getSelected().getKey());
-		tuple.put("courses", choices);
-
-		super.getResponse().setData(tuple);
-	}
-
 }

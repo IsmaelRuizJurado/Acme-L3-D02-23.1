@@ -39,7 +39,7 @@ public class CompanySessionListService extends AbstractService<Company, Practicu
 		principal = super.getRequest().getPrincipal();
 		practicumId = super.getRequest().getData("masterId", int.class);
 		practicum = this.repository.findOnePracticumById(practicumId);
-		status = practicum != null && (!practicum.isDraftMode() || principal.hasRole(practicum.getCompany()));
+		status = practicum != null && practicum.getCompany().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}

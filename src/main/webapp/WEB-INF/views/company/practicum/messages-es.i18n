@@ -18,4 +18,5 @@ company.practicum.form.button.update = Actualizar
 company.practicum.form.button.delete = Eliminar
 company.practicum.form.button.publish = Publicar
 
-company.practicum.form.error.spam = Las palabras introducidas son consideradas spam
+company.practicum.form.error.not-unique-code = Código no único
+company.practicum.form.error.not-in-range = El tiempo estimado debe corresponderse con el calculado con un 10% de margen de error
