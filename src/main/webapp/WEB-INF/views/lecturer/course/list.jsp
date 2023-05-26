@@ -10,4 +10,6 @@
 	<acme:list-column code="lecturer.course.label.price" path="price" width="16%" />
 	<acme:list-column code="lecturer.course.label.link" path="link" width="16%" />
 </acme:list>
-<acme:button code="lecturer.course.create" action="/lecturer/course/create"/>
+<jstl:if test="${_command == 'list'}">
+	<acme:button code="lecturer.course.button.create" action="/lecturer/course/create"/>
+</jstl:if>

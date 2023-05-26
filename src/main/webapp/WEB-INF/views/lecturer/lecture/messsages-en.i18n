@@ -2,7 +2,7 @@ lecturer.lecture.label.title = Lecture title
 lecturer.lecture.label.abstractt = Lecture abstract
 lecturer.lecture.label.body = Body of the Lecture
 lecturer.lecture.label.lectureType = Type of Lecture
-lecturer.lecture.label.learningTime = Learning time
+lecturer.lecture.label.learningTime = Learning time in hours
 lecturer.lecture.label.link = Link
 
 lecturer.lecture.button.create = Create

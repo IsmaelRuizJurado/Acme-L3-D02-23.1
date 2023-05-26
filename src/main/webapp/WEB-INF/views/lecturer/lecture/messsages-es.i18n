@@ -1,11 +1,23 @@
+lecturer.course.label.code = Código
 lecturer.lecture.label.title = Titulo de la clase
 lecturer.lecture.label.abstractt = Abstracto
 lecturer.lecture.label.body = Cuerpo
 lecturer.lecture.label.lectureType = Tipo de Clase
 lecturer.lecture.label.learningTime = Tiempo de aprendizaje en horas
 lecturer.lecture.label.link = Link
+lecturer.course.label.draftMode = Publicado
 
 lecturer.lecture.button.create = Crear
 lecturer.lecture.button.update = Actualizar
 lecturer.lecture.button.delete = Borrar
 lecturer.course-lecture.button.add = Añadir
+lecturer.course.button.publish = Publicar
+lecturer.course.button.lectureList = Lista de lecciones
+
+lecturer.course.error.draftMode.published = No se puede crear un curso ya publicado
+lecturer.course.error.code.duplicated = El código ya existe
+lecturer.course.error.price.negative = El precio debe ser positivo
+ 
+lecturer.course.form.error.noLecture = Debe haber alguna lección para publicar.
+lecturer.course.form.error.noHandsOn =  Debe haber alguna lección de prácticas para publicar.
+lecturer.course.form.error.lectureNotPublished = No se puede publicar un curso con lecciones sin publicar

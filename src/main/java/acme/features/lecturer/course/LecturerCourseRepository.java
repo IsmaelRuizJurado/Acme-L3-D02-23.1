@@ -27,11 +27,17 @@ public interface LecturerCourseRepository extends AbstractRepository {
 	@Query("select c from Course c where c.lecturer.userAccount.id = :id")
 	Collection<Course> findCoursesByLecturerId(int id);
 
-	@Query("select c from Course c where c.borrador = false")
+	@Query("select c from Course c where c.draftMode = false")
 	Collection<Course> findAllCourses();
 
 	@Query("select c from Course c where c.id = :id")
 	Course findOneCourseById(int id);
+
+	@Query("select count(cl) > 0 from CourseLecture cl where cl.course.id = :courseId and cl.lecture.draftMode = true")
+	boolean hasACourseLecturesNotPublishedByCourseId(int courseId);
+
+	@Query("select count(cl) > 0 from CourseLecture cl where cl.course.id = :courseId and cl.lecture.lectureType = acme.entities.lecture.LectureType.HANDS_ON")
+	boolean hasACourseHandsOnLecturesByCourseId(int courseId);
 
 	@Query("select c from Course c where c.code = :code")
 	Course findOneCourseByCode(String code);
@@ -44,6 +50,9 @@ public interface LecturerCourseRepository extends AbstractRepository {
 
 	@Query("select count(cl) from CourseLecture cl where cl.course.id = :courseId and cl.lecture.lectureType = :type")
 	Integer numLecturesFromCourseByType(int courseId, LectureType type);
+
+	@Query("select count(cl) > 0 from CourseLecture cl where cl.course.id = :courseId")
+	boolean hasACourseLecturesByCourseId(int courseId);
 
 	@Query("select e from Enrolment e where e.course.id = :courseId")
 	Collection<Enrolment> findEnrolmentsByCourseId(int courseId);

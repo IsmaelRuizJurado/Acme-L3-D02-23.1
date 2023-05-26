@@ -59,7 +59,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	public void bind(final Lecture object) {
 		assert object != null;
 		super.bind(object, "title", "abstractt", "learningTime", "body", "lectureType", "link");
-		object.setBorrador(true);
+		object.setDraftMode(true);
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 
 		tuple = super.unbind(object, "title", "abstractt", "learningTime", "body", "lectureType", "link");
 		tuple.put("courseId", object.getCourse().getId());
-		tuple.put("borrador", object.getCourse().isBorrador());
+		tuple.put("draftMode", object.getCourse().isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}
