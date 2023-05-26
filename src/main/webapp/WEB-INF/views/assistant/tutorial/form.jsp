@@ -24,10 +24,12 @@
 	<jstl:if test="${ _command != 'show' && draftMode != true && estimatedTotalTime > 0.0 }">
 		<acme:input-textbox code="assistant.session.label.estimatedTotalTime" path="estimatedTotalTime" readonly="true"/>
 		</jstl:if>
+		<jstl:if test="${acme:anyOf(_command, 'show|update|delete|publish')}">
+		<acme:button code="assistant.session.form.button.list" action="/assistant/session/list?masterId=${id}"/>
+		</jstl:if>
 		<jstl:if test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:submit code="assistant.tutorial.form.button.update" action="/assistant/tutorial/update"/>
 			<acme:submit code="assistant.tutorial.form.button.delete" action="/assistant/tutorial/delete"/>
-			<acme:button code="assistant.session.form.button.list" action="/assistant/session/list?masterId=${id}"/>
 			</jstl:if>
 	<jstl:if test="${_command == 'show' && draftMode== true && sessions.isEmpty() == false}">
             <acme:submit code="assistant.tutorial.form.button.publish" action="/assistant/tutorial/publish"/>
