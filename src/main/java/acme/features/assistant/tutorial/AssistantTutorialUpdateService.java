@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Tutorial;
 import acme.entities.course.Course;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -35,10 +36,12 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 		int tutorialId;
 		Tutorial tutorial;
 		Assistant assistant;
+		Principal principal;
+		principal = super.getRequest().getPrincipal();
 		tutorialId = super.getRequest().getData("id", int.class);
 		tutorial = this.repository.findTutorialById(tutorialId);
 		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = tutorial != null && tutorial.isDraftMode() == false || super.getRequest().getPrincipal().hasRole(assistant);
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant) && assistant.getId() == principal.getActiveRoleId();
 		super.getResponse().setAuthorised(status);
 	}
 
