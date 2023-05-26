@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 key,code,title,abstractt,courseType,price,link,key:lecturer,draftMode
-course-01,A 001,Normal Title,Normal Absctract,THEORETICAL,49.99 USD,https://www.example.com/course-01,lecturer-01,true
-course-02,BA 000,Normal Title,Normal Absctract,THEORETICAL,99.99 EUR,https://www.example.com/course-02,lecturer-02,true
-=======
-key,code,title,abstractt,courseType,price,link,key:lecturer,borrador
 course-01,A 001,Normal Title,Normal Absctract,THEORETICAL,49.99 USD,https://www.example.com/course-01,lecturer-01,false
-course-02,BA 000,Normal Title,Normal Absctract,THEORETICAL,99.99 EUR,https://www.example.com/course-02,lecturer-02,false
->>>>>>> 760587ff808ead4ca64ec135a991c15015f7b3be
+course-02,BA 000,Normal Title,Normal Absctract,THEORETICAL,99.99 EUR,https://www.example.com/course-02,lecturer-02,true
 course-03,ZZZ 123,Normal Title,Normal Absctract,HANDS_ON,79.99 GBP,https://www.example.com/course-03,lecturer-01,true
 course-04,ACB 999,Normal Title,Normal Absctract,HANDS_ON,79.99 GBP,https://www.example.com/course-03,lecturer-01,true
 course-05,AS 004,X,Normal Absctract,THEORETICAL,59.99 USD,https://www.example.com/course-04,lecturer-02,true
