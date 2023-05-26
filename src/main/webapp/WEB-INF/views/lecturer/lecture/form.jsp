@@ -7,13 +7,13 @@
 
 	<acme:hidden-data path="id"/>
 	<acme:input-textbox code="lecturer.lecture.label.title" path="title"/>
-	<acme:input-textbox code="lecturer.lecture.label.abstractt" path="abstractt"/>	
-	<acme:input-double code="lecturer.lecture.label.learningTime" path="learningTime"/>
-	<acme:input-textbox code="lecturer.lecture.label.body" path="body"/>
-	<acme:input-textbox code="lecturer.lecture.label.lectureType" path="lectureType"/>
-	<acme:input-textbox code="lecturer.lecture.label.link" path="link"/>
+	<acme:input-textarea code="lecturer.lecture.label.abstractt" path="abstractt"/>	
+	<acme:input-double code="lecturer.lecture.label.learningTime" placeholder="1.2" path="learningTime"/>
+	<acme:input-textarea code="lecturer.lecture.label.body" path="body"/>
+	<acme:input-textbox code="lecturer.lecture.label.lectureType" placeholder="THEORETICAL / HANDS_ON" path="lectureType"/>
+	<acme:input-url code="lecturer.lecture.label.link" path="link"/>
 	
-	<jstl:if test="${_command != 'create' && borrador != false}">
+	<jstl:if test="${_command != 'create' && draftMode != false}">
 		<acme:submit code="lecturer.lecture.button.update" action="/lecturer/lecture/update"/>
 		<acme:submit code="lecturer.lecture.button.delete" action="/lecturer/lecture/delete"/>		
 	</jstl:if>

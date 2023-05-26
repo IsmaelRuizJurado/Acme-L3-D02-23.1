@@ -60,7 +60,7 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractt", "courseType", "price", "link", "borrador");
+		tuple = super.unbind(object, "code", "title", "abstractt", "courseType", "price", "link", "draftMode");
 		tuple.put("courseType", this.repository.calculateCourseTypeById(object.getId()));
 		super.getResponse().setData(tuple);
 	}

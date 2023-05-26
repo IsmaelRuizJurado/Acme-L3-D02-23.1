@@ -4,7 +4,7 @@ lecturer.course.label.abstractt = Abstracto
 lecturer.course.label.courseType = Tipo
 lecturer.course.label.price = Precio
 lecturer.course.label.link = Link
-lecturer.course.label.borrador = Borrador
+lecturer.course.label.draftMode = Publicado
 lecturer.course.lectures = Lecciones
 
 lecturer.course.create = Crear

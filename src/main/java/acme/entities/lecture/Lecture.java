@@ -46,14 +46,14 @@ public class Lecture extends AbstractEntity {
 	@NotNull
 	protected LectureType		lectureType;
 
-	@NotBlank
 	@URL
 	protected String			link;
-	protected boolean			borrador;
+	protected boolean			draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
 	@ManyToOne(optional = false)
 	@NotNull
 	@Valid

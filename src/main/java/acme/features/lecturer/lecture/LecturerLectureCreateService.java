@@ -44,7 +44,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 
 		object = new Lecture();
 		object.setCourse(course);
-		object.setBorrador(true);
+		object.setDraftMode(true);
 
 		super.getBuffer().setData(object);
 	}
@@ -79,7 +79,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 
 		tuple = super.unbind(object, "title", "abstractt", "learningTime", "body", "lectureType", "link");
 		tuple.put("courseId", object.getCourse().getId());
-		tuple.put("borrador", object.getCourse().isBorrador());
+		tuple.put("draftMode", object.getCourse().isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}

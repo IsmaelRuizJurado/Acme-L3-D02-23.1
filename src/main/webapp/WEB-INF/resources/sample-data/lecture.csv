@@ -1,4 +1,4 @@
-key,title,abstractt,learningTime,body,lectureType,link,borrador,key:course
+key,title,abstractt,learningTime,body,lectureType,link,draftMode,key:course
 lecture-01,Normal Title,Normal,2.5,normalBody,THEORETICAL,https://www.example.com/course-01,true,course-01
 lecture-02,x,Normal,2.5,normalBody,THEORETICAL,https://www.example.com/course-01,true,course-03
 lecture-03,Normal Title,x,2.5,normalBody,THEORETICAL,https://www.example.com/course-01,true,course-02

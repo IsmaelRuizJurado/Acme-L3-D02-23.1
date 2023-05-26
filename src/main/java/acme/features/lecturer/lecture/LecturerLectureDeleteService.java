@@ -39,7 +39,7 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
 
-		status = object.getCourse().getLecturer().getUserAccount().getId() == userAccountId && object.isBorrador();
+		status = object.getCourse().getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -81,7 +81,7 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 
 		tuple = super.unbind(object, "title", "abstractt", "learningTime", "body", "lectureType", "link");
 		tuple.put("courseId", object.getCourse().getId());
-		tuple.put("borrador", object.getCourse().isBorrador());
+		tuple.put("draftMode", object.getCourse().isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}
