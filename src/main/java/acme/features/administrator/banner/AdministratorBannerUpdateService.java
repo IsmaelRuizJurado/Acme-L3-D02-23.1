@@ -1,5 +1,5 @@
 
-package acme.features.administrator;
+package acme.features.administrator.banner;
 
 import java.util.Date;
 
@@ -55,7 +55,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	public void bind(final Banner object) {
 		assert object != null;
 
-		super.bind(object, "slogan", "startDisplayPeriod", "endDisplayPeriod", "moment", "picture", "link");
+		super.bind(object, "slogan", "startDisplayPeriod", "endDisplayPeriod", "picture", "link");
 	}
 
 	@Override
@@ -88,7 +88,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "slogan", "startDisplayPeriod", "endDisplayPeriod", "moment", "picture", "link");
+		tuple = super.unbind(object, "slogan", "startDisplayPeriod", "endDisplayPeriod", "picture", "link");
 
 		super.getResponse().setData(tuple);
 	}

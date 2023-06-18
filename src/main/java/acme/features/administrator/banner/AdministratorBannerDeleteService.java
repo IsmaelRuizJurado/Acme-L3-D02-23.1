@@ -1,7 +1,5 @@
 
-package acme.features.administrator;
-
-import java.util.Date;
+package acme.features.administrator.banner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,19 +8,24 @@ import acme.entities.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorBannerCreateService extends AbstractService<Administrator, Banner> {
+public class AdministratorBannerDeleteService extends AbstractService<Administrator, Banner> {
 
 	@Autowired
 	protected AdministratorBannerRepository repository;
 
+	// AbstractService interface ----------------------------------------------
+
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -39,9 +42,10 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	@Override
 	public void load() {
 		Banner object;
+		int id;
 
-		object = new Banner();
-		object.setMoment(MomentHelper.getCurrentMoment());
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findBannerById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -56,25 +60,13 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("startDisplayPeriod") || !super.getBuffer().getErrors().hasErrors("endDisplayPeriod")) {
-			Date start;
-			Date end;
-
-			start = object.getStartDisplayPeriod();
-			end = object.getEndDisplayPeriod();
-
-			if (!super.getBuffer().getErrors().hasErrors("endDisplayPeriod") && !super.getBuffer().getErrors().hasErrors("startDisplayPeriod"))
-				super.state(MomentHelper.isAfter(end, start), "endDisplayPeriod", "administrator.banner.error.end-after-start");
-		}
 	}
 
 	@Override
 	public void perform(final Banner object) {
 		assert object != null;
 
-		object.setMoment(MomentHelper.getCurrentMoment());
-
-		this.repository.save(object);
+		this.repository.delete(object);
 	}
 
 	@Override
