@@ -29,6 +29,7 @@ public class Peep extends AbstractEntity {
 	@Length(max = 75)
 	protected String			title;
 
+	@NotBlank
 	@Length(max = 75)
 	protected String			nick;
 
@@ -46,8 +47,5 @@ public class Peep extends AbstractEntity {
 	@Temporal(TemporalType.DATE)
 	@NotNull
 	protected Date				moment;
-
-	@NotNull
-	private Boolean				draftMode			= true;
 
 }
