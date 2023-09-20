@@ -5,7 +5,9 @@ import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -24,6 +26,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "id"), @Index(columnList = "tutorial_id")
+})
 public class Session extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
@@ -53,11 +58,15 @@ public class Session extends AbstractEntity {
 
 
 	public double estimatedLearningTime() {
-		double estimatedLearningTime;
-		Duration timeBetween;
-		timeBetween = MomentHelper.computeDuration(this.startPeriod, this.finishPeriod);
-		estimatedLearningTime = timeBetween.toHours();
-		return estimatedLearningTime;
+		if (this.startPeriod != null && this.finishPeriod != null) {
+			double estimatedLearningTime;
+			Duration timeBetween;
+			timeBetween = MomentHelper.computeDuration(this.startPeriod, this.finishPeriod);
+			estimatedLearningTime = timeBetween.toHours();
+			return estimatedLearningTime;
+		} else
+			return 0;
+
 	}
 
 

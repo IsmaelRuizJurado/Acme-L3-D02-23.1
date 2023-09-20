@@ -68,6 +68,7 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 
 	@Override
 	public void validate(final Session tutorialSession) {
+		assert tutorialSession != null;
 		Date minStartPeriod;
 		boolean condition1;
 		boolean condition2;
@@ -75,17 +76,18 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod")) {
 			minStartPeriod = MomentHelper.deltaFromCurrentMoment(1, ChronoUnit.DAYS);
 			super.state(MomentHelper.isAfter(tutorialSession.getStartPeriod(), minStartPeriod), "startPeriod", "assistant.session.startPeriod-before-instantiationMoment");
-		}
-		// El periodo de finalización debe ser posterior al periodo de inicio.
-		if (!super.getBuffer().getErrors().hasErrors("finishPeriod"))
-			super.state(MomentHelper.isAfter(tutorialSession.getFinishPeriod(), tutorialSession.getStartPeriod()), "finishPeriod", "assistant.session.finishPeriod-before-startPeriod");
-		// El periodo de finalización respecto al de inicio debe de aproximarse entre 1 y 5 horas.
-		if (!super.getBuffer().getErrors().hasErrors("finishPeriod")) {
-			// El periodo de finalización debe ser 1 hora posterior como mínimo respecto al periodo de inicio.
-			condition1 = MomentHelper.isLongEnough(tutorialSession.getStartPeriod(), tutorialSession.getFinishPeriod(), 1, ChronoUnit.HOURS);
-			// El periodo de finalización debe durar 5 horas como máximo respecto al periodo de inicio.
-			condition2 = MomentHelper.computeDuration(tutorialSession.getStartPeriod(), tutorialSession.getFinishPeriod()).getSeconds() <= Duration.ofHours(5).getSeconds();
-			super.state(condition1 && condition2, "finishPeriod", "assistant.session.bad-finishPeriod-time");
+
+			// El periodo de finalización debe ser posterior al periodo de inicio.
+			if (!super.getBuffer().getErrors().hasErrors("finishPeriod"))
+				super.state(MomentHelper.isAfter(tutorialSession.getFinishPeriod(), tutorialSession.getStartPeriod()), "finishPeriod", "assistant.session.finishPeriod-before-startPeriod");
+			// El periodo de finalización respecto al de inicio debe de aproximarse entre 1 y 5 horas.
+			if (!super.getBuffer().getErrors().hasErrors("finishPeriod")) {
+				// El periodo de finalización debe ser 1 hora posterior como mínimo respecto al periodo de inicio.
+				condition1 = MomentHelper.isLongEnough(tutorialSession.getStartPeriod(), tutorialSession.getFinishPeriod(), 1, ChronoUnit.HOURS);
+				// El periodo de finalización debe durar 5 horas como máximo respecto al periodo de inicio.
+				condition2 = MomentHelper.computeDuration(tutorialSession.getStartPeriod(), tutorialSession.getFinishPeriod()).getSeconds() <= Duration.ofHours(5).getSeconds();
+				super.state(condition1 && condition2, "finishPeriod", "assistant.session.bad-finishPeriod-time");
+			}
 		}
 	}
 

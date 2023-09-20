@@ -9,7 +9,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -43,7 +43,7 @@ public class Peep extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	@PastOrPresent
+	@Past
 	@Temporal(TemporalType.DATE)
 	@NotNull
 	protected Date				moment;
