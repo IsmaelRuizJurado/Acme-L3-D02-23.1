@@ -94,7 +94,6 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 		Collection<Session> sessions;
 		String param;
 
-		super.signIn("assistant1", "assistant1");
 		sessions = this.repository.findTutorialSessionsByAssistantUsername("assistant1");
 		for (final Session session : sessions)
 			if (!session.getTutorial().isDraftMode()) {

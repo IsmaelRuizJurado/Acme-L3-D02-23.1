@@ -50,13 +50,6 @@ public class AssistantTutorialSessionDeleteTest extends TestHarness {
 		super.signOut();
 	}
 
-	@ParameterizedTest
-	@CsvFileSource(resources = "/assistant/session/delete-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordTutorialIndex, final int sessionRecordIndex) {
-		// HINT: this test attempts to delete a session with wrong data.
-
-	}
-
 	@Test
 	public void test300Hacking() {
 		// HINT: this test tries to delete a session with a role other than "Assistant",
@@ -64,7 +57,6 @@ public class AssistantTutorialSessionDeleteTest extends TestHarness {
 		Collection<Session> sessions;
 		String param;
 
-		super.signIn("assistant1", "assistant1");
 		sessions = this.repository.findTutorialSessionsByAssistantUsername("assistant1");
 		for (final Session session : sessions)
 			if (!session.getTutorial().isDraftMode()) {

@@ -57,19 +57,18 @@ public class AssistantTutorialPublishTest extends TestHarness {
 	public void test200Negative(final int recordTutorialIndex, final String course, final String code, final String title, final String abstractt, final String goals) {
 		// HINT: this test attempts to publish a tutorial that cannot be published.
 		super.signIn("assistant1", "assistant1");
-
 		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(recordTutorialIndex);
 		super.checkFormExists();
-		super.fillInputBoxIn("course", course);
 		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("course", course);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("abstractt", abstractt);
 		super.fillInputBoxIn("goals", goals);
-		super.clickOnSubmit("Update");
+		super.clickOnSubmit("Publish");
 
 		super.checkErrorsExist();
 

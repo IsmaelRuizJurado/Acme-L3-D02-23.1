@@ -20,8 +20,7 @@ tutorialRecordIndex,course,code,title,abstractt,goals
 0,A 001,-123,Title,Abstract,Goals
 0,A 001,true,Title,Abstract,Goals
 0,A 001,2023/01/01 00:00,Title,Abstract,Goals
-0,A 001,T010,Title,Abstract,Goals
-0,A 001,T010,Title,Abstract,Goals
+0,A 001,TUT001,Title,Abstract,Goals
 0,A 001,T035,,Abstract,Goals
 0,A 001,T036,This title is going to reach more than 75 characters so it can trigger an error about the input's length,Abstract,Goals
 0,A 001,T037,Title,,Goals
