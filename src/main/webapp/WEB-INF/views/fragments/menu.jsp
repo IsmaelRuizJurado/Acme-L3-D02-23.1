@@ -20,6 +20,7 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
     		<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
+    		<acme:menu-suboption code="master.menu.anonymous.favourite-link-adrgarpor" action="http://www.puginarug.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-antlopcub" action="https://www.youtube.com/live/dQw4w9WgXcQ"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-ismruijur" action="https://play.pokemonshowdown.com"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-pedruiagu1" action="https://www.youtube.com/watch?v=5VVu3rdBPdA"/>
