@@ -8,12 +8,14 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractRole;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@EqualsAndHashCode(callSuper = true)
 public class Auditor extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
