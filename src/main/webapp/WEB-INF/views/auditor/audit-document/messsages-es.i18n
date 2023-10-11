@@ -2,3 +2,6 @@ auditor.audit.label.code = Código
 auditor.audit.label.course = Curso
 auditor.audit.label.numRecords = Núm. de Registros
 auditor.audit.label.mark = Calificación
+auditor.audit.label.strongPoints = Puntos Fuertes
+auditor.audit.label.weakPoints = Puntos Débiles
+auditor.audit.label.conclusion = Conclusión

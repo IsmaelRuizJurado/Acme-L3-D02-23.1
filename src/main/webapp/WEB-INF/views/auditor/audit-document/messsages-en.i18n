@@ -2,3 +2,6 @@ auditor.audit.label.code = Code
 auditor.audit.label.course = Course
 auditor.audit.label.numRecords = No. of Records
 auditor.audit.label.mark = Mark
+auditor.audit.label.strongPoints = Strong Points
+auditor.audit.label.weakPoints = Weak Points
+auditor.audit.label.conclusion = Conclusion
