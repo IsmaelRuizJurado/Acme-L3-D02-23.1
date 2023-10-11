@@ -2,15 +2,12 @@
 package acme.features.auditor.audit;
 
 import java.util.Collection;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.audit.AuditDocument;
 import acme.entities.audit.AuditRecord;
-import acme.entities.audit.Mark;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -23,7 +20,7 @@ public class AuditorAuditListService extends AbstractService<Auditor, AuditDocum
 	protected AuditorAuditRepository	repository;
 
 	private final String[]				properties	= {
-		"code", "course.title", "conclusion"
+		"code", "course.title",
 	};
 
 
@@ -53,9 +50,8 @@ public class AuditorAuditListService extends AbstractService<Auditor, AuditDocum
 		Tuple tuple;
 		tuple = super.unbind(audit, this.properties);
 		final Collection<AuditRecord> records = this.repository.findAllRecordsByAuditId(audit.getId());
-		final Mark mark = records.stream().collect(Collectors.groupingBy(AuditRecord::getMark, Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(null);
 		tuple.put("numRecords", records.size());
-		tuple.put("mark", mark);
+		tuple.put("mark", audit.getMark(records));
 		super.getResponse().setData(tuple);
 	}
 
