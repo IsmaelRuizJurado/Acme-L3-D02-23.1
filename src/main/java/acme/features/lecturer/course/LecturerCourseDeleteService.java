@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.CourseLecture;
 import acme.entities.Practicum;
 import acme.entities.Tutorial;
-import acme.entities.audits.AuditDocument;
+import acme.entities.audit.AuditDocument;
 import acme.entities.course.Course;
 import acme.entities.enrolment.Enrolment;
 import acme.framework.components.models.Tuple;

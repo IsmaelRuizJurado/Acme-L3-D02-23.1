@@ -1,4 +1,4 @@
-package acme.entities.audits;
+package acme.entities.audit;
 
 
 public enum Mark {

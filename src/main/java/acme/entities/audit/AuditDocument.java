@@ -1,15 +1,9 @@
 
-package acme.entities.audits;
-
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+package acme.entities.audit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -48,9 +42,6 @@ public class AuditDocument extends AbstractEntity {
 	@Length(max = 100)
 	protected String			weakPoints;
 
-	@OneToMany(mappedBy = "audit")
-	private List<AuditRecord>	records;
-
 	@NotNull
 	@ManyToOne(optional = false)
 	protected Auditor			auditor;
@@ -59,9 +50,4 @@ public class AuditDocument extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Course			course;
 
-
-	@Transient
-	protected Mark getMark() {
-		return this.records.stream().collect(Collectors.groupingBy(AuditRecord::getMark, Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(null);
-	}
 }
