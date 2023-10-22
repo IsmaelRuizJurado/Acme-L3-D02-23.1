@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Practicum;
-import acme.entities.course.Course;
 import acme.framework.components.accounts.Authenticated;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
@@ -37,14 +35,8 @@ public class AuthenticatedPracticumListService extends AbstractService<Authentic
 	@Override
 	public void load() {
 		Collection<Practicum> objects;
-		Principal p;
-		int uaId;
-		Course nullCourse;
 
-		nullCourse = null;
-		p = super.getRequest().getPrincipal();
-		uaId = p.getAccountId();
-		objects = this.repository.findManyPracticumByUserAccountId(uaId, nullCourse);
+		objects = this.repository.findManyPracticum();
 		super.getBuffer().setData(objects);
 	}
 

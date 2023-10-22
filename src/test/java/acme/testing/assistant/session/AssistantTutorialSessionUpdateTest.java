@@ -32,7 +32,6 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 
 		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordTutorialIndex);
 		super.clickOnButton("List of Sessions");
 
@@ -46,7 +45,6 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 		super.clickOnSubmit("Update");
 
 		super.checkListingExists();
-		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordSessionIndex);
 
 		super.checkFormExists();
@@ -69,7 +67,6 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 
 		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
 		super.clickOnListingRecord(tutorialRecordIndex);
 		super.clickOnButton("List of Sessions");
 
@@ -94,7 +91,6 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 		Collection<Session> sessions;
 		String param;
 
-		super.signIn("assistant1", "assistant1");
 		sessions = this.repository.findTutorialSessionsByAssistantUsername("assistant1");
 		for (final Session session : sessions)
 			if (!session.getTutorial().isDraftMode()) {

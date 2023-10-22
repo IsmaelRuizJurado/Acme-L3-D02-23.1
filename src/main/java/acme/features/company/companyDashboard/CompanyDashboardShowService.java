@@ -74,31 +74,44 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 		company = this.repository.findOneCompanyByUserAccountId(userAccountId);
 		companyId = company.getId();
 
-		//------------------------------SESSIONS--------------------------------------------
-		averageSessionLength = this.repository.findAverageSessionLength(companyId);
-		deviationSessionLength = this.repository.findDeviationSessionLength(companyId);
-		minimumSessionLength = this.repository.findMinimumSessionLength(companyId);
-		maximumSessionLength = this.repository.findMaximumSessionLength(companyId);
 		countSession = this.repository.findCountSession(companyId);
-		sessionLength = new Stats(countSession, averageSessionLength, maximumSessionLength, minimumSessionLength, deviationSessionLength);
-
-		//------------------------------PRACTICA--------------------------------------------
-		averagePracticaLength = this.repository.findAveragePracticaLength(companyId);
-		deviationPracticaLength = this.repository.findDeviationPracticaLength(companyId);
-		minimumPracticaLength = this.repository.findMinimumPracticaLength(companyId);
-		maximumPracticaLength = this.repository.findMaximumPracticaLength(companyId);
 		countPractica = this.repository.findCountPractica(companyId);
-		practicaLength = new Stats(countPractica, averagePracticaLength, maximumPracticaLength, minimumPracticaLength, deviationPracticaLength);
 
-		totalNumberOfPractica = this.repository.findTotalNumberOfPracticaByMonth(companyId).stream().collect(Collectors.toMap(key -> Month.of((int) key[0]).toString(), value -> (long) value[1]));
+		if (countSession == 0 || countPractica == 0) {
+			companyDashboard = new CompanyDashboard();
+			sessionLength = new Stats(countSession, 0., 0., 0., 0.);
+			companyDashboard.setSessionTime(sessionLength);
+			practicaLength = new Stats(countPractica, 0., 0., 0., 0.);
+			companyDashboard.setPracticumTime(practicaLength);
+			super.getBuffer().setData(companyDashboard);
+		} else {
 
-		companyDashboard = new CompanyDashboard();
+			//------------------------------SESSIONS--------------------------------------------
+			averageSessionLength = this.repository.findAverageSessionLength(companyId);
+			deviationSessionLength = this.repository.findDeviationSessionLength(companyId);
+			minimumSessionLength = this.repository.findMinimumSessionLength(companyId);
+			maximumSessionLength = this.repository.findMaximumSessionLength(companyId);
+			countSession = this.repository.findCountSession(companyId);
+			sessionLength = new Stats(countSession, averageSessionLength, maximumSessionLength, minimumSessionLength, deviationSessionLength);
 
-		companyDashboard.setTotalPracticumByMonthLastYear(totalNumberOfPractica);
-		companyDashboard.setPracticumSessionLength(sessionLength);
-		companyDashboard.setPracticumLength(practicaLength);
+			//------------------------------PRACTICA--------------------------------------------
+			averagePracticaLength = this.repository.findAveragePracticaLength(companyId);
+			deviationPracticaLength = this.repository.findDeviationPracticaLength(companyId);
+			minimumPracticaLength = this.repository.findMinimumPracticaLength(companyId);
+			maximumPracticaLength = this.repository.findMaximumPracticaLength(companyId);
+			countPractica = this.repository.findCountPractica(companyId);
+			practicaLength = new Stats(countPractica, averagePracticaLength, maximumPracticaLength, minimumPracticaLength, deviationPracticaLength);
 
-		super.getBuffer().setData(companyDashboard);
+			totalNumberOfPractica = this.repository.findTotalNumberOfPracticaByMonth(companyId).stream().collect(Collectors.toMap(key -> Month.of((int) key[0]).toString(), value -> (long) value[1]));
+
+			companyDashboard = new CompanyDashboard();
+
+			companyDashboard.setTotalPracticumByMonthLastYear(totalNumberOfPractica);
+			companyDashboard.setPracticumSessionLength(sessionLength);
+			companyDashboard.setPracticumLength(practicaLength);
+
+			super.getBuffer().setData(companyDashboard);
+		}
 	}
 
 	@Override

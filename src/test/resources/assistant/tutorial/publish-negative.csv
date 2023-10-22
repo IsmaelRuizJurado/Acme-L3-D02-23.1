@@ -1,1 +1,14 @@
-#No data required
+recordTutorialIndex,course,code,title,abstractTutorial,goals
+1,---,,Title,Abstract,Goals
+1,A 001,T,Title,Abstract,Goals
+1,A 001,0,Title,Abstract,Goals
+1,A 001,03,Title,Abstract,Goals
+1,A 001,033,Title,Abstract,Goals
+1,A 001,T0,Title,Abstract,Goals
+1,A 001,T03,Title,Abstract,Goals
+1,A 001,T0341,Title,Abstract,Goals
+1,A 001,TT,Title,Abstract,Goals
+1,A 001,TT0,Title,Abstract,Goals
+1,A 001,TT03,Title,Abstract,Goals
+1,A 001,TT0341,Title,Abstract,Goals
+1,A 001,TTT,Title,Abstract,Goals

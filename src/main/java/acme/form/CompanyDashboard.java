@@ -23,6 +23,10 @@ public class CompanyDashboard extends AbstractForm {
 
 	private Map<String, Long>	totalPracticumByMonthLastYear;
 
+	private Stats				sessionTime;
+
+	private Stats				practicumTime;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------

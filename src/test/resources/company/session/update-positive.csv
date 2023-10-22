@@ -1,0 +1,10 @@
+recordIndex,index,code,title,abstractt,startPeriod,endPeriod,link
+0,0,AAA000,ZAATitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+1,0,AAA001,ZABTitle with 75 characters 00000000000000000000000000000000000000000000005,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+2,0,AAA002,ZADTitle with point.,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+0,1,AAA003,"ZAETitle with comma,",Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+1,1,AAA004,ZAFTitle with strange letters: áéíóúüñ,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+2,1,AAA005,ZAGTitle with strange characters: !@#$%^&*(),Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+0,5,AAA006,ZAHTitle with strange characters: !@#$%^&*()_+=-{}[]|:;<>?,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+1,5,AAA007,ZAITitle in other language: 日本語,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+2,5,AAA008,ZAJ<script>alert('The title alert');</script>,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com

@@ -83,28 +83,24 @@ public class CompanySessionCreateAdditionalService extends AbstractService<Compa
 			super.state(isUnique, "code", "company.practicumSession.form.error.not-unique-code");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("startPeriod") || !super.getBuffer().getErrors().hasErrors("endPeriod")) {
-			Date start;
-			Date end;
-			Date inAWeekFromNow;
-			Date inAWeekFromStart;
-			boolean c;
+		final Date startPeriod = super.getRequest().getData("startPeriod", Date.class);
+		final Date endPeriod = super.getRequest().getData("endPeriod", Date.class);
+		final boolean c = object.isConfirmed();
 
-			start = object.getStartPeriod();
-			end = object.getEndPeriod();
-			inAWeekFromNow = MomentHelper.deltaFromCurrentMoment(1, ChronoUnit.WEEKS);
-			inAWeekFromStart = MomentHelper.deltaFromMoment(start, 1, ChronoUnit.WEEKS);
-
-			c = object.isConfirmed();
-
-			if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
-				super.state(MomentHelper.isAfter(start, inAWeekFromNow), "startPeriod", "company.practicumSession.error.start-after-now");
-			if (!super.getBuffer().getErrors().hasErrors("endPeriod"))
-				super.state(MomentHelper.isAfter(end, inAWeekFromStart), "endPeriod", "company.practicumSession.error.end-after-start");
-
-			if (!super.getBuffer().getErrors().hasErrors("confirmed"))
-				super.state(c, "confirmed", "company.practicumSession.form.error.not-confirmed-additional-session");
+		if (startPeriod != null) {
+			final Date availableStart = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
+			final boolean validStart = startPeriod.getTime() >= availableStart.getTime();
+			super.state(validStart, "startPeriod", "company.practicumSession.error.start-after-now");
 		}
+
+		if (endPeriod != null && startPeriod != null) {
+			final Date availableEnd = MomentHelper.deltaFromMoment(startPeriod, 7, ChronoUnit.DAYS);
+			final boolean validEnd = endPeriod.getTime() >= availableEnd.getTime();
+			super.state(validEnd, "endPeriod", "company.practicumSession.error.end-after-start");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("confirmed"))
+			super.state(c, "confirmed", "company.practicumSession.form.error.not-confirmed-additional-session");
 	}
 
 	@Override

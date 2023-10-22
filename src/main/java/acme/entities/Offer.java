@@ -56,7 +56,6 @@ public class Offer extends AbstractEntity {
 	@NotNull
 	protected Money				price;
 
-	@NotBlank
 	@URL
 	protected String			link;
 

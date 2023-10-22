@@ -1,15 +1,17 @@
 course,code,title,abstractt,goals,estimatedTime
----,AAA111,Title,Abstract,Goals,10
-A001,,Title,Abstract,Goals,10
-A001,111,,Abstract,Goals,10
-A001,AAA,Title,Abstract,Goals,10
-A001,Code,Title,Abstract,Abstract,10
-A001,ZZZ000,Title,Abstract,Goals,10
-A001,AAA111,,Abstract,Goals,10
-A001,AAA111,Title with 76 characters 000000000000000000000000000000000000000000000000005,Abstract,Goals,10
-A001,AAA111,Title,,Goals,10
-A001,AAA111,Title,Abstract practicum with 101 characters 00000000000000000000000000000000000000000000000000000000000005,Goals,10
-A001,AAA111,Title,Abstract,,0
-A001,AAA111,Title,Abstract,Goal with 101 characters 0000000000000000000000000000000000000000000000000000000000000000000000000005,0
-A001,AAA111,Title,Abstract,Goals,0
-A001,AAA111,Title,Abstract,Goals,-10
+---,,,,,
+---,AAA1110,Title,Abstract,Goals,10
+"BB 026",,Title,Abstract,Goals,10
+"BB 026",AAA1111,,Abstract,Goals,10
+"BB 026",AAA,Title,Abstract,Goals,10
+"BB 026",ZZZ0001,Title,,Goals,10
+"BB 026",ZZZ0000,Title,Abstract,,10
+"BB 026",ZZZ0002,Title,Abstract,Goals,
+"BB 026",AAA1112,,Abstract,Goals,10
+"BB 026",AAA1113,Title with 76 characters 000000000000000000000000000000000000000000000000005,Abstract,Goals,10
+"BB 026",AAA1114,Title,,Goals,10
+"BB 026",AAA1115,Title,Abstract practicum with 101 characters 00000000000000000000000000000000000000000000000000000000000005,Goals,10
+"BB 026",AAA1116,<title>ExampleHTML</title>,Abstract,,0
+"BB 026",AAA1117,Title,Abstract,Goal with 101 characters 0000000000000000000000000000000000000000000000000000000000000000000000000005,0
+"BB 026",AAA1118,નમૂના ટેક્સ્ટ.,Abstract,Goals,0
+"BB 026",AAA1119,Title,Abstract,Goals,-10

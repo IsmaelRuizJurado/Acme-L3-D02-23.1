@@ -81,21 +81,19 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 			super.state(isUnique, "code", "company.practicumSession.form.error.not-unique-code");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("startPeriod") || !super.getBuffer().getErrors().hasErrors("endPeriod")) {
-			final Date start;
-			final Date end;
-			Date inAWeekFromNow;
-			Date inAWeekFromStart;
+		final Date startPeriod = super.getRequest().getData("startPeriod", Date.class);
+		final Date endPeriod = super.getRequest().getData("endPeriod", Date.class);
 
-			start = object.getStartPeriod();
-			end = object.getEndPeriod();
-			inAWeekFromNow = MomentHelper.deltaFromCurrentMoment(1, ChronoUnit.WEEKS);
-			inAWeekFromStart = MomentHelper.deltaFromMoment(start, 1, ChronoUnit.WEEKS);
+		if (startPeriod != null) {
+			final Date availableStart = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
+			final boolean validStart = startPeriod.getTime() >= availableStart.getTime();
+			super.state(validStart, "startPeriod", "company.practicumSession.error.start-after-now");
+		}
 
-			if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
-				super.state(MomentHelper.isAfter(start, inAWeekFromNow), "startPeriod", "company.practicumSession.error.start-after-now");
-			if (!super.getBuffer().getErrors().hasErrors("endPeriod"))
-				super.state(MomentHelper.isAfter(end, inAWeekFromStart), "endPeriod", "company.practicumSession.error.end-after-start");
+		if (endPeriod != null && startPeriod != null) {
+			final Date availableEnd = MomentHelper.deltaFromMoment(startPeriod, 7, ChronoUnit.DAYS);
+			final boolean validEnd = endPeriod.getTime() >= availableEnd.getTime();
+			super.state(validEnd, "endPeriod", "company.practicumSession.error.end-after-start");
 		}
 	}
 

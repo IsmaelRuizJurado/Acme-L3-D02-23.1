@@ -1,0 +1,39 @@
+recordIndex,index,code,title,abstractt,startPeriod,endPeriod,link
+0,0,AAA000,ZAATitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+1,0,AAA001,ZABTitle with 75 characters 00000000000000000000000000000000000000000000005,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+2,0,AAA002,ZADTitle with point.,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+3,0,AAA003,"ZAETitle with comma,",Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+4,0,AAA004,ZAFTitle with strange letters: áéíóúüñ,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+5,0,AAA005,ZAGTitle with strange characters: !@#$%^&*(),Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+6,0,AAA006,ZAHTitle with strange characters: !@#$%^&*()_+=-{}[]|:;<>?,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+7,0,AAA007,ZAITitle in other language: 日本語,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+8,0,AAA008,ZAJ<script>alert('The title alert');</script>,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+9,0,AAA009,ZAK<h1>The title in HTML</h1>,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+10,0,AAA010,ZALDROP TABLE practicum;,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+11,0,AAA011,ZAMTitle,Abstract session with 100 characters 000000000000000000000000000000000000000000000000000000000000005,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+12,0,AAA012,ZANTitle,A,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+13,0,AAA013,ZAOTitle,Abstract session with 100 characters 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+0,1,AAA014,ZAPTitle,Abstract session with point.,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+1,1,AAA015,ZAQTitle,"Abstract session with comma,",2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+2,1,AAA016,ZARTitle,Abstract session with strange letters: áéíóúüñ,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+3,1,AAA017,ZASTitle,Abstract session with strange characters: !@#$%^&*(),2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+4,1,AAA018,ZATTitle,Abstract session with strange characters: !@#$%^&*()_+=-{}[]|\/?.,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+5,1,AAA019,ZAUTitle,Abstract session in other language: 日本語,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+6,1,AAA020,ZAVTitle,<script>alert('The abstract alert');</script>,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+7,1,AAA021,ZAWTitle,<h1>The abstract in HTML</h1>,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+8,1,AAA022,ZAXTitle,DROP TABLE practicum;,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+9,1,AAA023,ZAYTitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+0,2,AAA024,ZAZTitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+1,2,AAA025,ZBATitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+2,2,AAA026,ZBBTitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+3,2,AAA027,ZBCTitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+4,2,AAA028,ZBDTitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+5,2,AAA029,ZBETitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+6,2,AAA030,ZBFTitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+7,2,AAA031,ZBGTitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+8,2,AAA032,ZBHTitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+9,2,AAA033,ZBITitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+10,2,AAA034,ZBJTitle,Abstract,2023/09/09 00:00,2023/10/01 00:00,https://www.google.com
+11,2,AAA035,ZBKTitle,Abstract,2022/08/07 00:00,2022/08/15 00:00,http://www.google.com
+12,2,AAA036,ZBLTitle,Abstract,2023/09/09 00:00,2023/10/23 00:00,
+13,2,AAA037,ZBMTitle,Abstract,2023/09/09 00:00,2023/10/23 00:00,https://www.255caracteresdelink.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com

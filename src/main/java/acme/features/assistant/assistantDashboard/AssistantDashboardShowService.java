@@ -51,7 +51,7 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		final double deviationSessionLength;
 		final double minimumSessionLength;
 		final double maximumSessionLength;
-		int countSession;
+		final int countSession;
 
 		final Stats tutorialLength;
 		final double averageTutorialLength;
@@ -65,25 +65,39 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		assistant = this.repository.findAssistantByUserAccountId(userAccountId);
 		assistantId = assistant.getId();
 
-		averageSessionLength = this.repository.findAverageTutorialSessionLength(assistantId);
-		deviationSessionLength = this.repository.findDeviationTutorialSessionLength(assistantId);
-		minimumSessionLength = this.repository.findMinimumTutorialSessionLength(assistantId);
-		maximumSessionLength = this.repository.findMaximumTutorialSessionLength(assistantId);
 		countSession = this.repository.findCountTutorialSession(assistantId);
-		sessionLength = new Stats(countSession, averageSessionLength, maximumSessionLength, minimumSessionLength, deviationSessionLength);
-
-		averageTutorialLength = this.repository.findAvgTutorialLength(assistantId);
-		deviationTutorialLength = this.repository.findDevTutorialLength(assistantId);
-		minimumTutorialLength = this.repository.findMinTutorialLength(assistantId);
-		maximumTutorialLength = this.repository.findMaxTutorialLength(assistantId);
 		countTutorial = this.repository.findCountTutorial(assistantId);
-		tutorialLength = new Stats(countTutorial, averageTutorialLength, maximumTutorialLength, minimumTutorialLength, deviationTutorialLength);
 
-		assistantDashboard = new AssistantDashboard();
-		assistantDashboard.setSessionTime(sessionLength);
-		assistantDashboard.setTutorialTime(tutorialLength);
-		assistantDashboard.setTotalNumberOfTutorial(countTutorial);
-		super.getBuffer().setData(assistantDashboard);
+		if (countSession == 0 || countTutorial == 0) {
+			assistantDashboard = new AssistantDashboard();
+			sessionLength = new Stats(countSession, 0., 0., 0., 0.);
+			assistantDashboard.setSessionTime(sessionLength);
+			tutorialLength = new Stats(countTutorial, 0., 0., 0., 0.);
+			assistantDashboard.setTutorialTime(tutorialLength);
+			assistantDashboard.setTotalNumberOfTutorial(countTutorial);
+			super.getBuffer().setData(assistantDashboard);
+		} else {
+
+			averageSessionLength = this.repository.findAverageTutorialSessionLength(assistantId);
+			deviationSessionLength = this.repository.findDeviationTutorialSessionLength(assistantId);
+			minimumSessionLength = this.repository.findMinimumTutorialSessionLength(assistantId);
+			maximumSessionLength = this.repository.findMaximumTutorialSessionLength(assistantId);
+
+			sessionLength = new Stats(countSession, averageSessionLength, maximumSessionLength, minimumSessionLength, deviationSessionLength);
+
+			averageTutorialLength = this.repository.findAvgTutorialLength(assistantId);
+			deviationTutorialLength = this.repository.findDevTutorialLength(assistantId);
+			minimumTutorialLength = this.repository.findMinTutorialLength(assistantId);
+			maximumTutorialLength = this.repository.findMaxTutorialLength(assistantId);
+
+			tutorialLength = new Stats(countTutorial, averageTutorialLength, maximumTutorialLength, minimumTutorialLength, deviationTutorialLength);
+
+			assistantDashboard = new AssistantDashboard();
+			assistantDashboard.setSessionTime(sessionLength);
+			assistantDashboard.setTutorialTime(tutorialLength);
+			assistantDashboard.setTotalNumberOfTutorial(countTutorial);
+			super.getBuffer().setData(assistantDashboard);
+		}
 	}
 
 	@Override

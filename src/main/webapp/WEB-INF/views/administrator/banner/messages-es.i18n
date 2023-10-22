@@ -15,4 +15,5 @@ administrator.banner.form.button.delete = Eliminar
 
 administrator.banner.form.button.create = Crear
 
-administrator.banner.error.end-after-start = El final del periodo debe ser anterior al inicio
+administrator.banner.error.end-after-start = El final del periodo debe ser posterior al inicio
+administrator.banner.error.end-before-current-moment = El fin del periodo debe ser posterior al momento actual

@@ -29,13 +29,13 @@
 			<acme:message code="company.dashboard.form.label.practica-length.min"/>
 		</th>
 		<td>
-			<acme:print value="${practicumLength.minimum}"/>
+			<acme:print value="${practicumLength.min}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.practica-length.max"/>
 		</th>
 		<td>
-			<acme:print value="${practicumLength.maximum}"/>
+			<acme:print value="${practicumLength.max}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.practica-length.deviation"/>
@@ -67,13 +67,13 @@
 			<acme:message code="company.dashboard.form.label.session-length.min"/>
 		</th>
 		<td>
-			<acme:print value="${practicumSessionLength.minimum}"/>
+			<acme:print value="${practicumSessionLength.min}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.session-length.max"/>
 		</th>
 		<td>
-			<acme:print value="${practicumSessionLength.maximum}"/>
+			<acme:print value="${practicumSessionLength.max}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.session-length.deviation"/>

@@ -4,11 +4,11 @@ tutorialRecordIndex,course,code,title,abstractt,goals
 2,"A 001","LOL003",Title,Abstract,Goals
 3,"A 001","LOL004","This title is going to reach exactly 75chr so the restriction can be proved",Abstract,Goals
 4,"A 001","LOL005","This title will reach exactly 75 - 1 char so the restriction can be proved",Abstract,Goals
-5,"A 001","LOL006","T",Abstract,Goals
-6,"A 001","LOL007","Ti",Abstract,Goals
+5,"A 001","LOL006","A",Abstract,Goals
+6,"A 001","LOL007","Aa",Abstract,Goals
 7,"A 001","LOL008","<title>ExampleHTML</title>",Abstract,Goals
 8,"A 001","LOL009","<script>alert('exampleJS');</script>",Abstract,Goals
-9,"A 001","LOL010","示例文本",Abstract,Goals
+9,"A 001","LOL010","示例文",Abstract,Goals
 10,"A 001","LOL011",Title,"This explanation is going to reach 100 charac so the restriction can be proved in the maximum value.",Goals
 11,"A 001","LOL012",Title,"This explanation is going to reach 100-1 chars so the restriction can be proved in the max-1 value.",Goals
 12,"A 001","LOL013",Title,"A",Goals

@@ -59,16 +59,19 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void validate(final Banner object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("startDisplayPeriod") || !super.getBuffer().getErrors().hasErrors("endDisplayPeriod")) {
-			Date start;
-			Date end;
+		final Date start = object.getStartDisplayPeriod();
+		final Date end = object.getEndDisplayPeriod();
 
-			start = object.getStartDisplayPeriod();
-			end = object.getEndDisplayPeriod();
+		if (end != null) {
+			final Date moment = MomentHelper.getCurrentMoment();
+			final boolean validStart = end.getTime() >= moment.getTime();
+			super.state(validStart, "endDisplayPeriod", "administrator.banner.error.end-before-current-moment");
+		}
 
+		if (start != null && end != null)
 			if (!super.getBuffer().getErrors().hasErrors("endDisplayPeriod") && !super.getBuffer().getErrors().hasErrors("startDisplayPeriod"))
 				super.state(MomentHelper.isAfter(end, start), "endDisplayPeriod", "administrator.banner.error.end-after-start");
-		}
+
 	}
 
 	@Override
