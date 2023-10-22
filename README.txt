@@ -1,6 +1,6 @@
-# Acme-L3-D04-23.5.0
+# Acme-L3-D04
 
-Este es el proyecto para el cuarto entregable creado por los estudiantes del grupo C2.02.10.
+Este es el proyecto para el cuarto entregable creado por los estudiantes del grupo C3.02.10.
 
 Acme Life-Long Learning, Inc. (Acme L3, Inc. para acortar) es una empresa ficticia que se especializa
 en ayudar a los aprendices a iniciarse en diferentes campos con la ayuda de profesores renovados.
